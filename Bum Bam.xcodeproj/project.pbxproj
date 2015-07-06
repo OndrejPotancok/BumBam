@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		808149431B4A89D3008555EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149421B4A89D3008555EB /* AppDelegate.swift */; };
-		808149451B4A89D3008555EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149441B4A89D3008555EB /* ViewController.swift */; };
+		808149451B4A89D3008555EB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149441B4A89D3008555EB /* MenuViewController.swift */; };
 		808149481B4A89D3008555EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808149461B4A89D3008555EB /* Main.storyboard */; };
 		8081494A1B4A89D3008555EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 808149491B4A89D3008555EB /* Images.xcassets */; };
 		8081494D1B4A89D3008555EB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8081494B1B4A89D3008555EB /* LaunchScreen.xib */; };
 		808149591B4A89D3008555EB /* Bum_BamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149581B4A89D3008555EB /* Bum_BamTests.swift */; };
+		808149971B4AD16E008555EB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149961B4AD16E008555EB /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +30,14 @@
 		8081493D1B4A89D3008555EB /* Bum Bam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bum Bam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		808149411B4A89D3008555EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		808149421B4A89D3008555EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		808149441B4A89D3008555EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		808149441B4A89D3008555EB /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		808149471B4A89D3008555EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		808149491B4A89D3008555EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8081494C1B4A89D3008555EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		808149521B4A89D3008555EB /* Bum BamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bum BamTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		808149571B4A89D3008555EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		808149581B4A89D3008555EB /* Bum_BamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bum_BamTests.swift; sourceTree = "<group>"; };
+		808149961B4AD16E008555EB /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				808149421B4A89D3008555EB /* AppDelegate.swift */,
-				808149441B4A89D3008555EB /* ViewController.swift */,
+				808149441B4A89D3008555EB /* MenuViewController.swift */,
+				808149961B4AD16E008555EB /* GameViewController.swift */,
 				808149461B4A89D3008555EB /* Main.storyboard */,
 				808149491B4A89D3008555EB /* Images.xcassets */,
 				8081494B1B4A89D3008555EB /* LaunchScreen.xib */,
@@ -212,7 +215,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				808149451B4A89D3008555EB /* ViewController.swift in Sources */,
+				808149451B4A89D3008555EB /* MenuViewController.swift in Sources */,
+				808149971B4AD16E008555EB /* GameViewController.swift in Sources */,
 				808149431B4A89D3008555EB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +413,7 @@
 				8081495E1B4A89D3008555EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8081495F1B4A89D3008555EB /* Build configuration list for PBXNativeTarget "Bum BamTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				808149611B4A89D3008555EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
