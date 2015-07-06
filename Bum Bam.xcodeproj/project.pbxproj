@@ -14,6 +14,8 @@
 		8081494D1B4A89D3008555EB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8081494B1B4A89D3008555EB /* LaunchScreen.xib */; };
 		808149591B4A89D3008555EB /* Bum_BamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149581B4A89D3008555EB /* Bum_BamTests.swift */; };
 		808149971B4AD16E008555EB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149961B4AD16E008555EB /* GameViewController.swift */; };
+		8081499A1B4AD387008555EB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149981B4AD387008555EB /* Config.swift */; };
+		8081499B1B4AD387008555EB /* HelperFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149991B4AD387008555EB /* HelperFuncs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		808149571B4A89D3008555EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		808149581B4A89D3008555EB /* Bum_BamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bum_BamTests.swift; sourceTree = "<group>"; };
 		808149961B4AD16E008555EB /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		808149981B4AD387008555EB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		808149991B4AD387008555EB /* HelperFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFuncs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 		8081493F1B4A89D3008555EB /* Bum Bam */ = {
 			isa = PBXGroup;
 			children = (
+				808149981B4AD387008555EB /* Config.swift */,
+				808149991B4AD387008555EB /* HelperFuncs.swift */,
 				808149421B4A89D3008555EB /* AppDelegate.swift */,
 				808149441B4A89D3008555EB /* MenuViewController.swift */,
 				808149961B4AD16E008555EB /* GameViewController.swift */,
@@ -216,6 +222,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				808149451B4A89D3008555EB /* MenuViewController.swift in Sources */,
+				8081499B1B4AD387008555EB /* HelperFuncs.swift in Sources */,
+				8081499A1B4AD387008555EB /* Config.swift in Sources */,
 				808149971B4AD16E008555EB /* GameViewController.swift in Sources */,
 				808149431B4A89D3008555EB /* AppDelegate.swift in Sources */,
 			);
