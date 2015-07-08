@@ -10,9 +10,17 @@ import UIKit
 
 class GameViewController: UIViewController {
 
+    var gameController: MainGameController!
+    
+    @IBOutlet weak var backButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.gameController.showSettings()
+        self.view.addSubview(self.gameController.layout.view)
+        self.view.bringSubviewToFront(backButton)
+        
         // Do any additional setup after loading the view.
     }
 

@@ -19,3 +19,11 @@ func delay(seconds: Double, after: () -> ()) {
     var delayTime = dispatch_time(DISPATCH_TIME_NOW, delay)
     dispatch_after(delayTime, dispatch_get_main_queue(),after)
 }
+
+extension CGRect {
+    
+    init(centerx: CGFloat,centery: CGFloat,width: CGFloat,height: CGFloat) {
+        self.init(x: centerx - width / 2, y: centery - height / 2, width: width, height: height)
+    }
+    
+}

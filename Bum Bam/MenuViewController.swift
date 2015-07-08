@@ -21,12 +21,16 @@ class MenuViewController: UIViewController {
     }
 
     @IBAction func menuButtonPressed(sender: AnyObject) {
-        performSegueWithIdentifier("startGame", sender: sender)
+        
+        var gameName = (sender as! UIButton).currentTitle!
+        if let gameController = MainGameController.createGameControllerByGameName(gameName) {
+            performSegueWithIdentifier("startGame", sender: gameController)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "startGame" {
-            
+            (segue.destinationViewController as! GameViewController).gameController = sender as! MainGameController
         }
     }
 
