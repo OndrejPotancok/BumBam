@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+typealias CreateView = (prntW: CGFloat, prntH: CGFloat) -> UIView
+
 class Layout {
     
     var _view: UIView!
@@ -18,19 +20,19 @@ class Layout {
         }*/
         return self._view
     }
-    var createView: () -> UIView
+    var createView: CreateView
     var subviews: [String : Layout]
     var defaultHidden: Bool
     
-    init(defaultHidden: Bool, createView: () -> UIView, subviews: [String : Layout]) {
+    init(defaultHidden: Bool, createView: CreateView, subviews: [String : Layout]) {
         
         self.createView = createView
         self.defaultHidden = defaultHidden
         self.subviews = subviews
     }
     convenience init(defaultHidden: Bool, subviews: [String : Layout]) {
-        self.init(defaultHidden: defaultHidden, createView: {
-            return UIView(frame: fullscreen)
+        self.init(defaultHidden: defaultHidden, createView: {(prntW, prntH) in
+            return UIView(frame: CGRectMake(0, 0, prntW, prntH))
             }, subviews: subviews)
     }
     convenience init(subviews: [String: Layout]) {
@@ -39,20 +41,21 @@ class Layout {
     convenience init() {
         self.init(subviews: [:])
     }
-    convenience init(defaultHidden: Bool, createView: () -> UIView) {
+    convenience init(defaultHidden: Bool, createView: CreateView) {
         self.init(defaultHidden: defaultHidden, createView: createView, subviews: [:])
     }
-    convenience init(createView: () -> UIView) {
+    convenience init(createView: CreateView) {
         self.init(defaultHidden: false, createView: createView)
     }
-    convenience init(createView: () -> UIView, subviews: [String : Layout]) {
+    convenience init(createView: CreateView, subviews: [String : Layout]) {
         self.init(defaultHidden: false, createView: createView, subviews: subviews)
     }
     
-    func create() {
-        self._view = self.createView()
+    func create(#prntW: CGFloat, prntH: CGFloat) {
+        self._view = self.createView(prntW: prntW, prntH: prntH)
         for (name, subviewLayout) in self.subviews {
-            subviewLayout.create()
+            //println("parent of \(name): \(self._view.frame)")
+            subviewLayout.create(prntW: self._view.bounds.width, prntH: self._view.bounds.height)
             if(subviewLayout.defaultHidden == false) {
                 self._view.addSubview(subviewLayout.view)
             }
@@ -60,10 +63,11 @@ class Layout {
     }
     
     func createOnlySubview(subviewName: String) {
-        if self._view == nil { self._view = self.createView() }
+        if self._view == nil { self._view = self.createView(prntW: ScrnW, prntH: ScrnH) }
         for (name, subviewLayout) in self.subviews {
             if (name == subviewName) {
-                subviewLayout.create()
+                //println("parent of \(name): \(self._view.frame)")
+                subviewLayout.create(prntW: self._view.bounds.width, prntH: self._view.bounds.height)
                 if subviewLayout.defaultHidden == false {
                     self._view.addSubview(subviewLayout.view)
                 }
@@ -103,21 +107,21 @@ class MultiLayout: Layout {
     
     var count: Int
     var subsubviews: [String : Layout]
-    var createSubview: (id: CGFloat, count: CGFloat, parentWidth: CGFloat, parentHeight: CGFloat) -> UIView
+    var createSubview: (id: CGFloat, count: CGFloat, prntW: CGFloat, prntH: CGFloat) -> UIView
     
-    init(count: Int, defaultHidden: Bool, createView: () -> UIView, createSubview: (id: CGFloat, count: CGFloat, parentWidth: CGFloat, parentHeight: CGFloat) -> UIView, subsubviews: [String: Layout]) {
+    init(count: Int, defaultHidden: Bool, createView: CreateView, createSubview: (id: CGFloat, count: CGFloat, prntW: CGFloat, prntH: CGFloat) -> UIView, subsubviews: [String: Layout]) {
         self.count = count
         self.subsubviews = subsubviews
         self.createSubview = createSubview
         super.init(defaultHidden: defaultHidden, createView: createView, subviews: [:])
     }
     
-    override func create() {
-        self._view = self.createView()
+    override func create(#prntW: CGFloat, prntH: CGFloat) {
+        self._view = self.createView(prntW: prntW, prntH: prntH)
         for id in 0..<self.count {
-            var subview = Layout(createView: {return self.createSubview(id: CGFloat(id), count: CGFloat(self.count), parentWidth: self._view.bounds.width, parentHeight: self._view.bounds.height)}, subviews: self.subsubviews)
+            var subview = Layout(createView: {(prntW, prntH) in return self.createSubview(id: CGFloat(id), count: CGFloat(self.count), prntW: prntW, prntH: prntH)}, subviews: self.subsubviews)
             self.subviews["\(id)"] = subview
-            subview.create()
+            subview.create(prntW: self._view.bounds.width, prntH: self._view.bounds.height)
             self._view.addSubview(subview.view)
         }
     }
