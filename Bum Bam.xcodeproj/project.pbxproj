@@ -38,6 +38,7 @@
 		809C59AC1B4E7E0C009BAE61 /* GuessShapeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809C59A41B4E7E0C009BAE61 /* GuessShapeLayout.swift */; };
 		809C59AD1B4E7E0C009BAE61 /* GuessShapeLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809C59A51B4E7E0C009BAE61 /* GuessShapeLayoutAction.swift */; };
 		809C59AE1B4E7E0C009BAE61 /* GuessShapeGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809C59A71B4E7E0C009BAE61 /* GuessShapeGameModel.swift */; };
+		809C59B31B4E8B60009BAE61 /* GuessShape.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 809C59B21B4E8B60009BAE61 /* GuessShape.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		809C59A41B4E7E0C009BAE61 /* GuessShapeLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeLayout.swift; sourceTree = "<group>"; };
 		809C59A51B4E7E0C009BAE61 /* GuessShapeLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeLayoutAction.swift; sourceTree = "<group>"; };
 		809C59A71B4E7E0C009BAE61 /* GuessShapeGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeGameModel.swift; sourceTree = "<group>"; };
+		809C59B21B4E8B60009BAE61 /* GuessShape.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = GuessShape.xcassets; path = "../../../../../../Downloads/BumBam-GuessShape/Bum Bam/GuessShape/Assets/GuessShape.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +361,7 @@
 		809C59AF1B4E86BC009BAE61 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				809C59B21B4E8B60009BAE61 /* GuessShape.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				808149481B4A89D3008555EB /* Main.storyboard in Resources */,
 				808EB2191B4CC43A0076C4F0 /* Test.xcassets in Resources */,
 				8081494D1B4A89D3008555EB /* LaunchScreen.xib in Resources */,
+				809C59B31B4E8B60009BAE61 /* GuessShape.xcassets in Resources */,
 				8081494A1B4A89D3008555EB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
