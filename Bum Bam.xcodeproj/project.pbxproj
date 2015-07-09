@@ -320,7 +320,7 @@
 				809C59A01B4E7E0C009BAE61 /* Controllers */,
 				809C59A21B4E7E0C009BAE61 /* Layout */,
 				809C59A61B4E7E0C009BAE61 /* Models */,
-				809C59A81B4E7E0C009BAE61 /* Views */,
+				809C59B41B4E8BB3009BAE61 /* Views */,
 			);
 			path = GuessShape;
 			sourceTree = "<group>";
@@ -351,19 +351,20 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		809C59A81B4E7E0C009BAE61 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		809C59AF1B4E86BC009BAE61 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				809C59B21B4E8B60009BAE61 /* GuessShape.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		809C59B41B4E8BB3009BAE61 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			path = "../../../../../Downloads/BumBam-GuessShape/Bum Bam/GuessShape/Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
