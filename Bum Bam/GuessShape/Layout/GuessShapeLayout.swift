@@ -14,7 +14,6 @@ class GuessShapeLayout {
     
     var layout = Layout(
         subviews: [
-            "settings": Layout(),
             "background": Layout(createView: { (prntW, prntH) -> UIView in
                 var view = UIView(frame: CGRectMake(0, 0, prntW, prntH))
                 view.backgroundColor = UIColor.greenColor()
