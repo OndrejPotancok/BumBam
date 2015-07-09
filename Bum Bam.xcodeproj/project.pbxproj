@@ -362,6 +362,7 @@
 		809C59B41B4E8BB3009BAE61 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				80C317F41B4E927800033074 /* GuessShape.xcassets */,
 			);
 			name = Views;
 			path = "../../../../../Downloads/BumBam-GuessShape/Bum Bam/GuessShape/Views";
