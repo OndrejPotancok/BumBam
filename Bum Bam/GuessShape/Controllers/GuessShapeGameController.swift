@@ -57,7 +57,7 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
             UIView.animateWithDuration(self.layoutAction.thumbToSiluetteAnimationDuration(), delay: 0, options: .CurveEaseOut, animations: {
                 sender.frame = self.siluetteLayout.view.frame
             }, completion: nil)
-            sender.userInteractionEnabled = false
+            self.gameLayout.view.userInteractionEnabled = false
             delay(self.layoutAction.delayAfterSuccess()) {self.restartGame()}
             
             self.layoutAction.success()
