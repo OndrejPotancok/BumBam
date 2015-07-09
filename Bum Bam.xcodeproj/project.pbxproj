@@ -234,7 +234,6 @@
 				808EB22A1B4D71E30076C4F0 /* Controllers */,
 				808EB22B1B4D71E30076C4F0 /* Layout */,
 				808EB22C1B4D71E30076C4F0 /* Models */,
-				809C59B51B4E8C01009BAE61 /* Views */,
 			);
 			path = Template;
 			sourceTree = "<group>";
