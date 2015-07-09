@@ -16,7 +16,7 @@ class Layout {
     var _view: UIView!
     var view: UIView {
         /*if self._view == nil {
-            self.create()
+        self.create()
         }*/
         return self._view
     }
@@ -51,11 +51,17 @@ class Layout {
         self.init(defaultHidden: false, createView: createView, subviews: subviews)
     }
     
+    func copy() -> Layout {
+        var new = Layout(defaultHidden: self.defaultHidden, createView: self.createView, subviews: self.subviews)
+        return new
+    }
+    
     func create(#prntW: CGFloat, prntH: CGFloat) {
         self._view = self.createView(prntW: prntW, prntH: prntH)
         for (name, subviewLayout) in self.subviews {
             //println("parent of \(name): \(self._view.frame)")
             subviewLayout.create(prntW: self._view.bounds.width, prntH: self._view.bounds.height)
+            if name == "label" {println(unsafeAddressOf(subviewLayout))}
             if(subviewLayout.defaultHidden == false) {
                 self._view.addSubview(subviewLayout.view)
             }
@@ -85,7 +91,7 @@ class Layout {
     
     func showSubview(name: String) {
         if let subview = self.subviews[name]?.view {
-            self.view.addSubview(subview)
+            if subview.superview == nil { self.view.addSubview(subview) }
         }
     }
     
@@ -101,7 +107,11 @@ class Layout {
     
 }
 
-
+protocol subviewOfMultiLayout : class {
+    
+    var index: Int! {get set}
+    
+}
 
 class MultiLayout: Layout {
     
@@ -119,9 +129,16 @@ class MultiLayout: Layout {
     override func create(#prntW: CGFloat, prntH: CGFloat) {
         self._view = self.createView(prntW: prntW, prntH: prntH)
         for id in 0..<self.count {
-            var subview = Layout(createView: {(prntW, prntH) in return self.createSubview(id: CGFloat(id), count: CGFloat(self.count), prntW: prntW, prntH: prntH)}, subviews: self.subsubviews)
+            var subsubviews_copy = [String: Layout]()
+            for (subsubviewName, subsubviewLayout) in self.subsubviews {
+                subsubviews_copy[subsubviewName] = subsubviewLayout.copy()
+            }
+            var subview = Layout(createView: {(prntW, prntH) in return self.createSubview(id: CGFloat(id), count: CGFloat(self.count), prntW: prntW, prntH: prntH)}, subviews: subsubviews_copy)
             self.subviews["\(id)"] = subview
             subview.create(prntW: self._view.bounds.width, prntH: self._view.bounds.height)
+            if let view = subview.view as? subviewOfMultiLayout {
+                view.index = id
+            }
             self._view.addSubview(subview.view)
         }
     }
@@ -135,7 +152,24 @@ class MultiLayout: Layout {
         self.subviews = [:]
     }
     
+    override func copy() -> Layout {
+        var layout = MultiLayout(count: self.count, defaultHidden: self.defaultHidden, createView: self.createView, createSubview: self.createSubview, subsubviews: self.subsubviews)
+        return layout
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
