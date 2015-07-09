@@ -221,7 +221,7 @@
 				808EB22A1B4D71E30076C4F0 /* Controllers */,
 				808EB22B1B4D71E30076C4F0 /* Layout */,
 				808EB22C1B4D71E30076C4F0 /* Models */,
-				808EB22D1B4D71E30076C4F0 /* Views */,
+				809C59B51B4E8C01009BAE61 /* Views */,
 			);
 			path = Template;
 			sourceTree = "<group>";
@@ -259,13 +259,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		808EB22D1B4D71E30076C4F0 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		8092B2451B4CC15600722E0C /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +291,14 @@
 				8092B24D1B4CC1A000722E0C /* MainGameModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		809C59B51B4E8C01009BAE61 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			path = "../../../../../Downloads/BumBam-GuessShape/Bum Bam/Template/Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
