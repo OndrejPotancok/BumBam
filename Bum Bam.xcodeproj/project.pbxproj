@@ -34,12 +34,12 @@
 		8092B24A1B4CC16700722E0C /* MainGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8092B2491B4CC16700722E0C /* MainGameController.swift */; };
 		8092B24C1B4CC18700722E0C /* MainLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8092B24B1B4CC18700722E0C /* MainLayoutAction.swift */; };
 		8092B24E1B4CC1A000722E0C /* MainGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8092B24D1B4CC1A000722E0C /* MainGameModel.swift */; };
-		809C59A91B4E7E0C009BAE61 /* GuessShape.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 809C599F1B4E7E0C009BAE61 /* GuessShape.xcassets */; };
 		809C59AA1B4E7E0C009BAE61 /* GuessShapeGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809C59A11B4E7E0C009BAE61 /* GuessShapeGameController.swift */; };
 		809C59AB1B4E7E0C009BAE61 /* GuessShapeDefaultLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809C59A31B4E7E0C009BAE61 /* GuessShapeDefaultLayoutAction.swift */; };
 		809C59AC1B4E7E0C009BAE61 /* GuessShapeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809C59A41B4E7E0C009BAE61 /* GuessShapeLayout.swift */; };
 		809C59AD1B4E7E0C009BAE61 /* GuessShapeLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809C59A51B4E7E0C009BAE61 /* GuessShapeLayoutAction.swift */; };
 		809C59AE1B4E7E0C009BAE61 /* GuessShapeGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809C59A71B4E7E0C009BAE61 /* GuessShapeGameModel.swift */; };
+		809C59B11B4E86C8009BAE61 /* GuessShape.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 809C59B01B4E86C8009BAE61 /* GuessShape.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,12 +84,12 @@
 		8092B2491B4CC16700722E0C /* MainGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainGameController.swift; sourceTree = "<group>"; };
 		8092B24B1B4CC18700722E0C /* MainLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLayoutAction.swift; sourceTree = "<group>"; };
 		8092B24D1B4CC1A000722E0C /* MainGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainGameModel.swift; sourceTree = "<group>"; };
-		809C599F1B4E7E0C009BAE61 /* GuessShape.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GuessShape.xcassets; sourceTree = "<group>"; };
 		809C59A11B4E7E0C009BAE61 /* GuessShapeGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeGameController.swift; sourceTree = "<group>"; };
 		809C59A31B4E7E0C009BAE61 /* GuessShapeDefaultLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeDefaultLayoutAction.swift; sourceTree = "<group>"; };
 		809C59A41B4E7E0C009BAE61 /* GuessShapeLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeLayout.swift; sourceTree = "<group>"; };
 		809C59A51B4E7E0C009BAE61 /* GuessShapeLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeLayoutAction.swift; sourceTree = "<group>"; };
 		809C59A71B4E7E0C009BAE61 /* GuessShapeGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeGameModel.swift; sourceTree = "<group>"; };
+		809C59B01B4E86C8009BAE61 /* GuessShape.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GuessShape.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,21 +319,13 @@
 		809C599D1B4E7E0C009BAE61 /* GuessShape */ = {
 			isa = PBXGroup;
 			children = (
-				809C599E1B4E7E0C009BAE61 /* Assets */,
+				809C59AF1B4E86BC009BAE61 /* Assets */,
 				809C59A01B4E7E0C009BAE61 /* Controllers */,
 				809C59A21B4E7E0C009BAE61 /* Layout */,
 				809C59A61B4E7E0C009BAE61 /* Models */,
 				809C59A81B4E7E0C009BAE61 /* Views */,
 			);
 			path = GuessShape;
-			sourceTree = "<group>";
-		};
-		809C599E1B4E7E0C009BAE61 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				809C599F1B4E7E0C009BAE61 /* GuessShape.xcassets */,
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 		809C59A01B4E7E0C009BAE61 /* Controllers */ = {
@@ -367,6 +359,14 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		809C59AF1B4E86BC009BAE61 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				809C59B01B4E86C8009BAE61 /* GuessShape.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,9 +452,9 @@
 				808149481B4A89D3008555EB /* Main.storyboard in Resources */,
 				808EB22F1B4D71ED0076C4F0 /* Template.xcassets in Resources */,
 				808EB2191B4CC43A0076C4F0 /* Test.xcassets in Resources */,
+				809C59B11B4E86C8009BAE61 /* GuessShape.xcassets in Resources */,
 				8081494D1B4A89D3008555EB /* LaunchScreen.xib in Resources */,
 				8081494A1B4A89D3008555EB /* Images.xcassets in Resources */,
-				809C59A91B4E7E0C009BAE61 /* GuessShape.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
