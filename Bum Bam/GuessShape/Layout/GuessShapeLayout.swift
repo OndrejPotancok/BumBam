@@ -14,7 +14,7 @@ class GuessShapeLayout {
     
     var layout = Layout(
         subviews: [
-            "settings": Layout(
+            /*"settings": Layout(
                 createView: { (prntW, prntH) -> UIView in
                     var view = UIView(frame: CGRectMake(0, 0, prntW, prntH))
                     view.backgroundColor = UIColor.redColor()
@@ -47,7 +47,7 @@ class GuessShapeLayout {
                             return view
                     })
                     
-                ]),
+                ]),*/
             
             "background": Layout(
                 createView: { (prntW, prntH) -> UIView in
@@ -65,19 +65,19 @@ class GuessShapeLayout {
                     }),
                     "thumbCenter": Layout(
                         createView: {(prntW, prntH) -> UIView in
-                            var view = UIImageView(frame: CGRect(centerx: prntW*0.5, centery: prntH-70, width: 100, height: 100))
+                            var view = GuessShapeThumbView(frame: CGRect(centerx: prntW*0.5, centery: prntH-70, width: 100, height: 100))
                             view.image = UIImage(named: "GuessShapeCow")
                             return view
                     }),
                     "thumbLeft": Layout(
                         createView: {(prntW, prntH) -> UIView in
-                            var view = UIImageView(frame: CGRect(centerx: prntW*0.2, centery: prntH-70, width: 100, height: 100))
+                            var view = GuessShapeThumbView(frame: CGRect(centerx: prntW*0.2, centery: prntH-70, width: 100, height: 100))
                             view.image = UIImage(named: "GuessShapeCow")
                             return view
                     }),
                     "thumbRight": Layout(
                         createView: {(prntW, prntH) -> UIView in
-                            var view = UIImageView(frame: CGRect(centerx: prntW*0.8, centery: prntH-70, width: 100, height: 100))
+                            var view = GuessShapeThumbView(frame: CGRect(centerx: prntW*0.8, centery: prntH-70, width: 100, height: 100))
                             view.image = UIImage(named: "GuessShapeCow")
                             return view
                     }),
