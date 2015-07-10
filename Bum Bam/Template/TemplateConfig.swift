@@ -13,3 +13,4 @@ class TemplateConfig {
     
     
 }
+var TemplateConfigInstance: TemplateConfig = TemplateConfig()
