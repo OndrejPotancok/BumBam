@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18DBE9DE1B50088000DE3009 /* Schoolbell.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18DBE9DD1B50088000DE3009 /* Schoolbell.ttf */; };
 		808149431B4A89D3008555EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149421B4A89D3008555EB /* AppDelegate.swift */; };
 		808149451B4A89D3008555EB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149441B4A89D3008555EB /* MenuViewController.swift */; };
 		808149481B4A89D3008555EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808149461B4A89D3008555EB /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18DBE9DD1B50088000DE3009 /* Schoolbell.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Schoolbell.ttf; sourceTree = "<group>"; };
 		8081493D1B4A89D3008555EB /* Bum Bam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bum Bam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		808149411B4A89D3008555EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		808149421B4A89D3008555EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				808149961B4AD16E008555EB /* GameViewController.swift */,
 				808149461B4A89D3008555EB /* Main.storyboard */,
 				808149491B4A89D3008555EB /* Images.xcassets */,
+				18DBE9DD1B50088000DE3009 /* Schoolbell.ttf */,
 				8081494B1B4A89D3008555EB /* LaunchScreen.xib */,
 				808149401B4A89D3008555EB /* Supporting Files */,
 			);
@@ -380,6 +383,7 @@
 			files = (
 				808149481B4A89D3008555EB /* Main.storyboard in Resources */,
 				808EB2191B4CC43A0076C4F0 /* Test.xcassets in Resources */,
+				18DBE9DE1B50088000DE3009 /* Schoolbell.ttf in Resources */,
 				8081494D1B4A89D3008555EB /* LaunchScreen.xib in Resources */,
 				8081494A1B4A89D3008555EB /* Images.xcassets in Resources */,
 			);
