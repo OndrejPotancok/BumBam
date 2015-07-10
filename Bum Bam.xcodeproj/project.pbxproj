@@ -33,6 +33,7 @@
 		8092B24A1B4CC16700722E0C /* MainGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8092B2491B4CC16700722E0C /* MainGameController.swift */; };
 		8092B24C1B4CC18700722E0C /* MainLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8092B24B1B4CC18700722E0C /* MainLayoutAction.swift */; };
 		8092B24E1B4CC1A000722E0C /* MainGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8092B24D1B4CC1A000722E0C /* MainGameModel.swift */; };
+		80A410DA1B4FA4EF00511C90 /* TemplateConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410D91B4FA4EF00511C90 /* TemplateConfig.swift */; };
 		80A410D01B4F286500511C90 /* GuessShape.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80A410C51B4F286500511C90 /* GuessShape.xcassets */; };
 		80A410D11B4F286500511C90 /* GuessShapeGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410C71B4F286500511C90 /* GuessShapeGameController.swift */; };
 		80A410D21B4F286500511C90 /* GuessShapeDefaultLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410C91B4F286500511C90 /* GuessShapeDefaultLayoutAction.swift */; };
@@ -83,6 +84,7 @@
 		8092B2491B4CC16700722E0C /* MainGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainGameController.swift; sourceTree = "<group>"; };
 		8092B24B1B4CC18700722E0C /* MainLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLayoutAction.swift; sourceTree = "<group>"; };
 		8092B24D1B4CC1A000722E0C /* MainGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainGameModel.swift; sourceTree = "<group>"; };
+		80A410D91B4FA4EF00511C90 /* TemplateConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateConfig.swift; sourceTree = "<group>"; };
 		80A410C51B4F286500511C90 /* GuessShape.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GuessShape.xcassets; sourceTree = "<group>"; };
 		80A410C71B4F286500511C90 /* GuessShapeGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeGameController.swift; sourceTree = "<group>"; };
 		80A410C91B4F286500511C90 /* GuessShapeDefaultLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeDefaultLayoutAction.swift; sourceTree = "<group>"; };
@@ -473,6 +475,7 @@
 				808149451B4A89D3008555EB /* MenuViewController.swift in Sources */,
 				80A410D51B4F286500511C90 /* GuessShapeGameModel.swift in Sources */,
 				8081499B1B4AD387008555EB /* HelperFuncs.swift in Sources */,
+				80A410DA1B4FA4EF00511C90 /* TemplateConfig.swift in Sources */,
 				80A410D31B4F286500511C90 /* GuessShapeLayout.swift in Sources */,
 				80A410D21B4F286500511C90 /* GuessShapeDefaultLayoutAction.swift in Sources */,
 				808EB2371B4D72D30076C4F0 /* TemplateDefaultLayoutAction.swift in Sources */,
