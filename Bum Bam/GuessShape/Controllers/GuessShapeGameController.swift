@@ -23,6 +23,7 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
     
     var thumbLayouts: [Layout]!
     var siluetteLayout: Layout!
+    var siluetteView: UIImageView!
     
     override init(gameModel: MainGameModel, layoutAction: MainLayoutAction, layout: Layout) {
         super.init(gameModel: gameModel, layoutAction: layoutAction, layout: layout)
@@ -43,13 +44,19 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
     override func gameDidStart() {
         
         self.gameLayout = self.layout["game"]
+        self.gameLayout.view.backgroundColor = self.gameModel.backgroundColor
         
         self.thumbLayouts = [self.gameLayout["thumbLeft"]!, self.gameLayout["thumbCenter"]!, self.gameLayout["thumbRight"]!]
-        for thumbLayout in self.thumbLayouts {
-            (thumbLayout.view as! GuessShapeThumbView).delegate = self
+        for (id, thumbLayout) in enumerate(self.thumbLayouts) {
+            var thumbLayoutView = thumbLayout.view as! GuessShapeThumbView
+            thumbLayoutView.delegate = self
+            thumbLayoutView.image = UIImage(named: "\(self.config.imageNamesPrefix)\(self.gameModel.thumbNames[id])")
+            thumbLayoutView.animalName = self.gameModel.thumbNames[id]
         }
         
         self.siluetteLayout = self.gameLayout["siluette"]
+        self.siluetteView = self.siluetteLayout.view as! UIImageView
+        self.siluetteView.image = UIImage(named: "\(self.config.imageNamesPrefix)\(self.gameModel.siluetteName)Siluette")
         
     }
     
@@ -67,17 +74,23 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
         self.layoutAction.thumbDragEnded()
         
         if self.siluetteLayout.view.frame.contains(sender.center) {
-            
-            UIView.animateWithDuration(self.config.thumbToSiluetteAnimationDuration, delay: 0, options: .CurveEaseOut, animations: {
-                sender.frame = self.siluetteLayout.view.frame
-            }, completion: nil)
-            self.gameLayout.view.userInteractionEnabled = false
-            delay(self.config.delayAfterSuccess) {self.restartGame()}
-            
-            self.layoutAction.success()
+            if sender.animalName == self.gameModel.siluetteName {
+                UIView.animateWithDuration(self.config.thumbToSiluetteAnimationDuration, delay: 0, options: .CurveEaseOut, animations: {
+                    sender.frame = self.siluetteLayout.view.frame
+                    }, completion: nil)
+                self.gameLayout.view.userInteractionEnabled = false
+                delay(self.config.delayAfterSuccess) {self.restartGame()}
+                self.layoutAction.success()
+                println("success")
+            } else {
+                sender.returnToDefaultPosition(animationDuration: self.config.thumbReturningAnimationDuration)
+                self.layoutAction.failure()
+                println("failure")
+            }
         } else {
             sender.returnToDefaultPosition(animationDuration: self.config.thumbReturningAnimationDuration)
             self.layoutAction.dragEndedOutsideSiluette()
+            println("outside the siluette area")
         }
         
     }

@@ -15,14 +15,23 @@ class GuessShapeConfig {
     var thumbToSiluetteAnimationDuration: NSTimeInterval = 0.3
     var delayAfterSuccess: Double = 2
     
-    var shapesToSelectImageNames: [String] =
-    ["PickerViewGameIconGame1",
+    var backgroundColors: [UIColor] = [
+        UIColor.greenColor(),
+        UIColor.blueColor(),
+        UIColor.brownColor(),
+        UIColor.yellowColor(),
+        UIColor.redColor()
+    ]
+    
+    var shapesToSelectImageNames: [String] = [
+        "PickerViewGameIconGame1",
         "PickerViewGameIconGame2",
         "PickerViewGameIconGame3",
         "PickerViewGameIconGame4",
         "PickerViewGameIconGame5",
         "PickerViewGameIconGame6",
-        "PickerViewGameIconGame7"]
+        "PickerViewGameIconGame7"
+    ]
     
     var imageNamesPrefix = "GuessShape-"
     var animalsImages: [String] = ["cat", "dino", "giraffe", "goat","monkey", "sheep"]

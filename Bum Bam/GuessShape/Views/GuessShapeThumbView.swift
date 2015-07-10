@@ -21,6 +21,8 @@ class GuessShapeThumbView: UIImageView {
     
     weak var delegate: PGuessShapeThumbViewDelegate!
     
+    var animalName: String!
+    
     var defaultFrame: CGRect
     
     var xTouchOffset: CGFloat = 0
