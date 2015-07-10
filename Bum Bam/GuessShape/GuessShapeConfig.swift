@@ -11,10 +11,12 @@ import UIKit
 
 class GuessShapeConfig {
     
-    var thumbReturningAnimationDuration: NSTimeInterval = 1
-    var thumbToSiluetteAnimationDuration: NSTimeInterval = 1
+    var thumbReturningAnimationDuration: NSTimeInterval = 0.3
+    var thumbToSiluetteAnimationDuration: NSTimeInterval = 0.3
     var delayAfterSuccess: Double = 2
     
     var shapesToSelect: [String] = ["AbcdAbcdAbcd", "EfghEfghEfgh", "IjklIjklIjkl", "MnopMnopMnop", "QrstQrstQrst", "UvwxUvwxUvwx", "YzYzYz"]
+    var animalsImages: [String] = ["cat", "dino", "giraffe", "goat","monkey", "sheep"]
 }
-var GuessShapeConfigInstance: GuessShapeConfig = GuessShapeConfig()
+
+    var GuessShapeConfigInstance: GuessShapeConfig = GuessShapeConfig()

@@ -67,25 +67,25 @@ class GuessShapeLayout {
                     "siluette" : Layout(
                         createView: { (prntW, prntH) -> UIView in
                             var view = UIImageView(frame: CGRect(centerx: prntW/2, centery: prntH/3, width: min(prntW, prntH)*0.6, height: min(prntW, prntH)*0.6))
-                            view.image = UIImage(named: "GuessShapeSiluetteCow")
+                            view.image = UIImage(named: "goatSiluette")
                             return view
                     }),
                     "thumbCenter": Layout(
                         createView: {(prntW, prntH) -> UIView in
                             var view = GuessShapeThumbView(frame: CGRect(centerx: prntW*0.5, centery: prntH-70, width: 100, height: 100))
-                            view.image = UIImage(named: "GuessShapeCow")
+                            view.image = UIImage(named: "goat")
                             return view
                     }),
                     "thumbLeft": Layout(
                         createView: {(prntW, prntH) -> UIView in
                             var view = GuessShapeThumbView(frame: CGRect(centerx: prntW*0.2, centery: prntH-70, width: 100, height: 100))
-                            view.image = UIImage(named: "GuessShapeCow")
+                            view.image = UIImage(named: "dino")
                             return view
                     }),
                     "thumbRight": Layout(
                         createView: {(prntW, prntH) -> UIView in
                             var view = GuessShapeThumbView(frame: CGRect(centerx: prntW*0.8, centery: prntH-70, width: 100, height: 100))
-                            view.image = UIImage(named: "GuessShapeCow")
+                            view.image = UIImage(named: "giraffe")
                             return view
                     }),
                 ])
