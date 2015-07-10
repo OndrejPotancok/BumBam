@@ -50,6 +50,7 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
             var thumbLayoutView = thumbLayout.view as! GuessShapeThumbView
             thumbLayoutView.delegate = self
             thumbLayoutView.image = UIImage(named: "\(self.config.imageNamesPrefix)\(self.gameModel.thumbNames[id])")
+            thumbLayoutView.animalName = self.gameModel.thumbNames[id]
         }
         
         self.siluetteLayout = self.gameLayout["siluette"]
