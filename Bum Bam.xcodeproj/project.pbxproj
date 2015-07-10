@@ -33,8 +33,6 @@
 		8092B24A1B4CC16700722E0C /* MainGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8092B2491B4CC16700722E0C /* MainGameController.swift */; };
 		8092B24C1B4CC18700722E0C /* MainLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8092B24B1B4CC18700722E0C /* MainLayoutAction.swift */; };
 		8092B24E1B4CC1A000722E0C /* MainGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8092B24D1B4CC1A000722E0C /* MainGameModel.swift */; };
-		80A410DA1B4FA4EF00511C90 /* TemplateConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410D91B4FA4EF00511C90 /* TemplateConfig.swift */; };
-		80A410DC1B4FB0A300511C90 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410DB1B4FB0A300511C90 /* AKPickerView.swift */; };
 		80A410D01B4F286500511C90 /* GuessShape.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80A410C51B4F286500511C90 /* GuessShape.xcassets */; };
 		80A410D11B4F286500511C90 /* GuessShapeGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410C71B4F286500511C90 /* GuessShapeGameController.swift */; };
 		80A410D21B4F286500511C90 /* GuessShapeDefaultLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410C91B4F286500511C90 /* GuessShapeDefaultLayoutAction.swift */; };
@@ -43,6 +41,9 @@
 		80A410D51B4F286500511C90 /* GuessShapeGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410CD1B4F286500511C90 /* GuessShapeGameModel.swift */; };
 		80A410D61B4F286500511C90 /* GuessShapeThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410CF1B4F286500511C90 /* GuessShapeThumbView.swift */; };
 		80A410D81B4FA37400511C90 /* GuessShapeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410D71B4FA37400511C90 /* GuessShapeConfig.swift */; };
+		80A410DA1B4FA4EF00511C90 /* TemplateConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410D91B4FA4EF00511C90 /* TemplateConfig.swift */; };
+		80A410DC1B4FB0A300511C90 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410DB1B4FB0A300511C90 /* AKPickerView.swift */; };
+		80A410DE1B4FB3C000511C90 /* GuessShapeSelectShapeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410DD1B4FB3C000511C90 /* GuessShapeSelectShapeDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,8 +87,6 @@
 		8092B2491B4CC16700722E0C /* MainGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainGameController.swift; sourceTree = "<group>"; };
 		8092B24B1B4CC18700722E0C /* MainLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLayoutAction.swift; sourceTree = "<group>"; };
 		8092B24D1B4CC1A000722E0C /* MainGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainGameModel.swift; sourceTree = "<group>"; };
-		80A410D91B4FA4EF00511C90 /* TemplateConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateConfig.swift; sourceTree = "<group>"; };
-		80A410DB1B4FB0A300511C90 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
 		80A410C51B4F286500511C90 /* GuessShape.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GuessShape.xcassets; sourceTree = "<group>"; };
 		80A410C71B4F286500511C90 /* GuessShapeGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeGameController.swift; sourceTree = "<group>"; };
 		80A410C91B4F286500511C90 /* GuessShapeDefaultLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeDefaultLayoutAction.swift; sourceTree = "<group>"; };
@@ -96,6 +95,9 @@
 		80A410CD1B4F286500511C90 /* GuessShapeGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeGameModel.swift; sourceTree = "<group>"; };
 		80A410CF1B4F286500511C90 /* GuessShapeThumbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeThumbView.swift; sourceTree = "<group>"; };
 		80A410D71B4FA37400511C90 /* GuessShapeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeConfig.swift; sourceTree = "<group>"; };
+		80A410D91B4FA4EF00511C90 /* TemplateConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateConfig.swift; sourceTree = "<group>"; };
+		80A410DB1B4FB0A300511C90 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
+		80A410DD1B4FB3C000511C90 /* GuessShapeSelectShapeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeSelectShapeDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,6 +352,7 @@
 				80A410C91B4F286500511C90 /* GuessShapeDefaultLayoutAction.swift */,
 				80A410CA1B4F286500511C90 /* GuessShapeLayout.swift */,
 				80A410CB1B4F286500511C90 /* GuessShapeLayoutAction.swift */,
+				80A410DD1B4FB3C000511C90 /* GuessShapeSelectShapeDataSource.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				80A410DA1B4FA4EF00511C90 /* TemplateConfig.swift in Sources */,
 				80A410D31B4F286500511C90 /* GuessShapeLayout.swift in Sources */,
 				80A410D21B4F286500511C90 /* GuessShapeDefaultLayoutAction.swift in Sources */,
+				80A410DE1B4FB3C000511C90 /* GuessShapeSelectShapeDataSource.swift in Sources */,
 				808EB2371B4D72D30076C4F0 /* TemplateDefaultLayoutAction.swift in Sources */,
 				8092B24A1B4CC16700722E0C /* MainGameController.swift in Sources */,
 				808EB2391B4D72F50076C4F0 /* TemplateLayoutAction.swift in Sources */,

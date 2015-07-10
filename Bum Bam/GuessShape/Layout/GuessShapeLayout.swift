@@ -14,7 +14,7 @@ class GuessShapeLayout {
     
     var layout = Layout(
         subviews: [
-            /*"settings": Layout(
+            "settings": Layout(
                 createView: { (prntW, prntH) -> UIView in
                     var view = UIView(frame: CGRectMake(0, 0, prntW, prntH))
                     view.backgroundColor = UIColor.redColor()
@@ -27,6 +27,13 @@ class GuessShapeLayout {
                             view.text = "shape to guess"
                             view.textAlignment = NSTextAlignment.Center
                             view.textColor = UIColor(red: 245, green: 245, blue: 245, alpha: 1.0)
+                            return view
+                    }),
+                    "selectShape": Layout(
+                        createView: { (prntW, prntH) -> UIView in
+                            var view = AKPickerView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.3, width: prntW*0.8, height: 50))
+                            view.backgroundColor = UIColor.brownColor()
+                            view.dataSource = GuessShapeSelectShapeDataSourceInstance
                             return view
                     }),
                     "selectDifficultyLabel": Layout(
@@ -47,7 +54,7 @@ class GuessShapeLayout {
                             return view
                     })
                     
-                ]),*/
+                ]),
             
             "background": Layout(
                 createView: { (prntW, prntH) -> UIView in

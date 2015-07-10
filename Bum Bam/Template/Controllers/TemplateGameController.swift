@@ -19,7 +19,7 @@ class TemplateGameController: MainGameController {
         super.init(gameModel: gameModel, layoutAction: layoutAction, layout: layout)
         self.gameModel = self.mainGameModel as! TemplateGameModel
         self.layoutAction = self.mainLayoutAction as! TemplateLayoutAction
-        self.config = TemplateConfig()
+        self.config = TemplateConfigInstance
         
     }
 

@@ -9,11 +9,15 @@
 import Foundation
 import UIKit
 
-class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate {
+class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuessShapeThumbViewDelegate {
     
     var gameModel: GuessShapeGameModel!
     var layoutAction: GuessShapeLayoutAction!
     var config: GuessShapeConfig!
+    
+    var settingsLayout: Layout!
+    var selectShapeLayout: Layout!
+    var selectShapeView: AKPickerView!
     
     var gameLayout: Layout!
     
@@ -24,7 +28,16 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
         super.init(gameModel: gameModel, layoutAction: layoutAction, layout: layout)
         self.gameModel = self.mainGameModel as! GuessShapeGameModel
         self.layoutAction = self.mainLayoutAction as! GuessShapeLayoutAction
-        self.config = GuessShapeConfig()
+        self.config = GuessShapeConfigInstance
+    }
+    
+    override func didShowSettings() {
+        self.settingsLayout = self.layout["settings"]
+        self.selectShapeLayout = self.settingsLayout["selectShape"]
+        self.selectShapeView = self.selectShapeLayout.view as! AKPickerView
+        
+        self.selectShapeView.delegate = self
+        self.selectShapeView.reloadData()
     }
     
     override func gameDidStart() {
