@@ -15,4 +15,5 @@ class GuessShapeConfig {
     var thumbToSiluetteAnimationDuration: NSTimeInterval = 1
     var delayAfterSuccess: Double = 2
     
+    var shapesToSelect: [String] = ["AbcdAbcdAbcd", "EfghEfghEfgh", "IjklIjklIjkl", "MnopMnopMnop", "QrstQrstQrst", "UvwxUvwxUvwx", "YzYzYz"]
 }
