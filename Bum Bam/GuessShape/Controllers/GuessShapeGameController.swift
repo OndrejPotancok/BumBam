@@ -28,7 +28,7 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
         super.init(gameModel: gameModel, layoutAction: layoutAction, layout: layout)
         self.gameModel = self.mainGameModel as! GuessShapeGameModel
         self.layoutAction = self.mainLayoutAction as! GuessShapeLayoutAction
-        self.config = GuessShapeConfig()
+        self.config = GuessShapeConfigInstance
     }
     
     override func didShowSettings() {

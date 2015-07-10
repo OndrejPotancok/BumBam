@@ -11,7 +11,7 @@ import UIKit
 
 class GuessShapeSelectShapeDataSource: AKPickerViewDataSource {
     
-    private var config: GuessShapeConfig! = GuessShapeConfig()
+    private weak var config: GuessShapeConfig! = GuessShapeConfigInstance
     
     @objc func numberOfItemsInPickerView(pickerView: AKPickerView) -> Int {
         return self.config.shapesToSelect.count

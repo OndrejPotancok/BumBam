@@ -17,3 +17,4 @@ class GuessShapeConfig {
     
     var shapesToSelect: [String] = ["AbcdAbcdAbcd", "EfghEfghEfgh", "IjklIjklIjkl", "MnopMnopMnop", "QrstQrstQrst", "UvwxUvwxUvwx", "YzYzYz"]
 }
+var GuessShapeConfigInstance: GuessShapeConfig = GuessShapeConfig()
