@@ -34,6 +34,7 @@
 		8092B24C1B4CC18700722E0C /* MainLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8092B24B1B4CC18700722E0C /* MainLayoutAction.swift */; };
 		8092B24E1B4CC1A000722E0C /* MainGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8092B24D1B4CC1A000722E0C /* MainGameModel.swift */; };
 		80A410DA1B4FA4EF00511C90 /* TemplateConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410D91B4FA4EF00511C90 /* TemplateConfig.swift */; };
+		80A410DC1B4FB0A300511C90 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410DB1B4FB0A300511C90 /* AKPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		8092B24B1B4CC18700722E0C /* MainLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLayoutAction.swift; sourceTree = "<group>"; };
 		8092B24D1B4CC1A000722E0C /* MainGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainGameModel.swift; sourceTree = "<group>"; };
 		80A410D91B4FA4EF00511C90 /* TemplateConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateConfig.swift; sourceTree = "<group>"; };
+		80A410DB1B4FB0A300511C90 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				808149991B4AD387008555EB /* HelperFuncs.swift */,
 				808EB2101B4CC2AA0076C4F0 /* Layout.swift */,
 				808EB2261B4D65340076C4F0 /* GameList.swift */,
+				80A410DB1B4FB0A300511C90 /* AKPickerView.swift */,
 				808EB2281B4D71E30076C4F0 /* Template */,
 				808EB2121B4CC42D0076C4F0 /* Test */,
 				8092B2451B4CC15600722E0C /* Main */,
@@ -417,6 +420,7 @@
 				808EB2231B4CC6080076C4F0 /* TestLayout.swift in Sources */,
 				808149431B4A89D3008555EB /* AppDelegate.swift in Sources */,
 				808EB21B1B4CC4490076C4F0 /* TestGameController.swift in Sources */,
+				80A410DC1B4FB0A300511C90 /* AKPickerView.swift in Sources */,
 				808EB2331B4D72500076C4F0 /* TemplateLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
