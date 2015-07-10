@@ -52,8 +52,8 @@ class GuessShapeLayout {
                             view.setTitleColor(UIColor(red: 245, green: 245, blue: 245, alpha: 1.0), forState: .Normal)
                             return view
                     })
-
-                ]),*/
+                    
+                ]),
             
             "background": Layout(
                 createView: { (prntW, prntH) -> UIView in
