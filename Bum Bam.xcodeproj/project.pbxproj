@@ -33,6 +33,7 @@
 		8092B24A1B4CC16700722E0C /* MainGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8092B2491B4CC16700722E0C /* MainGameController.swift */; };
 		8092B24C1B4CC18700722E0C /* MainLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8092B24B1B4CC18700722E0C /* MainLayoutAction.swift */; };
 		8092B24E1B4CC1A000722E0C /* MainGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8092B24D1B4CC1A000722E0C /* MainGameModel.swift */; };
+		80A410DA1B4FA4EF00511C90 /* TemplateConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410D91B4FA4EF00511C90 /* TemplateConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		8092B2491B4CC16700722E0C /* MainGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainGameController.swift; sourceTree = "<group>"; };
 		8092B24B1B4CC18700722E0C /* MainLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLayoutAction.swift; sourceTree = "<group>"; };
 		8092B24D1B4CC1A000722E0C /* MainGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainGameModel.swift; sourceTree = "<group>"; };
+		80A410D91B4FA4EF00511C90 /* TemplateConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 		808EB2281B4D71E30076C4F0 /* Template */ = {
 			isa = PBXGroup;
 			children = (
+				80A410D91B4FA4EF00511C90 /* TemplateConfig.swift */,
 				808EB2291B4D71E30076C4F0 /* Assets */,
 				808EB22A1B4D71E30076C4F0 /* Controllers */,
 				808EB22B1B4D71E30076C4F0 /* Layout */,
@@ -400,6 +403,7 @@
 				808EB2271B4D65340076C4F0 /* GameList.swift in Sources */,
 				808149451B4A89D3008555EB /* MenuViewController.swift in Sources */,
 				8081499B1B4AD387008555EB /* HelperFuncs.swift in Sources */,
+				80A410DA1B4FA4EF00511C90 /* TemplateConfig.swift in Sources */,
 				808EB2371B4D72D30076C4F0 /* TemplateDefaultLayoutAction.swift in Sources */,
 				8092B24A1B4CC16700722E0C /* MainGameController.swift in Sources */,
 				808EB2391B4D72F50076C4F0 /* TemplateLayoutAction.swift in Sources */,

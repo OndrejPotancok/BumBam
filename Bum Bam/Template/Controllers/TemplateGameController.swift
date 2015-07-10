@@ -13,11 +13,13 @@ class TemplateGameController: MainGameController {
     
     var gameModel: TemplateGameModel!
     var layoutAction: TemplateLayoutAction!
+    var config: TemplateConfig!
     
     override init(gameModel: MainGameModel, layoutAction: MainLayoutAction, layout: Layout) {
         super.init(gameModel: gameModel, layoutAction: layoutAction, layout: layout)
         self.gameModel = self.mainGameModel as! TemplateGameModel
         self.layoutAction = self.mainLayoutAction as! TemplateLayoutAction
+        self.config = TemplateConfig()
         
     }
 
