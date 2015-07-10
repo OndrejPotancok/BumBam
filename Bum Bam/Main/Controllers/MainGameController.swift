@@ -66,6 +66,7 @@ class MainGameController: NSObject {
     
     func startGame() {
         self.gameWillStart()
+        self.mainGameModel.set()
         if let backgroundLayout = self.layout["background"] {
             self.layout.createOnlySubview("background")
             self.layout.view.addSubview(backgroundLayout.view)

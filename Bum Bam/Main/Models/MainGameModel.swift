@@ -19,4 +19,7 @@ class MainGameModel {
         self.codeName = codeName
     }
     
+    func set() {
+    }
+    
 }
