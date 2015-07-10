@@ -14,7 +14,7 @@ class GuessShapeLayout {
     
     var layout = Layout(
         subviews: [
-            /*"settings": Layout(
+            "settings": Layout(
                 createView: { (prntW, prntH) -> UIView in
                     var view = UIView(frame: CGRectMake(0, 0, prntW, prntH))
                     view.backgroundColor = UIColor.redColor()
@@ -31,8 +31,7 @@ class GuessShapeLayout {
                     }),
                     "selectShape": Layout(
                         createView: { (prntW, prntH) -> UIView in
-                            var view = AKPickerView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.3, width: prntW*0.8, height: 50))
-                            view.backgroundColor = UIColor.brownColor()
+                            var view = AKPickerView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.3, width: prntW*0.9, height: 60))
                             view.dataSource = GuessShapeSelectShapeDataSourceInstance
                             return view
                     }),
