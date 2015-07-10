@@ -23,6 +23,7 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
     
     var thumbLayouts: [Layout]!
     var siluetteLayout: Layout!
+    var siluetteView: UIImageView!
     
     override init(gameModel: MainGameModel, layoutAction: MainLayoutAction, layout: Layout) {
         super.init(gameModel: gameModel, layoutAction: layoutAction, layout: layout)
@@ -45,11 +46,15 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
         self.gameLayout = self.layout["game"]
         
         self.thumbLayouts = [self.gameLayout["thumbLeft"]!, self.gameLayout["thumbCenter"]!, self.gameLayout["thumbRight"]!]
-        for thumbLayout in self.thumbLayouts {
-            (thumbLayout.view as! GuessShapeThumbView).delegate = self
+        for (id, thumbLayout) in enumerate(self.thumbLayouts) {
+            var thumbLayoutView = thumbLayout.view as! GuessShapeThumbView
+            thumbLayoutView.delegate = self
+            thumbLayoutView.image = UIImage(named: "\(self.config.imageNamesPrefix)\(self.gameModel.thumbNames[id])")
         }
         
         self.siluetteLayout = self.gameLayout["siluette"]
+        self.siluetteView = self.siluetteLayout.view as! UIImageView
+        self.siluetteView.image = UIImage(named: "\(self.config.imageNamesPrefix)\(self.gameModel.siluetteName)Siluette")
         
     }
     
