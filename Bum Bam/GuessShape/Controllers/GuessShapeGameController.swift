@@ -53,7 +53,7 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
     }
     
     override func afterSettings() {
-        self.gameModel.shape = self.config.shapesToSelectImageNames[self.selectShapeView.selectedItem]
+        self.gameModel.shape = self.selectShapeView.selectedItem
     }
     
     override func gameDidStart() {

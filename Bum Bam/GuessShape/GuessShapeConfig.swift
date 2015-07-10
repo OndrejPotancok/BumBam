@@ -25,16 +25,14 @@ class GuessShapeConfig {
     
     var shapesToSelectImageNames: [String] = [
         "PickerViewGameIconGame1",
-        "PickerViewGameIconGame2",
-        "PickerViewGameIconGame3",
-        "PickerViewGameIconGame4",
-        "PickerViewGameIconGame5",
-        "PickerViewGameIconGame6",
-        "PickerViewGameIconGame7"
+        "PickerViewGameIconGame2"
     ]
     
     var imageNamesPrefix = "GuessShape-"
-    var animalsImages: [String] = ["cat", "dino", "giraffe", "goat","monkey", "sheep"]
+    var animalsImages: [[String]] = [
+        ["cat", "dino", "giraffe"],
+        ["goat","monkey", "sheep"]
+    ]
 }
 
     var GuessShapeConfigInstance: GuessShapeConfig = GuessShapeConfig()
