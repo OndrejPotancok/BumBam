@@ -77,7 +77,7 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
             self.layoutAction.success()
         } else {
             sender.returnToDefaultPosition(animationDuration: self.config.thumbReturningAnimationDuration)
-            self.layoutAction.failure()
+            self.layoutAction.dragEndedOutsideSiluette()
         }
         
     }

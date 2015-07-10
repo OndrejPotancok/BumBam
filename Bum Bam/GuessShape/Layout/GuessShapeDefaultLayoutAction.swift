@@ -15,5 +15,5 @@ class GuessShapeDefaultLayoutAction: MainLayoutAction {
     func thumbDragMoved() {}
     func thumbDragEnded() {}
     func success() {}
-    func failure() {}
+    func dragEndedOutsideSiluette() {}
 }

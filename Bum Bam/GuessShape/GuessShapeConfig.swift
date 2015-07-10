@@ -16,6 +16,8 @@ class GuessShapeConfig {
     var delayAfterSuccess: Double = 2
     
     var shapesToSelect: [String] = ["AbcdAbcdAbcd", "EfghEfghEfgh", "IjklIjklIjkl", "MnopMnopMnop", "QrstQrstQrst", "UvwxUvwxUvwx", "YzYzYz"]
+    
+    var imageNamesPrefix = "GuessShape-"
     var animalsImages: [String] = ["cat", "dino", "giraffe", "goat","monkey", "sheep"]
 }
 
