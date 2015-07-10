@@ -16,5 +16,6 @@ class GuessShapeConfig {
     var delayAfterSuccess: Double = 2
     
     var shapesToSelect: [String] = ["AbcdAbcdAbcd", "EfghEfghEfgh", "IjklIjklIjkl", "MnopMnopMnop", "QrstQrstQrst", "UvwxUvwxUvwx", "YzYzYz"]
-}
-var GuessShapeConfigInstance: GuessShapeConfig = GuessShapeConfig()
+    }
+
+    var GuessShapeConfigInstance: GuessShapeConfig = GuessShapeConfig()
