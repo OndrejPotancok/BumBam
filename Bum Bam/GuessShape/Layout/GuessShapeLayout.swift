@@ -33,7 +33,7 @@ class GuessShapeLayout {
                         createView: { (prntW, prntH) -> UIView in
                             var view = AKPickerView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.3, width: prntW*0.8, height: 50))
                             view.backgroundColor = UIColor.brownColor()
-                            view.dataSource = guessShapeSelectShapeDataSource
+                            view.dataSource = GuessShapeSelectShapeDataSourceInstance
                             return view
                     }),
                     "selectDifficultyLabel": Layout(

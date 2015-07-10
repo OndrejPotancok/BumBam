@@ -22,4 +22,4 @@ class GuessShapeSelectShapeDataSource: AKPickerViewDataSource {
     }
     
 }
-var guessShapeSelectShapeDataSource = GuessShapeSelectShapeDataSource()
+var GuessShapeSelectShapeDataSourceInstance = GuessShapeSelectShapeDataSource()
