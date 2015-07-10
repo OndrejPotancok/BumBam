@@ -73,17 +73,23 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
         self.layoutAction.thumbDragEnded()
         
         if self.siluetteLayout.view.frame.contains(sender.center) {
-            
-            UIView.animateWithDuration(self.config.thumbToSiluetteAnimationDuration, delay: 0, options: .CurveEaseOut, animations: {
-                sender.frame = self.siluetteLayout.view.frame
-            }, completion: nil)
-            self.gameLayout.view.userInteractionEnabled = false
-            delay(self.config.delayAfterSuccess) {self.restartGame()}
-            
-            self.layoutAction.success()
+            if sender.animalName == self.gameModel.siluetteName {
+                UIView.animateWithDuration(self.config.thumbToSiluetteAnimationDuration, delay: 0, options: .CurveEaseOut, animations: {
+                    sender.frame = self.siluetteLayout.view.frame
+                    }, completion: nil)
+                self.gameLayout.view.userInteractionEnabled = false
+                delay(self.config.delayAfterSuccess) {self.restartGame()}
+                self.layoutAction.success()
+                println("success")
+            } else {
+                sender.returnToDefaultPosition(animationDuration: self.config.thumbReturningAnimationDuration)
+                self.layoutAction.failure()
+                println("failure")
+            }
         } else {
             sender.returnToDefaultPosition(animationDuration: self.config.thumbReturningAnimationDuration)
             self.layoutAction.dragEndedOutsideSiluette()
+            println("outside the siluette area")
         }
         
     }
