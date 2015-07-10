@@ -27,3 +27,13 @@ extension CGRect {
     }
     
 }
+
+
+func shuffleArray<T>(inout array: [T]) {
+    
+    for(var i = array.count-1; i != 0; --i) {
+        var j = randomNumber(minX: UInt32(0), maxX: UInt32(i))
+        swap(&array[j], &array[i])
+    }
+    
+}
