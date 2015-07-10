@@ -39,11 +39,14 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
         self.selectShapeLayout = self.settingsLayout["selectShape"]
         self.selectShapeView = self.selectShapeLayout.view as! AKPickerView
         self.selectShapeView.delegate = self
+        var defaultSelectedItemId: Int = self.selectShapeView.dataSource!.numberOfItemsInPickerView(self.selectShapeView)/2
+        self.selectShapeView.selectItem(defaultSelectedItemId, animated: false)
         self.selectShapeView.reloadData()
         
         self.startGameButtonView = self.settingsLayout["startGameButton"]?.view as! UIButton
         self.startGameButtonView.addTarget(self, action: "startGameButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
     }
+    
     
     func startGameButtonTapped(sender: UIButton!) {
         self.leaveSettings()
