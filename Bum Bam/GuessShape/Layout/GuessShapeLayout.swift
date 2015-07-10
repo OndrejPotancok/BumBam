@@ -82,7 +82,8 @@ class GuessShapeLayout {
                     "startGameButton": Layout(
                         defaultHidden: false,
                         createView: { (prntW, prntH) -> UIView in
-                            var view = UIButton(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.92, width: 200, height: 50))
+                            var view = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+                            view.frame = CGRect(centerx: prntW*0.5, centery: prntH*0.92, width: 200, height: 50)
                             view.setTitle("START GAME", forState: .Normal)
                             view.setTitleColor(UIColor(red: 245, green: 245, blue: 245, alpha: 1.0), forState: .Normal)
                             view.titleLabel!.font = buttonFont
