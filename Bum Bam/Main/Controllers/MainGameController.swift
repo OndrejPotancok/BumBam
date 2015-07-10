@@ -28,14 +28,14 @@ class MainGameController: NSObject {
     }
     
     func showSettings() {
-        self.willShowSettings()
         if let settingsLayout = self.layout["settings"] {
+            self.willShowSettings()
             self.layout.createOnlySubview("settings")
             self.layout.view.addSubview(settingsLayout.view)
+            self.didShowSettings()
         } else {
-            self.leaveSettings()
+            self.startGame()
         }
-        self.didShowSettings()
 
     }
     
