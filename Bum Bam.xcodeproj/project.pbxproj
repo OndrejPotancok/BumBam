@@ -40,6 +40,7 @@
 		80A410D41B4F286500511C90 /* GuessShapeLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410CB1B4F286500511C90 /* GuessShapeLayoutAction.swift */; };
 		80A410D51B4F286500511C90 /* GuessShapeGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410CD1B4F286500511C90 /* GuessShapeGameModel.swift */; };
 		80A410D61B4F286500511C90 /* GuessShapeThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410CF1B4F286500511C90 /* GuessShapeThumbView.swift */; };
+		80A410D81B4FA37400511C90 /* GuessShapeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410D71B4FA37400511C90 /* GuessShapeConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		80A410CB1B4F286500511C90 /* GuessShapeLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeLayoutAction.swift; sourceTree = "<group>"; };
 		80A410CD1B4F286500511C90 /* GuessShapeGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeGameModel.swift; sourceTree = "<group>"; };
 		80A410CF1B4F286500511C90 /* GuessShapeThumbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeThumbView.swift; sourceTree = "<group>"; };
+		80A410D71B4FA37400511C90 /* GuessShapeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +312,7 @@
 		80A410C31B4F286500511C90 /* GuessShape */ = {
 			isa = PBXGroup;
 			children = (
+				80A410D71B4FA37400511C90 /* GuessShapeConfig.swift */,
 				80A410C41B4F286500511C90 /* Assets */,
 				80A410C61B4F286500511C90 /* Controllers */,
 				80A410C81B4F286500511C90 /* Layout */,
@@ -490,6 +493,7 @@
 				808EB21B1B4CC4490076C4F0 /* TestGameController.swift in Sources */,
 				80A410D61B4F286500511C90 /* GuessShapeThumbView.swift in Sources */,
 				808EB2331B4D72500076C4F0 /* TemplateLayout.swift in Sources */,
+				80A410D81B4FA37400511C90 /* GuessShapeConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

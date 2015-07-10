@@ -16,10 +16,4 @@ class GuessShapeDefaultLayoutAction: MainLayoutAction {
     func thumbDragEnded() {}
     func success() {}
     func failure() {}
-    
-    
-    func thumbReturningAnimationDuration() -> NSTimeInterval {return 1}
-    func thumbToSiluetteAnimationDuration() -> NSTimeInterval {return 1}
-    func delayAfterSuccess() -> Double {return 2}
-    
 }

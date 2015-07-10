@@ -13,6 +13,7 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
     
     var gameModel: GuessShapeGameModel!
     var layoutAction: GuessShapeLayoutAction!
+    var config: GuessShapeConfig!
     
     var gameLayout: Layout!
     
@@ -23,7 +24,7 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
         super.init(gameModel: gameModel, layoutAction: layoutAction, layout: layout)
         self.gameModel = self.mainGameModel as! GuessShapeGameModel
         self.layoutAction = self.mainLayoutAction as! GuessShapeLayoutAction
-        
+        self.config = GuessShapeConfig()
     }
     
     override func gameDidStart() {
@@ -54,15 +55,15 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
         
         if self.siluetteLayout.view.frame.contains(sender.center) {
             
-            UIView.animateWithDuration(self.layoutAction.thumbToSiluetteAnimationDuration(), delay: 0, options: .CurveEaseOut, animations: {
+            UIView.animateWithDuration(self.config.thumbToSiluetteAnimationDuration, delay: 0, options: .CurveEaseOut, animations: {
                 sender.frame = self.siluetteLayout.view.frame
             }, completion: nil)
             self.gameLayout.view.userInteractionEnabled = false
-            delay(self.layoutAction.delayAfterSuccess()) {self.restartGame()}
+            delay(self.config.delayAfterSuccess) {self.restartGame()}
             
             self.layoutAction.success()
         } else {
-            sender.returnToDefaultPosition(animationDuration: self.layoutAction.thumbReturningAnimationDuration())
+            sender.returnToDefaultPosition(animationDuration: self.config.thumbReturningAnimationDuration)
             self.layoutAction.failure()
         }
         
