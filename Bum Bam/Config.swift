@@ -12,3 +12,5 @@ import UIKit
 let ScrnW = UIScreen.mainScreen().bounds.size.width
 let ScrnH = UIScreen.mainScreen().bounds.size.height
 let fullscreen = CGRectMake(0, 0, ScrnW, ScrnH)
+let labelFont = UIFont(name: "schoolbell", size: 25)
+let buttonFont = UIFont(name: "schoolbell", size: 40)
