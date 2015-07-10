@@ -232,6 +232,7 @@
 		808EB2281B4D71E30076C4F0 /* Template */ = {
 			isa = PBXGroup;
 			children = (
+				80A410D91B4FA4EF00511C90 /* TemplateConfig.swift */,
 				808EB2291B4D71E30076C4F0 /* Assets */,
 				808EB22A1B4D71E30076C4F0 /* Controllers */,
 				808EB22B1B4D71E30076C4F0 /* Layout */,
