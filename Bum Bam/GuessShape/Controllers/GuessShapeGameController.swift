@@ -44,6 +44,7 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
     override func gameDidStart() {
         
         self.gameLayout = self.layout["game"]
+        self.gameLayout.view.backgroundColor = self.gameModel.backgroundColor
         
         self.thumbLayouts = [self.gameLayout["thumbLeft"]!, self.gameLayout["thumbCenter"]!, self.gameLayout["thumbRight"]!]
         for (id, thumbLayout) in enumerate(self.thumbLayouts) {
