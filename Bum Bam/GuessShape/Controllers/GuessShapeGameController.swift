@@ -52,8 +52,12 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
         self.leaveSettings()
     }
     
+    override func afterSettings() {
+        self.gameModel.shape = self.config.shapesToSelectImageNames[self.selectShapeView.selectedItem]
+    }
+    
     override func gameDidStart() {
-        
+
         self.gameLayout = self.layout["game"]
         self.gameLayout.view.backgroundColor = self.gameModel.backgroundColor
         

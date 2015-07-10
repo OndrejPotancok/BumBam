@@ -13,6 +13,9 @@ class GuessShapeGameModel: MainGameModel {
     
     weak var config: GuessShapeConfig! = GuessShapeConfigInstance
     
+    var shape: String!
+    
+    
     var thumbNames: [String]!
     var siluetteName: String!
     var backgroundColor: UIColor!
