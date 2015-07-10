@@ -11,8 +11,8 @@ import UIKit
 
 class GuessShapeConfig {
     
-    var thumbReturningAnimationDuration: NSTimeInterval = 1
-    var thumbToSiluetteAnimationDuration: NSTimeInterval = 1
+    var thumbReturningAnimationDuration: NSTimeInterval = 0.3
+    var thumbToSiluetteAnimationDuration: NSTimeInterval = 0.3
     var delayAfterSuccess: Double = 2
     
 }
