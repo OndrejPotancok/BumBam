@@ -14,7 +14,7 @@ class GuessShapeLayout {
     
     var layout = Layout(
         subviews: [
-            /*"settings": Layout(
+            "settings": Layout(
                 createView: { (prntW, prntH) -> UIView in
                     var view = UIView(frame: CGRectMake(0, 0, prntW, prntH))
                     view.backgroundColor = UIColor(red: 90/255, green: 187/255, blue: 181/255, alpha: 1.0)
@@ -41,6 +41,7 @@ class GuessShapeLayout {
                             view.text = "shape to guess"
                             view.textAlignment = NSTextAlignment.Center
                             view.textColor = UIColor(red: 245, green: 245, blue: 245, alpha: 1.0)
+                            view.font = labelFont
                             return view
                     }),
                     "selectShape": Layout(
@@ -57,6 +58,7 @@ class GuessShapeLayout {
                             view.text = "select difficulty"
                             view.textAlignment = NSTextAlignment.Center
                             view.textColor = UIColor(red: 245, green: 245, blue: 245, alpha: 1.0)
+                            view.font = labelFont
                             return view
                     }),
                     "selectDifficultyEasy": Layout(
@@ -83,10 +85,11 @@ class GuessShapeLayout {
                             var view = UIButton(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.92, width: 200, height: 50))
                             view.setTitle("START GAME", forState: .Normal)
                             view.setTitleColor(UIColor(red: 245, green: 245, blue: 245, alpha: 1.0), forState: .Normal)
+                            view.titleLabel!.font = buttonFont
                             return view
                     })
                     
-                ]),*/
+                ]),
             
             "background": Layout(
                 createView: { (prntW, prntH) -> UIView in
