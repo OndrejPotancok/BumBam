@@ -62,24 +62,30 @@ class GuessShapeLayout {
                         subviews: [
                             "easy": Layout(
                                 createView: { (prntW, prntH) -> UIView in
-                                    var view = UIImageView(frame: CGRect(centerx: prntW*0.25, centery: prntH*0.5, width: 40, height: 40))
-                                    view.image = UIImage(named: "GuessShape-DifficultyEasy")
-                                    view.highlightedImage = UIImage(named: "GuessShape-DifficultyEasy_h")
-                                    return view
+                                    var button   = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+                                    button.frame = CGRect(centerx: prntW*0.25, centery: prntH*0.5, width: 40, height: 40)
+                                    button.setImage(UIImage(named: "GuessShape-DifficultyEasy"), forState: .Normal)
+                                    button.setImage(UIImage(named: "GuessShape-DifficultyEasy"), forState: .Highlighted)
+                                    button.setImage(UIImage(named: "GuessShape-DifficultyEasy_h"), forState: .Selected)
+                                    return button
                             }),
                             "medium": Layout(
                                 createView: { (prntW, prntH) -> UIView in
-                                    var view = UIImageView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.5, width: 40, height: 40))
-                                    view.image = UIImage(named: "GuessShape-DifficultyMedium")
-                                    view.highlightedImage = UIImage(named: "GuessShape-DifficultyMedium_h")
-                                    return view
+                                    var button   = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+                                    button.frame = CGRect(centerx: prntW*0.5, centery: prntH*0.5, width: 40, height: 40)
+                                    button.setImage(UIImage(named: "GuessShape-DifficultyMedium"), forState: .Normal)
+                                    button.setImage(UIImage(named: "GuessShape-DifficultyMedium"), forState: .Highlighted)
+                                    button.setImage(UIImage(named: "GuessShape-DifficultyMedium_h"), forState: .Selected)
+                                    return button
                             }),
                             "hard": Layout(
                                 createView: { (prntW, prntH) -> UIView in
-                                    var view = UIImageView(frame: CGRect(centerx: prntW*0.75, centery: prntH*0.5, width: 40, height: 40))
-                                    view.image = UIImage(named: "GuessShape-DifficultyHard")
-                                    view.highlightedImage = UIImage(named: "GuessShape-DifficultyHard_h")
-                                    return view
+                                    var button   = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+                                    button.frame = CGRect(centerx: prntW*0.75, centery: prntH*0.5, width: 40, height: 40)
+                                    button.setImage(UIImage(named: "GuessShape-DifficultyHard"), forState: .Normal)
+                                    button.setImage(UIImage(named: "GuessShape-DifficultyHard"), forState: .Highlighted)
+                                    button.setImage(UIImage(named: "GuessShape-DifficultyHard_h"), forState: .Selected)
+                                    return button
                             }),
                         ]
                     ),
