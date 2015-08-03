@@ -54,27 +54,35 @@ class GuessShapeLayout {
                             view.font = labelFont
                             return view
                     }),
-                    "selectDifficultyEasy": Layout(
-                        createView: { (prntW, prntH) -> UIView in
-                            var view = UIImageView(frame: CGRect(centerx: prntW*0.25, centery: prntH*0.31, width: 40, height: 40))
-                            view.image = UIImage(named: "GuessShape-DifficultyEasy")
-                            view.highlightedImage = UIImage(named: "GuessShape-DifficultyEasy_h")
-                            return view
-                    }),
-                    "selectDifficultyMedium": Layout(
-                        createView: { (prntW, prntH) -> UIView in
-                            var view = UIImageView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.31, width: 40, height: 40))
-                            view.image = UIImage(named: "GuessShape-DifficultyMedium")
-                            view.highlightedImage = UIImage(named: "GuessShape-DifficultyMedium_h")
-                            return view
-                    }),
                     "selectDifficulty": Layout(
                         createView: { (prntW, prntH) -> UIView in
-                            var view = UIImageView(frame: CGRect(centerx: prntW*0.75, centery: prntH*0.31, width: 40, height: 40))
-                            view.image = UIImage(named: "GuessShape-DifficultyHard")
-                            view.highlightedImage = UIImage(named: "GuessShape-DifficultyHard_h")
+                            var view = UIView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.31, width: prntW, height: 40))
                             return view
-                    }),
+                        },
+                        subviews: [
+                            "easy": Layout(
+                                createView: { (prntW, prntH) -> UIView in
+                                    var view = UIImageView(frame: CGRect(centerx: prntW*0.25, centery: prntH*0.5, width: 40, height: 40))
+                                    view.image = UIImage(named: "GuessShape-DifficultyEasy")
+                                    view.highlightedImage = UIImage(named: "GuessShape-DifficultyEasy_h")
+                                    return view
+                            }),
+                            "medium": Layout(
+                                createView: { (prntW, prntH) -> UIView in
+                                    var view = UIImageView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.5, width: 40, height: 40))
+                                    view.image = UIImage(named: "GuessShape-DifficultyMedium")
+                                    view.highlightedImage = UIImage(named: "GuessShape-DifficultyMedium_h")
+                                    return view
+                            }),
+                            "hard": Layout(
+                                createView: { (prntW, prntH) -> UIView in
+                                    var view = UIImageView(frame: CGRect(centerx: prntW*0.75, centery: prntH*0.5, width: 40, height: 40))
+                                    view.image = UIImage(named: "GuessShape-DifficultyHard")
+                                    view.highlightedImage = UIImage(named: "GuessShape-DifficultyHard_h")
+                                    return view
+                            }),
+                        ]
+                    ),
                     "startGameButton": Layout(
                         defaultHidden: false,
                         createView: { (prntW, prntH) -> UIView in
