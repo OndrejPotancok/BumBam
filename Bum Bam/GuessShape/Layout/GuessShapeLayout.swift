@@ -91,7 +91,7 @@ class GuessShapeLayout {
                         ]
                     ),
                     "startGameButton": Layout(
-                        defaultHidden: false,
+                        defaultHidden: true,
                         createView: { (prntW, prntH) -> UIView in
                             var view = UIButton.buttonWithType(UIButtonType.System) as! UIButton
                             view.frame = CGRect(centerx: prntW*0.5, centery: prntH*0.86, width: prntW, height: 50)

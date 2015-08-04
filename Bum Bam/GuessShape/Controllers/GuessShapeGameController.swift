@@ -54,7 +54,7 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
     }
     
     func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
-        (self.layout["settings"]!.view as! UIImageView).image = UIImage(named: self.config.imageNamesPrefix + self.config.settingsBackgroundImageNames[item])
+        (self.settingsLayout.view as! UIImageView).image = UIImage(named: self.config.imageNamesPrefix + self.config.settingsBackgroundImageNames[item])
     }
     
     func selectDifficultyButtonPressed(sender: UIButton!) {
@@ -63,6 +63,7 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
             var selectDifficultyButtonView = selectDifficultyButtonLayout.view as! UIButton
             if sender == selectDifficultyButtonView {
                 selectDifficultyButtonView.selected = true
+                self.settingsLayout.showSubview("startGameButton")
             } else {
                 selectDifficultyButtonView.selected = false
             }
