@@ -53,6 +53,10 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
         self.startGameButtonView.addTarget(self, action: "startGameButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
     }
     
+    func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
+        (self.layout["settings"]!.view as! UIImageView).image = UIImage(named: self.config.imageNamesPrefix + self.config.settingsBackgroundImageNames[item])
+    }
+    
     func selectDifficultyButtonPressed(sender: UIButton!) {
         
         for selectDifficultyButtonLayout in self.selectDifficultyLayout.subviews.values {

@@ -20,6 +20,10 @@ class GuessShapeConfig {
         "backgroundGame"
     ]
     
+    var settingsBackgroundImageNames: [String] = [
+        "background_settings",
+        "background_settings"
+    ]
     
     var shapesToSelectImageNames: [String] = [
         "gameIconShapes",
