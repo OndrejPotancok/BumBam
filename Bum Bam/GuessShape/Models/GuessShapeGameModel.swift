@@ -14,7 +14,7 @@ class GuessShapeGameModel: MainGameModel {
     weak var config: GuessShapeConfig! = GuessShapeConfigInstance
     
     var shape: Int!
-    
+    var difficulty: String!
     
     var thumbNames: [String]!
     var siluetteName: String!
