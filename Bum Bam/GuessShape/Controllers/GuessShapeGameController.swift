@@ -18,6 +18,7 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
     var settingsLayout: Layout!
     var selectShapeLayout: Layout!
     var selectShapeView: AKPickerView!
+    var selectDifficultyLayout: Layout!
     var startGameButtonView: UIButton!
     
     var gameLayout: Layout!
@@ -43,10 +44,26 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
         self.selectShapeView.selectItem(defaultSelectedItemId, animated: false)
         self.selectShapeView.reloadData()
         
+        self.selectDifficultyLayout = self.settingsLayout["selectDifficulty"]
+        for selectDifficultyButtonLayout in self.selectDifficultyLayout.subviews.values {
+            (selectDifficultyButtonLayout.view as! UIButton).addTarget(self, action: "selectDifficultyButtonPressed:", forControlEvents: .TouchUpInside)
+        }
+        
         self.startGameButtonView = self.settingsLayout["startGameButton"]?.view as! UIButton
         self.startGameButtonView.addTarget(self, action: "startGameButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
     }
     
+    func selectDifficultyButtonPressed(sender: UIButton!) {
+        for selectDifficultyButtonLayout in self.selectDifficultyLayout.subviews.values {
+            var selectDifficultyButtonView = selectDifficultyButtonLayout.view as! UIButton
+            if sender == selectDifficultyButtonView {
+                selectDifficultyButtonView.selected = true
+                println(sender)
+            } else {
+                selectDifficultyButtonView.selected = false
+            }
+        }
+    }
     
     func startGameButtonTapped(sender: UIButton!) {
         self.leaveSettings()
