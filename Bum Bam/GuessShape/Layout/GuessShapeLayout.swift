@@ -65,8 +65,9 @@ class GuessShapeLayout {
                                     var button   = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
                                     button.frame = CGRect(centerx: prntW*0.25, centery: prntH*0.5, width: 40, height: 40)
                                     button.setImage(UIImage(named: "GuessShape-DifficultyEasy"), forState: .Normal)
-                                    button.setImage(UIImage(named: "GuessShape-DifficultyEasy"), forState: .Highlighted)
+                                    //button.setImage(UIImage(named: "GuessShape-DifficultyEasy"), forState: .Highlighted)
                                     button.setImage(UIImage(named: "GuessShape-DifficultyEasy_h"), forState: .Selected)
+                                    button.adjustsImageWhenHighlighted = false
                                     return button
                             }),
                             "medium": Layout(
@@ -74,8 +75,8 @@ class GuessShapeLayout {
                                     var button   = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
                                     button.frame = CGRect(centerx: prntW*0.5, centery: prntH*0.5, width: 40, height: 40)
                                     button.setImage(UIImage(named: "GuessShape-DifficultyMedium"), forState: .Normal)
-                                    button.setImage(UIImage(named: "GuessShape-DifficultyMedium"), forState: .Highlighted)
                                     button.setImage(UIImage(named: "GuessShape-DifficultyMedium_h"), forState: .Selected)
+                                    button.adjustsImageWhenHighlighted = false
                                     return button
                             }),
                             "hard": Layout(
@@ -83,8 +84,8 @@ class GuessShapeLayout {
                                     var button   = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
                                     button.frame = CGRect(centerx: prntW*0.75, centery: prntH*0.5, width: 40, height: 40)
                                     button.setImage(UIImage(named: "GuessShape-DifficultyHard"), forState: .Normal)
-                                    button.setImage(UIImage(named: "GuessShape-DifficultyHard"), forState: .Highlighted)
                                     button.setImage(UIImage(named: "GuessShape-DifficultyHard_h"), forState: .Selected)
+                                    button.adjustsImageWhenHighlighted = false
                                     return button
                             }),
                         ]
