@@ -11,4 +11,8 @@ import UIKit
 
 class GuessShapeLayoutAction: GuessShapeDefaultLayoutAction {
     
+    override func success() {
+        self.layout["hud"]?.showSubview("success")
+    }
+    
 }

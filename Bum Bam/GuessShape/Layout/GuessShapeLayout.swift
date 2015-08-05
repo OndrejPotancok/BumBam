@@ -118,6 +118,15 @@ class GuessShapeLayout {
                             view.image = UIImage(named: "GuessShape-giraffe")
                             return view
                     }),
+                ]),
+            "hud": Layout(
+                subviews: [
+                    "success": Layout(
+                        defaultHidden: true, createView: { (prntW, prntH) -> UIView in
+                            var view = UIImageView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.5, width: prntW*0.5, height: prntW*0.5))
+                            view.image = UIImage(named: "GuessShape-success")
+                            return view
+                    })
                 ])
         ]
     )
