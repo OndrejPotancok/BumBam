@@ -14,14 +14,14 @@ class GuessShapeGameModel: MainGameModel {
     weak var config: GuessShapeConfig! = GuessShapeConfigInstance
     
     var shape: Int!
-    
+    var difficulty: String!
     
     var thumbNames: [String]!
     var siluetteName: String!
     var backgroundImage: String!
     
     override func set() {
-        var permutaion = self.config.animalsImages[shape]
+        var permutaion = self.config.animalsImages[shape][self.difficulty]!
         shuffleArray(&permutaion)
         
         self.thumbNames = [permutaion[0], permutaion[1], permutaion[2]]

@@ -20,6 +20,10 @@ class GuessShapeConfig {
         "backgroundGame"
     ]
     
+    var settingsBackgroundImageNames: [String] = [
+        "background_settings",
+        "background_settings"
+    ]
     
     var shapesToSelectImageNames: [String] = [
         "gameIconShapes",
@@ -27,9 +31,17 @@ class GuessShapeConfig {
     ]
     
     var imageNamesPrefix = "GuessShape-"
-    var animalsImages: [[String]] = [
-        ["cat", "dino", "giraffe"],
-        ["goat","monkey", "sheep"]
+    var animalsImages: [[String: [String]]] = [
+        [
+            "easy": ["cat", "dino", "giraffe"],
+            "medium": ["goat", "dino", "sheep"],
+            "hard": ["cat","giraffe","monkey"]
+        ],
+        [
+            "easy": ["goat","monkey", "sheep"],
+            "medium": ["sheep","goat","cat"],
+            "hard": ["giraffe","sheep","monkey"]
+        ]
     ]
 }
 

@@ -54,26 +54,44 @@ class GuessShapeLayout {
                             view.font = labelFont
                             return view
                     }),
-                    "selectDifficultyEasy": Layout(
-                        createView: { (prntW, prntH) -> UIView in
-                            var view = UIImageView(frame: CGRect(centerx: prntW*0.25, centery: prntH*0.31, width: 50, height: 50))
-                            view.image = UIImage(named: "GuessShape-DifficultyEasy")
-                            return view
-                    }),
-                    "selectDifficultyMedium": Layout(
-                        createView: { (prntW, prntH) -> UIView in
-                            var view = UIImageView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.31, width: 40, height: 40))
-                            view.image = UIImage(named: "GuessShape-DifficultyMedium")
-                            return view
-                    }),
                     "selectDifficulty": Layout(
                         createView: { (prntW, prntH) -> UIView in
-                            var view = UIImageView(frame: CGRect(centerx: prntW*0.75, centery: prntH*0.31, width: 40, height: 40))
-                            view.image = UIImage(named: "GuessShape-DifficultyHard")
+                            var view = UIView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.31, width: prntW, height: 40))
                             return view
-                    }),
+                        },
+                        subviews: [
+                            "easy": Layout(
+                                createView: { (prntW, prntH) -> UIView in
+                                    var button   = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+                                    button.frame = CGRect(centerx: prntW*0.25, centery: prntH*0.5, width: 40, height: 40)
+                                    button.setImage(UIImage(named: "GuessShape-DifficultyEasy"), forState: .Normal)
+                                    //button.setImage(UIImage(named: "GuessShape-DifficultyEasy"), forState: .Highlighted)
+                                    button.setImage(UIImage(named: "GuessShape-DifficultyEasy_h"), forState: .Selected)
+                                    button.adjustsImageWhenHighlighted = false
+                                    return button
+                            }),
+                            "medium": Layout(
+                                createView: { (prntW, prntH) -> UIView in
+                                    var button   = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+                                    button.frame = CGRect(centerx: prntW*0.5, centery: prntH*0.5, width: 40, height: 40)
+                                    button.setImage(UIImage(named: "GuessShape-DifficultyMedium"), forState: .Normal)
+                                    button.setImage(UIImage(named: "GuessShape-DifficultyMedium_h"), forState: .Selected)
+                                    button.adjustsImageWhenHighlighted = false
+                                    return button
+                            }),
+                            "hard": Layout(
+                                createView: { (prntW, prntH) -> UIView in
+                                    var button   = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+                                    button.frame = CGRect(centerx: prntW*0.75, centery: prntH*0.5, width: 40, height: 40)
+                                    button.setImage(UIImage(named: "GuessShape-DifficultyHard"), forState: .Normal)
+                                    button.setImage(UIImage(named: "GuessShape-DifficultyHard_h"), forState: .Selected)
+                                    button.adjustsImageWhenHighlighted = false
+                                    return button
+                            }),
+                        ]
+                    ),
                     "startGameButton": Layout(
-                        defaultHidden: false,
+                        defaultHidden: true,
                         createView: { (prntW, prntH) -> UIView in
                             var view = UIButton.buttonWithType(UIButtonType.System) as! UIButton
                             view.frame = CGRect(centerx: prntW*0.5, centery: prntH*0.86, width: prntW, height: 50)
