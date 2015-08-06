@@ -16,10 +16,12 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
     var config: GuessShapeConfig!
     
     var settingsLayout: Layout!
+    var settingsView: UIImageView!
     var selectShapeSetLayout: Layout!
-    var selectShapeSetView: AKPickerView!
+    var shapeSetSelected: Bool = false
+    /*var selectShapeSetView: AKPickerView!
     var selectDifficultyLayout: Layout!
-    var startGameButtonView: UIButton!
+    var startGameButtonView: UIButton!*/
     
     var gameLayout: Layout!
     
@@ -35,10 +37,15 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
     }
     
     override func didShowSettings() {
+        self.layoutAction.didShowSettings()
         self.settingsLayout = self.layout["settings"]
+        self.settingsView = self.settingsLayout.view as! UIImageView
         
         self.selectShapeSetLayout = self.settingsLayout["selectShapeSet"]
-        self.selectShapeSetView = self.selectShapeSetLayout.view as! AKPickerView
+        for selectShapeSetButtonLayout in self.selectShapeSetLayout.subviews.values {
+            (selectShapeSetButtonLayout.view as! UIButton).addTarget(self, action: "selectShapeSetButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        }
+        /*self.selectShapeSetView = self.selectShapeSetLayout.view as! AKPickerView
         self.selectShapeSetView.delegate = self
         var defaultSelectedItemId: Int = self.selectShapeSetView.dataSource!.numberOfItemsInPickerView(self.selectShapeSetView)/2
         self.selectShapeSetView.selectItem(defaultSelectedItemId, animated: false)
@@ -50,14 +57,42 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
         }
         
         self.startGameButtonView = self.settingsLayout["startGameButton"]?.view as! UIButton
-        self.startGameButtonView.addTarget(self, action: "startGameButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.startGameButtonView.addTarget(self, action: "startGameButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)*/
     }
     
-    func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
+    func selectShapeSetButtonPressed(sender: SelectShapeSetButton!) {
+        for selectShapeSetButtonLayout in self.selectShapeSetLayout.subviews.values {
+            var selectShapeSetButtonView = selectShapeSetButtonLayout.view as! SelectShapeSetButton
+            if sender == selectShapeSetButtonView {
+                selectShapeSetButtonView.tintColor = UIColor.whiteColor()
+                
+                var tempBackgroundView = self.settingsLayout["tempBackground"]!.view as! UIImageView
+                tempBackgroundView.image = self.config.shapeSets[sender.index].settingsBackgroundImage
+                tempBackgroundView.alpha = 0
+                self.settingsLayout.showSubview("tempBackground")
+                self.settingsView.sendSubviewToBack(tempBackgroundView)
+                UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+                    tempBackgroundView.alpha = 1
+                }, completion: { (a) -> Void in
+                    self.settingsView.image = self.config.shapeSets[sender.index].settingsBackgroundImage
+                    self.settingsLayout.hideSubview("tempBackground")
+                })
+                if(self.shapeSetSelected == false) {
+                    self.layoutAction.shapeSetSelected()
+                    self.shapeSetSelected = true
+                }
+                
+            } else {
+                selectShapeSetButtonView.tintColor = self.config.shapeSets[sender.index].color
+            }
+        }
+    }
+    
+    /*func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
         (self.settingsLayout.view as! UIImageView).image = self.config.shapeSets[item].settingsBackgroundImage
-    }
+    }*/
     
-    func selectDifficultyButtonPressed(sender: UIButton!) {
+    /*func selectDifficultyButtonPressed(sender: UIButton!) {
         
         for selectDifficultyButtonLayout in self.selectDifficultyLayout.subviews.values {
             var selectDifficultyButtonView = selectDifficultyButtonLayout.view as! UIButton
@@ -69,19 +104,19 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
             }
         }
         
-    }
+    }*/
     
     func startGameButtonTapped(sender: UIButton!) {
         self.leaveSettings()
     }
     
     override func afterSettings() {
-        self.gameModel.shapeSet = self.selectShapeSetView.selectedItem
+        /*self.gameModel.shapeSet = self.selectShapeSetView.selectedItem
         for (difficulty, selectDifficultyButtonLayout) in self.selectDifficultyLayout.subviews {
             if (selectDifficultyButtonLayout.view as! UIButton).selected == true {
                 self.gameModel.difficulty = difficulty
             }
-        }
+        }*/
     }
     
     override func gameDidStart() {

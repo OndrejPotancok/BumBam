@@ -17,12 +17,57 @@ class GuessShapeLayout {
             "settings": Layout(
                 createView: { (prntW, prntH) -> UIView in
                     var view = UIImageView(frame: CGRectMake(0, 0, prntW, prntH))
-                    view.image = UIImage(named: "GuessShape-background_settings")
+                    view.image = UIImage(named: "GuessShape-backgroundDefault")
                     view.userInteractionEnabled = true
                     return view
                 },
                 subviews: [
-                    "howToPlayImage": Layout(
+                    "selectShapeSet": MultiLayout(
+                        count: GuessShapeConfigInstance.shapeSets.count,
+                        defaultHidden: false,
+                        createView: { (prntW, prntH) -> UIView in
+                            var squareSize = (prntW-prntW*(168/1080))/3
+                            var view = UIScrollView(frame: CGRect(centerx: prntW*1.5, centery: prntH*0.5, width: prntW, height: squareSize))
+                            view.contentSize = CGSize(width: max(prntW, squareSize*CGFloat(GuessShapeConfigInstance.shapeSets.count)+prntW*(168/1080)), height: squareSize)
+                            view.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+                            view.panGestureRecognizer.delaysTouchesBegan = view.delaysContentTouches
+                            return view
+                        },
+                        createSubview: { (id, count, prntW, prntH) -> UIView in
+                            var squareSize = (prntW-prntW*(168/1080))/3
+                            var imageSize = squareSize*(207/305)
+                            var button = SelectShapeSetButton()
+                            button.frame = CGRect(centerx: (id+0.5)*squareSize+prntW*(84/1080), centery: squareSize*0.5, width: imageSize, height: imageSize)
+                            button.setImage(GuessShapeConfigInstance.shapeSets[Int(id)].settingsShapeSetImage!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: .Normal)
+                            button.adjustsImageWhenHighlighted = false
+                            button.tintColor = UIColor(red: 182/255, green: 139/255, blue: 55/255, alpha: 1)
+                            return button
+                        },
+                        subsubviews: [:]
+                    ),
+                    "selectDifficulty": MultiLayout(
+                        count: 3,
+                        defaultHidden: false,
+                        createView: { (prntW, prntH) -> UIView in
+                            var view = UIView(frame: CGRect(centerx: prntW*1.5, centery: prntH*0.5, width: prntW, height: (prntW-prntW*(168/1080))/3))
+                            return view
+                        }, createSubview: { (id, count, prntW, prntH) -> UIView in
+                            var squareSize = (prntW-prntW*(168/1080))/3
+                            var imageSize = squareSize*(207/305)
+                            var button = UIButton()
+                            button.frame = CGRect(centerx: (id+0.5)*squareSize+prntW*(84/1080), centery: squareSize*0.5, width: imageSize, height: imageSize)
+                            button.setImage(UIImage(named: "GuessShape-diffEasy"), forState: UIControlState.Normal)
+                            return button
+                        }, subsubviews: [:]
+                    ),
+                    "tempBackground": Layout(
+                        defaultHidden: true,
+                        createView: { (prntW, prntH) -> UIView in
+                            var view = UIImageView(frame: CGRectMake(0, 0, prntW, prntH))
+                            return view
+                        }
+                    )
+                    /*"howToPlayImage": Layout(
                         createView: { (prntW, prntH) -> UIView in
                             var view = UIImageView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.61, width: prntW*0.9, height: (prntW*0.9)*(560/1000)))
                             view.image = UIImage(named: "GuessShape-howToPlay")
@@ -99,7 +144,7 @@ class GuessShapeLayout {
                             view.setTitleColor(UIColor(red: 245, green: 245, blue: 245, alpha: 1.0), forState: .Normal)
                             view.titleLabel!.font = buttonFont
                             return view
-                    }),
+                    }),*/
                     
                 ]),
             

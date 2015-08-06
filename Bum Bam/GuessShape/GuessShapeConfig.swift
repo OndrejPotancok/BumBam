@@ -42,12 +42,15 @@ class GuessShapeConfig {
             return UIImage(named: self.settingsShapeSetImageName)
         }
         
+        var color: UIColor
+        
         let shapes: [String:[Shape]]
         
-        init(gameBackgroundImageName: String, settingsBackgroundImageName: String, settingsShapeSetImageName: String, shapes: [String:[Shape]]) {
+        init(gameBackgroundImageName: String, settingsBackgroundImageName: String, settingsShapeSetImageName: String, color: UIColor, shapes: [String:[Shape]]) {
             self._gameBackgroundImageName = gameBackgroundImageName
             self._settingsBackgroundImageName = settingsBackgroundImageName
             self._settingsShapeSetImageName = settingsShapeSetImageName
+            self.color = color
             self.shapes = shapes
         }
     }
@@ -77,8 +80,9 @@ class GuessShapeConfig {
     var shapeSets: [ShapeSet] = [
         ShapeSet(
             gameBackgroundImageName: "backgroundGame",
-            settingsBackgroundImageName: "background_settings",
-            settingsShapeSetImageName: "gameIconShapes",
+            settingsBackgroundImageName: "backgroundCars",
+            settingsShapeSetImageName: "gameIconCars",
+            color: UIColor(red: 26/255, green: 31/255, blue: 77/255, alpha: 1),
             shapes: [
                 "easy": [
                     Shape(thumbImageName: "cat", siluetteImageName: "catSiluette"),
@@ -99,8 +103,55 @@ class GuessShapeConfig {
         ),
         ShapeSet(
             gameBackgroundImageName: "backgroundGame",
-            settingsBackgroundImageName: "background_settings",
+            settingsBackgroundImageName: "backgroundShapes",
+            settingsShapeSetImageName: "gameIconShapes",
+            color: UIColor(red: 6/255, green: 71/255, blue: 9/255, alpha: 1),
+            shapes: [
+                "easy": [
+                    Shape(thumbImageName: "goat", siluetteImageName: "goatSiluette"),
+                    Shape(thumbImageName: "monkey", siluetteImageName: "monkeySiluette"),
+                    Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette")
+                ],
+                "medium": [
+                    Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette"),
+                    Shape(thumbImageName: "goat", siluetteImageName: "goatSiluette"),
+                    Shape(thumbImageName: "cat", siluetteImageName: "catSiluette")
+                ],
+                "hard": [
+                    Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluette"),
+                    Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette"),
+                    Shape(thumbImageName: "monkey", siluetteImageName: "monkeySiluette")
+                ]
+            ]
+        ),
+        ShapeSet(
+            gameBackgroundImageName: "backgroundGame",
+            settingsBackgroundImageName: "backgroundAnimals",
             settingsShapeSetImageName: "gameIconAnimals",
+            color: UIColor(red: 115/255, green: 51/255, blue: 51/255, alpha: 1),
+            shapes: [
+                "easy": [
+                    Shape(thumbImageName: "goat", siluetteImageName: "goatSiluette"),
+                    Shape(thumbImageName: "monkey", siluetteImageName: "monkeySiluette"),
+                    Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette")
+                ],
+                "medium": [
+                    Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette"),
+                    Shape(thumbImageName: "goat", siluetteImageName: "goatSiluette"),
+                    Shape(thumbImageName: "cat", siluetteImageName: "catSiluette")
+                ],
+                "hard": [
+                    Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluette"),
+                    Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette"),
+                    Shape(thumbImageName: "monkey", siluetteImageName: "monkeySiluette")
+                ]
+            ]
+        ),
+        ShapeSet(
+            gameBackgroundImageName: "backgroundGame",
+            settingsBackgroundImageName: "backgroundAnimals",
+            settingsShapeSetImageName: "gameIconAnimals",
+            color: UIColor(red: 115/255, green: 51/255, blue: 51/255, alpha: 1),
             shapes: [
                 "easy": [
                     Shape(thumbImageName: "goat", siluetteImageName: "goatSiluette"),
@@ -119,6 +170,7 @@ class GuessShapeConfig {
                 ]
             ]
         )
+        
     ]
 }
 

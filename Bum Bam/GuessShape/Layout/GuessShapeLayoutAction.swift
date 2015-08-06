@@ -11,6 +11,25 @@ import UIKit
 
 class GuessShapeLayoutAction: GuessShapeDefaultLayoutAction {
     
+    override func didShowSettings() {
+        var view = self.layout["settings"]!["selectShapeSet"]!.view
+        view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.width*2, view.frame.height)
+        UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
+            self.layout["settings"]!["selectShapeSet"]!.view.frame.origin.x = 0
+        }) { (a) -> Void in
+            view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.width/2, view.frame.height)
+        }
+    }
+    
+    override func shapeSetSelected() {
+        UIView.animateWithDuration(0.4, delay: 0.15, options: .CurveEaseInOut, animations: { () -> Void in
+            self.layout["settings"]!["selectShapeSet"]!.view.center.y = ScrnH*0.2
+        }, completion: nil)
+        UIView.animateWithDuration(1.5, delay: 0.2, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
+            self.layout["settings"]!["selectDifficulty"]!.view.frame.origin.x = 0
+        }, completion: nil)
+    }
+    
     override func success() {
         self.layout["hud"]?.showSubview("success")
     }

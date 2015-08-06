@@ -11,6 +11,8 @@ import UIKit
 
 class GuessShapeDefaultLayoutAction: MainLayoutAction {
     
+    func didShowSettings() {}
+    func shapeSetSelected() {}
     func thumbDragBegan() {}
     func thumbDragMoved() {}
     func thumbDragEnded() {}

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18DBE9DE1B50088000DE3009 /* Schoolbell.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18DBE9DD1B50088000DE3009 /* Schoolbell.ttf */; };
+		18F559621B73A0B800D459F1 /* SelectShapeSetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F559611B73A0B800D459F1 /* SelectShapeSetButton.swift */; };
 		808149431B4A89D3008555EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149421B4A89D3008555EB /* AppDelegate.swift */; };
 		808149451B4A89D3008555EB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149441B4A89D3008555EB /* MenuViewController.swift */; };
 		808149481B4A89D3008555EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808149461B4A89D3008555EB /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		18DBE9DD1B50088000DE3009 /* Schoolbell.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Schoolbell.ttf; sourceTree = "<group>"; };
+		18F559611B73A0B800D459F1 /* SelectShapeSetButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectShapeSetButton.swift; sourceTree = "<group>"; };
 		8081493D1B4A89D3008555EB /* Bum Bam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bum Bam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		808149411B4A89D3008555EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		808149421B4A89D3008555EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				80A410CF1B4F286500511C90 /* GuessShapeThumbView.swift */,
+				18F559611B73A0B800D459F1 /* SelectShapeSetButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				80A410D21B4F286500511C90 /* GuessShapeDefaultLayoutAction.swift in Sources */,
 				80A410DE1B4FB3C000511C90 /* GuessShapeSelectShapeDataSource.swift in Sources */,
 				808EB2371B4D72D30076C4F0 /* TemplateDefaultLayoutAction.swift in Sources */,
+				18F559621B73A0B800D459F1 /* SelectShapeSetButton.swift in Sources */,
 				8092B24A1B4CC16700722E0C /* MainGameController.swift in Sources */,
 				808EB2391B4D72F50076C4F0 /* TemplateLayoutAction.swift in Sources */,
 				808EB2351B4D72810076C4F0 /* TemplateGameModel.swift in Sources */,
