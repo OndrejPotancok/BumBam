@@ -13,19 +13,18 @@ class GuessShapeGameModel: MainGameModel {
     
     weak var config: GuessShapeConfig! = GuessShapeConfigInstance
     
-    var shape: Int!
+    var shapeSet: Int!
     var difficulty: String!
     
-    var thumbNames: [String]!
-    var siluetteName: String!
-    var backgroundImage: String!
+    var shapes: [GuessShapeConfig.Shape]!
+    var correctShapeId: Int!
     
     override func set() {
-        var permutaion = self.config.animalsImages[shape][self.difficulty]!
-        shuffleArray(&permutaion)
         
-        self.thumbNames = [permutaion[0], permutaion[1], permutaion[2]]
-        self.siluetteName = self.thumbNames[randomNumber(minX: 0, maxX: UInt32(self.thumbNames.count-1))]
+        var permutation = self.config.shapeSets[shapeSet].shapes[self.difficulty]!
+        shuffleArray(&permutation)
+        self.shapes = [permutation[0], permutation[1], permutation[2]]
+        self.correctShapeId = randomNumber(minX: 0, maxX: UInt32(self.shapes.count-1))
     }
     
 }

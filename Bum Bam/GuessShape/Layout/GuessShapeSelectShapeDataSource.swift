@@ -14,11 +14,11 @@ class GuessShapeSelectShapeDataSource: AKPickerViewDataSource {
     private weak var config: GuessShapeConfig! = GuessShapeConfigInstance
     
     @objc func numberOfItemsInPickerView(pickerView: AKPickerView) -> Int {
-        return self.config.shapesToSelectImageNames.count
+        return self.config.shapeSets.count
     }
     
     @objc func pickerView(pickerView: AKPickerView, imageForItem item: Int) -> UIImage {
-        return UIImage(named: self.config.imageNamesPrefix + self.config.shapesToSelectImageNames[item])!
+        return self.config.shapeSets[item].settingsShapeSetImage!
     }
     
 }

@@ -16,8 +16,8 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
     var config: GuessShapeConfig!
     
     var settingsLayout: Layout!
-    var selectShapeLayout: Layout!
-    var selectShapeView: AKPickerView!
+    var selectShapeSetLayout: Layout!
+    var selectShapeSetView: AKPickerView!
     var selectDifficultyLayout: Layout!
     var startGameButtonView: UIButton!
     
@@ -37,12 +37,12 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
     override func didShowSettings() {
         self.settingsLayout = self.layout["settings"]
         
-        self.selectShapeLayout = self.settingsLayout["selectShape"]
-        self.selectShapeView = self.selectShapeLayout.view as! AKPickerView
-        self.selectShapeView.delegate = self
-        var defaultSelectedItemId: Int = self.selectShapeView.dataSource!.numberOfItemsInPickerView(self.selectShapeView)/2
-        self.selectShapeView.selectItem(defaultSelectedItemId, animated: false)
-        self.selectShapeView.reloadData()
+        self.selectShapeSetLayout = self.settingsLayout["selectShapeSet"]
+        self.selectShapeSetView = self.selectShapeSetLayout.view as! AKPickerView
+        self.selectShapeSetView.delegate = self
+        var defaultSelectedItemId: Int = self.selectShapeSetView.dataSource!.numberOfItemsInPickerView(self.selectShapeSetView)/2
+        self.selectShapeSetView.selectItem(defaultSelectedItemId, animated: false)
+        self.selectShapeSetView.reloadData()
         
         self.selectDifficultyLayout = self.settingsLayout["selectDifficulty"]
         for selectDifficultyButtonLayout in self.selectDifficultyLayout.subviews.values {
@@ -54,7 +54,7 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
     }
     
     func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
-        (self.settingsLayout.view as! UIImageView).image = UIImage(named: self.config.imageNamesPrefix + self.config.settingsBackgroundImageNames[item])
+        (self.settingsLayout.view as! UIImageView).image = self.config.shapeSets[item].settingsBackgroundImage
     }
     
     func selectDifficultyButtonPressed(sender: UIButton!) {
@@ -76,32 +76,30 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
     }
     
     override func afterSettings() {
-        self.gameModel.shape = self.selectShapeView.selectedItem
+        self.gameModel.shapeSet = self.selectShapeSetView.selectedItem
         for (difficulty, selectDifficultyButtonLayout) in self.selectDifficultyLayout.subviews {
             if (selectDifficultyButtonLayout.view as! UIButton).selected == true {
                 self.gameModel.difficulty = difficulty
             }
         }
-        self.gameModel.backgroundImage = self.config.imageNamesPrefix + self.config.backgroundImages[self.gameModel.shape]
     }
     
     override func gameDidStart() {
 
         self.gameLayout = self.layout["game"]
-        (self.layout["background"]!._view as! UIImageView).image = UIImage(named: self.gameModel.backgroundImage)
+        (self.layout["background"]!.view as! UIImageView).image = self.config.shapeSets[self.gameModel.shapeSet].gameBackgroundImage
         
         self.thumbLayouts = [self.gameLayout["thumbLeft"]!, self.gameLayout["thumbCenter"]!, self.gameLayout["thumbRight"]!]
         for (id, thumbLayout) in enumerate(self.thumbLayouts) {
             var thumbLayoutView = thumbLayout.view as! GuessShapeThumbView
             thumbLayoutView.delegate = self
-            thumbLayoutView.image = UIImage(named: "\(self.config.imageNamesPrefix)\(self.gameModel.thumbNames[id])")
-            thumbLayoutView.animalName = self.gameModel.thumbNames[id]
+            thumbLayoutView.image = self.gameModel.shapes[id].thumbImage
+            thumbLayoutView.shapeName = self.gameModel.shapes[id].thumbImageName
         }
         
         self.siluetteLayout = self.gameLayout["siluette"]
         self.siluetteView = self.siluetteLayout.view as! UIImageView
-        self.siluetteView.image = UIImage(named: "\(self.config.imageNamesPrefix)\(self.gameModel.siluetteName)Siluette")
-        
+        self.siluetteView.image = self.gameModel.shapes[self.gameModel.correctShapeId].siluetteImage
     }
     
     func thumbDragBegan(#sender: GuessShapeThumbView) {
@@ -118,7 +116,7 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
         self.layoutAction.thumbDragEnded()
         
         if self.siluetteLayout.view.frame.contains(sender.center) {
-            if sender.animalName == self.gameModel.siluetteName {
+            if sender.shapeName == self.gameModel.shapes[self.gameModel.correctShapeId].thumbImageName {
                 UIView.animateWithDuration(self.config.thumbToSiluetteAnimationDuration, delay: 0, options: .CurveEaseOut, animations: {
                     sender.frame = self.siluetteLayout.view.frame
                     }, completion: nil)

@@ -21,7 +21,7 @@ class GuessShapeThumbView: UIImageView {
     
     weak var delegate: PGuessShapeThumbViewDelegate!
     
-    var animalName: String!
+    var shapeName: String!
     
     var defaultFrame: CGRect
     

@@ -28,7 +28,7 @@ class GuessShapeLayout {
                             view.image = UIImage(named: "GuessShape-howToPlay")
                             return view
                     }),
-                    "selectShapeLabel": Layout(
+                    "selectShapeSetLabel": Layout(
                         createView: { (prntW, prntH) -> UIView in
                             var view = UILabel(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.23, width: prntW, height: 50))
                             view.text = "select shapes to play with"
@@ -37,7 +37,7 @@ class GuessShapeLayout {
                             view.font = labelFont
                             return view
                     }),
-                    "selectShape": Layout(
+                    "selectShapeSet": Layout(
                         createView: { (prntW, prntH) -> UIView in
                             var view = AKPickerView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.12, width: prntW, height: 60))
                             view.dataSource = GuessShapeSelectShapeDataSourceInstance
