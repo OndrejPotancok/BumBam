@@ -64,10 +64,10 @@ class GuessShapeLayout {
                         defaultHidden: false,
                         createView: { (prntW, prntH) -> UIView in
                             var squareSize = (prntW-prntW*(168/1080))/3
-                            var imageSize = squareSize*(207/305)
+                            var imageSize = squareSize*(207/305)*1.5
                             var button = UIButton()
                             button.frame = CGRect(centerx: prntW*1.5, centery: prntH*(3/4), width: imageSize, height: imageSize)
-                            button.setImage(UIImage(named: "GuessShape-gameIconCars")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+                            button.setImage(UIImage(named: "GuessShape-playButtonV1")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
                             button.tintColor = UIColor.whiteColor()
                             button.adjustsImageWhenHighlighted = false
                             return button
