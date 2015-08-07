@@ -54,11 +54,24 @@ class GuessShapeLayout {
                         }, createSubview: { (id, count, prntW, prntH) -> UIView in
                             var squareSize = (prntW-prntW*(168/1080))/3
                             var imageSize = squareSize*(207/305)
-                            var button = UIButton()
+                            var button = SelectDifficultyButton()
                             button.frame = CGRect(centerx: (id+0.5)*squareSize+prntW*(84/1080), centery: squareSize*0.5, width: imageSize, height: imageSize)
-                            button.setImage(UIImage(named: "GuessShape-diffEasy"), forState: UIControlState.Normal)
+                            button.adjustsImageWhenHighlighted = false
                             return button
                         }, subsubviews: [:]
+                    ),
+                    "playButton": Layout(
+                        defaultHidden: false,
+                        createView: { (prntW, prntH) -> UIView in
+                            var squareSize = (prntW-prntW*(168/1080))/3
+                            var imageSize = squareSize*(207/305)
+                            var button = UIButton()
+                            button.frame = CGRect(centerx: prntW*1.5, centery: prntH*(3/4), width: imageSize, height: imageSize)
+                            button.setImage(UIImage(named: "GuessShape-gameIconCars")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+                            button.tintColor = UIColor.whiteColor()
+                            button.adjustsImageWhenHighlighted = false
+                            return button
+                        }
                     ),
                     "tempBackground": Layout(
                         defaultHidden: true,

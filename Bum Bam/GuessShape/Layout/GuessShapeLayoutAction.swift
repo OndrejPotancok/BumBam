@@ -22,11 +22,18 @@ class GuessShapeLayoutAction: GuessShapeDefaultLayoutAction {
     }
     
     override func shapeSetSelected() {
-        UIView.animateWithDuration(0.4, delay: 0.15, options: .CurveEaseInOut, animations: { () -> Void in
-            self.layout["settings"]!["selectShapeSet"]!.view.center.y = ScrnH*0.2
+        /*UIView.animateWithDuration(0.4, delay: 0.15, options: .CurveEaseInOut, animations: { () -> Void in*/
+        UIView.animateWithDuration(1.5, delay: 0.2, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
+            self.layout["settings"]!["selectShapeSet"]!.view.center.y = ScrnH*(1/4)
         }, completion: nil)
         UIView.animateWithDuration(1.5, delay: 0.2, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
             self.layout["settings"]!["selectDifficulty"]!.view.frame.origin.x = 0
+        }, completion: nil)
+    }
+    
+    override func difficultySelected() {
+        UIView.animateWithDuration(1.5, delay: 0.2, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
+            self.layout["settings"]!["playButton"]!.view.center.x = ScrnW*0.5
         }, completion: nil)
     }
     

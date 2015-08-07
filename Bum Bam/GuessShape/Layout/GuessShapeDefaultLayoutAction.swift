@@ -13,6 +13,7 @@ class GuessShapeDefaultLayoutAction: MainLayoutAction {
     
     func didShowSettings() {}
     func shapeSetSelected() {}
+    func difficultySelected() {}
     func thumbDragBegan() {}
     func thumbDragMoved() {}
     func thumbDragEnded() {}

@@ -42,14 +42,31 @@ class GuessShapeConfig {
             return UIImage(named: self.settingsShapeSetImageName)
         }
         
-        var color: UIColor
+        let _settingsDifficultyImageNames: [String]
+        var settingsDifficultyImageNames: [String] {
+            var settingsDifficultyImageNames = [String]()
+            for settingsDifficultyImageName in self._settingsDifficultyImageNames {
+                settingsDifficultyImageNames.append(GuessShapeConfigInstance.imageNamesPrefix + settingsDifficultyImageName)
+            }
+            return settingsDifficultyImageNames
+        }
+        var settingsDifficultyImages: [UIImage?] {
+            var settingsDifficultyImages = [UIImage?]()
+            for settingsDifficultyImageName in self.settingsDifficultyImageNames {
+                settingsDifficultyImages.append(UIImage(named: settingsDifficultyImageName))
+            }
+            return settingsDifficultyImages
+        }
+        
+        let color: UIColor
         
         let shapes: [String:[Shape]]
         
-        init(gameBackgroundImageName: String, settingsBackgroundImageName: String, settingsShapeSetImageName: String, color: UIColor, shapes: [String:[Shape]]) {
+        init(gameBackgroundImageName: String, settingsBackgroundImageName: String, settingsShapeSetImageName: String, settingsDifficultyImageNames: [String], color: UIColor, shapes: [String:[Shape]]) {
             self._gameBackgroundImageName = gameBackgroundImageName
             self._settingsBackgroundImageName = settingsBackgroundImageName
             self._settingsShapeSetImageName = settingsShapeSetImageName
+            self._settingsDifficultyImageNames = settingsDifficultyImageNames
             self.color = color
             self.shapes = shapes
         }
@@ -82,6 +99,11 @@ class GuessShapeConfig {
             gameBackgroundImageName: "backgroundGame",
             settingsBackgroundImageName: "backgroundCars",
             settingsShapeSetImageName: "gameIconCars",
+            settingsDifficultyImageNames: [
+                "diffEasy",
+                "diffMedium",
+                "diffHard"
+            ],
             color: UIColor(red: 26/255, green: 31/255, blue: 77/255, alpha: 1),
             shapes: [
                 "easy": [
@@ -105,6 +127,11 @@ class GuessShapeConfig {
             gameBackgroundImageName: "backgroundGame",
             settingsBackgroundImageName: "backgroundShapes",
             settingsShapeSetImageName: "gameIconShapes",
+            settingsDifficultyImageNames: [
+                "diffEasy",
+                "diffMedium",
+                "diffHard"
+            ],
             color: UIColor(red: 6/255, green: 71/255, blue: 9/255, alpha: 1),
             shapes: [
                 "easy": [
@@ -128,6 +155,11 @@ class GuessShapeConfig {
             gameBackgroundImageName: "backgroundGame",
             settingsBackgroundImageName: "backgroundAnimals",
             settingsShapeSetImageName: "gameIconAnimals",
+            settingsDifficultyImageNames: [
+                "diffMedium",
+                "diffEasy",
+                "diffHard"
+            ],
             color: UIColor(red: 115/255, green: 51/255, blue: 51/255, alpha: 1),
             shapes: [
                 "easy": [
@@ -151,6 +183,11 @@ class GuessShapeConfig {
             gameBackgroundImageName: "backgroundGame",
             settingsBackgroundImageName: "backgroundAnimals",
             settingsShapeSetImageName: "gameIconAnimals",
+            settingsDifficultyImageNames: [
+                "diffEasy",
+                "diffMedium",
+                "diffHard"
+            ],
             color: UIColor(red: 115/255, green: 51/255, blue: 51/255, alpha: 1),
             shapes: [
                 "easy": [
