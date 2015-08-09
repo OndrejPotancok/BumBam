@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuessShapeThumbViewDelegate {
+class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate {
     
     var gameModel: GuessShapeGameModel!
     var layoutAction: GuessShapeLayoutAction!
@@ -52,19 +52,6 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
         }
         self.playButtonView = self.settingsLayout["playButton"]!.view as! UIButton
         self.playButtonView.addTarget(self, action: "playButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        /*self.selectShapeSetView = self.selectShapeSetLayout.view as! AKPickerView
-        self.selectShapeSetView.delegate = self
-        var defaultSelectedItemId: Int = self.selectShapeSetView.dataSource!.numberOfItemsInPickerView(self.selectShapeSetView)/2
-        self.selectShapeSetView.selectItem(defaultSelectedItemId, animated: false)
-        self.selectShapeSetView.reloadData()
-        
-        self.selectDifficultyLayout = self.settingsLayout["selectDifficulty"]
-        for selectDifficultyButtonLayout in self.selectDifficultyLayout.subviews.values {
-            (selectDifficultyButtonLayout.view as! UIButton).addTarget(self, action: "selectDifficultyButtonPressed:", forControlEvents: .TouchUpInside)
-        }
-        
-        self.startGameButtonView = self.settingsLayout["startGameButton"]?.view as! UIButton
-        self.startGameButtonView.addTarget(self, action: "startGameButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)*/
     }
     
     func updateSettingsColor() {
@@ -129,37 +116,10 @@ class GuessShapeGameController: MainGameController, AKPickerViewDelegate ,PGuess
     func playButtonPressed(sender: UIButton!) {
         self.leaveSettings()
     }
-    /*func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
-        (self.settingsLayout.view as! UIImageView).image = self.config.shapeSets[item].settingsBackgroundImage
-    }*/
-    
-    /*func selectDifficultyButtonPressed(sender: UIButton!) {
-        
-        for selectDifficultyButtonLayout in self.selectDifficultyLayout.subviews.values {
-            var selectDifficultyButtonView = selectDifficultyButtonLayout.view as! UIButton
-            if sender == selectDifficultyButtonView {
-                selectDifficultyButtonView.selected = true
-                self.settingsLayout.showSubview("startGameButton")
-            } else {
-                selectDifficultyButtonView.selected = false
-            }
-        }
-        
-    }
-    
-    func startGameButtonTapped(sender: UIButton!) {
-        self.leaveSettings()
-    }*/
     
     override func afterSettings() {
         self.gameModel.shapeSet = self.selectedShapeSet
         self.gameModel.difficulty = ["easy","medium","hard"][self.selectedDifficulty]
-        /*self.gameModel.shapeSet = self.selectShapeSetView.selectedItem
-        for (difficulty, selectDifficultyButtonLayout) in self.selectDifficultyLayout.subviews {
-            if (selectDifficultyButtonLayout.view as! UIButton).selected == true {
-                self.gameModel.difficulty = difficulty
-            }
-        }*/
     }
     
     override func gameDidStart() {

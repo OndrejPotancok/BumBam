@@ -80,85 +80,6 @@ class GuessShapeLayout {
                             return view
                         }
                     )
-                    /*"howToPlayImage": Layout(
-                        createView: { (prntW, prntH) -> UIView in
-                            var view = UIImageView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.61, width: prntW*0.9, height: (prntW*0.9)*(560/1000)))
-                            view.image = UIImage(named: "GuessShape-howToPlay")
-                            return view
-                    }),
-                    "selectShapeSetLabel": Layout(
-                        createView: { (prntW, prntH) -> UIView in
-                            var view = UILabel(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.23, width: prntW, height: 50))
-                            view.text = "select shapes to play with"
-                            view.textAlignment = NSTextAlignment.Center
-                            view.textColor = UIColor(red: 245, green: 245, blue: 245, alpha: 1.0)
-                            view.font = labelFont
-                            return view
-                    }),
-                    "selectShapeSet": Layout(
-                        createView: { (prntW, prntH) -> UIView in
-                            var view = AKPickerView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.12, width: prntW, height: 60))
-                            view.dataSource = GuessShapeSelectShapeDataSourceInstance
-                            view.interitemSpacing = prntW*0.1
-                            return view
-                    }),
-                    "selectDifficultyLabel": Layout(
-                        defaultHidden: false,
-                        createView: { (prntW, prntH) -> UIView in
-                            var view = UILabel(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.39, width: 200, height: 50))
-                            view.text = "select difficulty"
-                            view.textAlignment = NSTextAlignment.Center
-                            view.textColor = UIColor(red: 245, green: 245, blue: 245, alpha: 1.0)
-                            view.font = labelFont
-                            return view
-                    }),
-                    "selectDifficulty": Layout(
-                        createView: { (prntW, prntH) -> UIView in
-                            var view = UIView(frame: CGRect(centerx: prntW*0.5, centery: prntH*0.31, width: prntW, height: 40))
-                            return view
-                        },
-                        subviews: [
-                            "easy": Layout(
-                                createView: { (prntW, prntH) -> UIView in
-                                    var button   = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
-                                    button.frame = CGRect(centerx: prntW*0.25, centery: prntH*0.5, width: 40, height: 40)
-                                    button.setImage(UIImage(named: "GuessShape-DifficultyEasy"), forState: .Normal)
-                                    //button.setImage(UIImage(named: "GuessShape-DifficultyEasy"), forState: .Highlighted)
-                                    button.setImage(UIImage(named: "GuessShape-DifficultyEasy_h"), forState: .Selected)
-                                    button.adjustsImageWhenHighlighted = false
-                                    return button
-                            }),
-                            "medium": Layout(
-                                createView: { (prntW, prntH) -> UIView in
-                                    var button   = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
-                                    button.frame = CGRect(centerx: prntW*0.5, centery: prntH*0.5, width: 40, height: 40)
-                                    button.setImage(UIImage(named: "GuessShape-DifficultyMedium"), forState: .Normal)
-                                    button.setImage(UIImage(named: "GuessShape-DifficultyMedium_h"), forState: .Selected)
-                                    button.adjustsImageWhenHighlighted = false
-                                    return button
-                            }),
-                            "hard": Layout(
-                                createView: { (prntW, prntH) -> UIView in
-                                    var button   = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
-                                    button.frame = CGRect(centerx: prntW*0.75, centery: prntH*0.5, width: 40, height: 40)
-                                    button.setImage(UIImage(named: "GuessShape-DifficultyHard"), forState: .Normal)
-                                    button.setImage(UIImage(named: "GuessShape-DifficultyHard_h"), forState: .Selected)
-                                    button.adjustsImageWhenHighlighted = false
-                                    return button
-                            }),
-                        ]
-                    ),
-                    "startGameButton": Layout(
-                        defaultHidden: true,
-                        createView: { (prntW, prntH) -> UIView in
-                            var view = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-                            view.frame = CGRect(centerx: prntW*0.5, centery: prntH*0.86, width: prntW, height: 50)
-                            view.setTitle("START GAME", forState: .Normal)
-                            view.setTitleColor(UIColor(red: 245, green: 245, blue: 245, alpha: 1.0), forState: .Normal)
-                            view.titleLabel!.font = buttonFont
-                            return view
-                    }),*/
-                    
                 ]),
             
             "background": Layout(
@@ -195,6 +116,7 @@ class GuessShapeLayout {
                             return view
                     }),
                 ]),
+            
             "hud": Layout(
                 subviews: [
                     "success": Layout(
