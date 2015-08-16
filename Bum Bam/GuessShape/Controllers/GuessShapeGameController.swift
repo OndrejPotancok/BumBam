@@ -13,14 +13,15 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
     
     var gameModel: GuessShapeGameModel!
     var layoutAction: GuessShapeLayoutAction!
-    var config: GuessShapeConfig!
     
     var settingsLayout: Layout!
     var settingsView: UIImageView!
-    var selectShapeSetLayout: Layout!
+    var settingsBlocksLayout: Layout!
+    var settingsBlocks = GuessShapeConfig.defaultSettingsBlocks
+    /*var selectShapeSetLayout: Layout!
     var selectedShapeSet: Int = -1
     var selectDifficultyLayout: Layout!
-    var selectedDifficulty: Int = -1
+    var selectedDifficulty: Int = -1*/
     var playButtonView: UIButton!
     
     var gameLayout: Layout!
@@ -33,7 +34,6 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
         super.init(gameModel: gameModel, layoutAction: layoutAction, layout: layout)
         self.gameModel = self.mainGameModel as! GuessShapeGameModel
         self.layoutAction = self.mainLayoutAction as! GuessShapeLayoutAction
-        self.config = GuessShapeConfigInstance
     }
     
     override func didShowSettings() {
@@ -41,20 +41,29 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
         self.settingsLayout = self.layout["settings"]
         self.settingsView = self.settingsLayout.view as! UIImageView
         
-        self.selectShapeSetLayout = self.settingsLayout["selectShapeSet"]
+        self.settingsBlocksLayout = self.settingsLayout["blocks"]
+        for settingsBlock in self.settingsBlocks {
+            for settingsBlockButtonLayout in self.settingsBlocksLayout[settingsBlock.name]!.subviews.values {
+                (settingsBlockButtonLayout.view as! GuessShapeSettingsBlockButton).addTarget(self, action: "settingsBlockButtonPressed:", forControlEvents: .TouchUpInside)
+            }
+        }
+        /*self.selectShapeSetLayout = self.settingsLayout["blocks"]!["selectShapeSet"]
         for selectShapeSetButtonLayout in self.selectShapeSetLayout.subviews.values {
             (selectShapeSetButtonLayout.view as! UIButton).addTarget(self, action: "selectShapeSetButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         }
         
-        self.selectDifficultyLayout = self.settingsLayout["selectDifficulty"]!
+        self.selectDifficultyLayout = self.settingsLayout["blocks"]!["selectDifficulty"]!
         for selectDifficultyButtonLayout in self.selectDifficultyLayout.subviews.values {
             (selectDifficultyButtonLayout.view as! UIButton).addTarget(self, action: "selectDifficultyButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         }
         self.playButtonView = self.settingsLayout["playButton"]!.view as! UIButton
-        self.playButtonView.addTarget(self, action: "playButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.playButtonView.addTarget(self, action: "playButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)*/
+        delay(0.3){
+            self.refreshSettings(nil)
+        }
     }
     
-    func updateSettingsColor() {
+    /*func updateSettingsColor() {
         var color = self.config.shapeSets[self.selectedShapeSet].color
         for (id, selectShapeSetButtonLayout) in self.selectShapeSetLayout.subviews {
             if id != String(self.selectedShapeSet) {
@@ -70,9 +79,130 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
                 selectDifficultyButtonLayout.view.tintColor = UIColor.whiteColor()
             }
         }
+    }*/
+    
+    func updateSettingsColor() {
+        var selectedShapeSetIndex = (self.settingsBlocksLayout["selectShapeSet"]!.view as! GuessShapeSettingsBlockView).selectedIndex
+        var color: UIColor!
+        var image: UIImage!
+        if selectedShapeSetIndex != -1 {
+            color = GuessShapeConfig.shapeSets[selectedShapeSetIndex].color
+            image = GuessShapeConfig.shapeSets[selectedShapeSetIndex].settingsBackgroundImage
+        } else {
+            color = UIColor(red: 182/255, green: 139/255, blue: 55/255, alpha: 1)
+            image = UIImage(named: "GuessShape-backgroundDefault")
+        }
+        for settingsBlock in self.settingsBlocks {
+            for (id,settingsBlockButtonLayout) in self.settingsBlocksLayout[settingsBlock.name]!.subviews {
+                if id != String((self.settingsBlocksLayout[settingsBlock.name]!.view as! GuessShapeSettingsBlockView).selectedIndex){
+                    settingsBlockButtonLayout.view.tintColor = color
+                } else {
+                    settingsBlockButtonLayout.view.tintColor = UIColor.whiteColor()
+                }
+            }
+        }
+        if !self.settingsView.image!.isEqual(image) {
+            var tempBackgroundView = self.settingsLayout["tempBackground"]!.view as! UIImageView
+            tempBackgroundView.image = image
+            tempBackgroundView.alpha = 0
+            self.settingsLayout.showSubview("tempBackground")
+            self.settingsView.sendSubviewToBack(tempBackgroundView)
+            UIView.animateWithDuration(0.7, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+                tempBackgroundView.alpha = 1
+                }, completion: { (a) -> Void in
+                    self.settingsView.image = tempBackgroundView.image
+                    self.settingsLayout.hideSubview("tempBackground")
+            })
+        }
     }
     
-    func selectShapeSetButtonPressed(sender: SelectShapeSetButton!) {
+    func refreshSettings(lastSelectedBlockName: String!) {
+        var foundLastSelectedBlock = lastSelectedBlockName != nil ? false : true
+        var foundNewBlock = false
+        
+        var blocksCount: Int = 0
+        var countToHide: Int = 0
+        for settingsBlock in self.settingsBlocks {
+            var settingsBlockLayout = self.settingsBlocksLayout[settingsBlock.name]!
+            var settingsBlockView = settingsBlockLayout.view as! GuessShapeSettingsBlockView
+            if settingsBlock.toDisplay == true {
+                blocksCount++
+            }
+            if foundLastSelectedBlock == false {
+                if settingsBlock.name == lastSelectedBlockName {
+                    foundLastSelectedBlock = true
+                }
+            } else {
+                if settingsBlockView.shown == true {
+                    countToHide++
+                }
+            }
+            
+        }
+
+        foundLastSelectedBlock = lastSelectedBlockName != nil ? false : true
+        foundNewBlock = false
+        
+        var blockYcentersDifferenceCoeff: CGFloat = (1/CGFloat(blocksCount+1))
+        var blockYcenter = blockYcentersDifferenceCoeff*ScrnH
+        for settingsBlock in self.settingsBlocks {
+            var settingsBlockLayout = self.settingsBlocksLayout[settingsBlock.name]!
+            var settingsBlockView = settingsBlockLayout.view as! GuessShapeSettingsBlockView
+            if foundLastSelectedBlock == false {
+                settingsBlockView.moveToY(blockYcenter, delay: 0, completion: nil)
+                if settingsBlockView.name == lastSelectedBlockName {
+                    foundLastSelectedBlock = true
+                }
+            } else if foundNewBlock == false {
+                var tempBlockYcenter = blockYcenter
+                var completion: () -> () = {
+                    switch settingsBlock.name {
+                    case "selectShapeSet":
+                        for index in 0..<settingsBlock.subviewsCount {
+                            (settingsBlockLayout["\(index)"]!.view as! UIButton).setImage(GuessShapeConfig.shapeSets[index].settingsShapeSetImage!.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+                        }
+                    case "selectDifficulty":
+                        var selectedShapeSetIndex = (self.settingsBlocksLayout["selectShapeSet"]!.view as! GuessShapeSettingsBlockView).selectedIndex
+                        for index in 0..<settingsBlock.subviewsCount {
+                            (settingsBlockLayout["\(index)"]!.view as! UIButton).setImage(GuessShapeConfig.shapeSets[selectedShapeSetIndex].settingsDifficultyImages[index]!.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+                        }
+                    case "playButton":
+                        (settingsBlockLayout["0"]!.view as! UIButton).setImage(UIImage(named: "GuessShape-playButton")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+                        settingsBlockView.selectedIndex = 0
+                    default:
+                        break
+                    }
+                    self.updateSettingsColor()
+                    settingsBlockView.show(max(tempBlockYcenter, ScrnH*0.5), delay: 0, completion: nil)
+                }
+                if settingsBlock.name != "playButton" {
+                    settingsBlockView.hide(Double(countToHide)*0.2, completion: completion)
+                } else {
+                    completion()
+                }
+                foundNewBlock = true
+            } else {
+                settingsBlockView.hide(Double(countToHide)*0.2, completion: nil)
+            }
+            blockYcenter += blockYcentersDifferenceCoeff*ScrnH
+            countToHide--
+        }
+    }
+    
+    func settingsBlockButtonPressed(sender: GuessShapeSettingsBlockButton!) {
+        var blockView = sender.superview as! GuessShapeSettingsBlockView
+        if blockView.name == "playButton" {
+            self.leaveSettings()
+            return
+        }
+        if blockView.selectedIndex == sender.index {
+            return
+        }
+        blockView.selectedIndex = sender.index
+        self.refreshSettings(blockView.name)
+    }
+    
+    /*func selectShapeSetButtonPressed(sender: SelectShapeSetButton!) {
         for selectShapeSetButtonLayout in self.selectShapeSetLayout.subviews.values {
             var selectShapeSetButtonView = selectShapeSetButtonLayout.view as! SelectShapeSetButton
             if sender == selectShapeSetButtonView {
@@ -115,17 +245,17 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
     
     func playButtonPressed(sender: UIButton!) {
         self.leaveSettings()
-    }
+    }*/
     
     override func afterSettings() {
-        self.gameModel.shapeSet = self.selectedShapeSet
-        self.gameModel.difficulty = ["easy","medium","hard"][self.selectedDifficulty]
+        self.gameModel.shapeSet = (self.settingsBlocksLayout["selectShapeSet"]!.view as! GuessShapeSettingsBlockView).selectedIndex
+        self.gameModel.difficulty = ["easy","medium","hard"][(self.settingsBlocksLayout["selectDifficulty"]!.view as! GuessShapeSettingsBlockView).selectedIndex]
     }
     
     override func gameDidStart() {
 
         self.gameLayout = self.layout["game"]
-        (self.layout["background"]!.view as! UIImageView).image = self.config.shapeSets[self.gameModel.shapeSet].gameBackgroundImage
+        (self.layout["background"]!.view as! UIImageView).image = GuessShapeConfig.shapeSets[self.gameModel.shapeSet].gameBackgroundImage
         
         self.thumbLayouts = [self.gameLayout["thumbLeft"]!, self.gameLayout["thumbCenter"]!, self.gameLayout["thumbRight"]!]
         for (id, thumbLayout) in enumerate(self.thumbLayouts) {
@@ -155,20 +285,20 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
         
         if self.siluetteLayout.view.frame.contains(sender.center) {
             if sender.shapeName == self.gameModel.shapes[self.gameModel.correctShapeId].thumbImageName {
-                UIView.animateWithDuration(self.config.thumbToSiluetteAnimationDuration, delay: 0, options: .CurveEaseOut, animations: {
+                UIView.animateWithDuration(GuessShapeConfig.thumbToSiluetteAnimationDuration, delay: 0, options: .CurveEaseOut, animations: {
                     sender.frame = self.siluetteLayout.view.frame
                     }, completion: nil)
                 self.gameLayout.view.userInteractionEnabled = false
-                delay(self.config.delayAfterSuccess) {self.restartGame()}
+                delay(GuessShapeConfig.delayAfterSuccess) {self.restartGame()}
                 self.layoutAction.success()
                 println("success")
             } else {
-                sender.returnToDefaultPosition(animationDuration: self.config.thumbReturningAnimationDuration)
+                sender.returnToDefaultPosition(animationDuration: GuessShapeConfig.thumbReturningAnimationDuration)
                 self.layoutAction.failure()
                 println("failure")
             }
         } else {
-            sender.returnToDefaultPosition(animationDuration: self.config.thumbReturningAnimationDuration)
+            sender.returnToDefaultPosition(animationDuration: GuessShapeConfig.thumbReturningAnimationDuration)
             self.layoutAction.dragEndedOutsideSiluette()
             println("outside the siluette area")
         }

@@ -18,7 +18,6 @@ var gameModelArray: [MainGameModel] = [
 extension MainGameController {
     
     class func createGameControllerByGameName(gameName: String) -> MainGameController? {
-        
         switch(gameName) {
         case gameModelArray[0].name:
             return TestGameController(gameModel: gameModelArray[0], layoutAction: TestLayoutAction(), layout: TestLayout().layout)

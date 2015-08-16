@@ -11,16 +11,21 @@ import UIKit
 
 class GuessShapeConfig {
     
-    var thumbReturningAnimationDuration: NSTimeInterval = 0.3
-    var thumbToSiluetteAnimationDuration: NSTimeInterval = 0.3
-    var delayAfterSuccess: Double = 1
+    static var thumbReturningAnimationDuration: NSTimeInterval = 0.3
+    static var thumbToSiluetteAnimationDuration: NSTimeInterval = 0.3
+    static var delayAfterSuccess: Double = 1
     
+    static var defaultSettingsBlocks: [GuessShapeHelper.SettingsBlock] = [
+        GuessShapeHelper.SettingsBlock(name: "selectShapeSet", subviewsCount: GuessShapeConfig.shapeSets.count),
+        GuessShapeHelper.SettingsBlock(name: "selectDifficulty", subviewsCount: 3),
+        GuessShapeHelper.SettingsBlock(name: "playButton", subviewsCount: 1)
+    ]
     
-    var imageNamesPrefix = "GuessShape-"
+    static var imageNamesPrefix = "GuessShape-"
     struct ShapeSet {
         let _gameBackgroundImageName: String
         var gameBackgroundImageName: String {
-            return GuessShapeConfigInstance.imageNamesPrefix + self._gameBackgroundImageName
+            return GuessShapeConfig.imageNamesPrefix + self._gameBackgroundImageName
         }
         var gameBackgroundImage: UIImage? {
             return UIImage(named: self.gameBackgroundImageName)
@@ -28,7 +33,7 @@ class GuessShapeConfig {
         
         let _settingsBackgroundImageName: String
         var settingsBackgroundImageName: String {
-            return GuessShapeConfigInstance.imageNamesPrefix + self._settingsBackgroundImageName
+            return GuessShapeConfig.imageNamesPrefix + self._settingsBackgroundImageName
         }
         var settingsBackgroundImage: UIImage? {
             return UIImage(named: self.settingsBackgroundImageName)
@@ -36,7 +41,7 @@ class GuessShapeConfig {
         
         let _settingsShapeSetImageName: String
         var settingsShapeSetImageName: String {
-            return GuessShapeConfigInstance.imageNamesPrefix + self._settingsShapeSetImageName
+            return GuessShapeConfig.imageNamesPrefix + self._settingsShapeSetImageName
         }
         var settingsShapeSetImage: UIImage? {
             return UIImage(named: self.settingsShapeSetImageName)
@@ -46,7 +51,7 @@ class GuessShapeConfig {
         var settingsDifficultyImageNames: [String] {
             var settingsDifficultyImageNames = [String]()
             for settingsDifficultyImageName in self._settingsDifficultyImageNames {
-                settingsDifficultyImageNames.append(GuessShapeConfigInstance.imageNamesPrefix + settingsDifficultyImageName)
+                settingsDifficultyImageNames.append(GuessShapeConfig.imageNamesPrefix + settingsDifficultyImageName)
             }
             return settingsDifficultyImageNames
         }
@@ -74,7 +79,7 @@ class GuessShapeConfig {
     struct Shape {
         let _thumbImageName: String
         var thumbImageName: String {
-            return GuessShapeConfigInstance.imageNamesPrefix + self._thumbImageName
+            return GuessShapeConfig.imageNamesPrefix + self._thumbImageName
         }
         var thumbImage: UIImage? {
             return UIImage(named: self.thumbImageName)
@@ -82,7 +87,7 @@ class GuessShapeConfig {
         
         let _siluetteImageName: String
         var siluetteImageName: String {
-            return GuessShapeConfigInstance.imageNamesPrefix + self._siluetteImageName
+            return GuessShapeConfig.imageNamesPrefix + self._siluetteImageName
         }
         var siluetteImage: UIImage? {
             return UIImage(named: self.siluetteImageName)
@@ -94,7 +99,7 @@ class GuessShapeConfig {
         }
     }
     
-    var shapeSets: [ShapeSet] = [
+    static var shapeSets: [ShapeSet] = [
         ShapeSet(
             gameBackgroundImageName: "backgroundGame",
             settingsBackgroundImageName: "backgroundCars",
@@ -351,5 +356,3 @@ class GuessShapeConfig {
         
     ]
 }
-
-    var GuessShapeConfigInstance: GuessShapeConfig = GuessShapeConfig()

@@ -25,6 +25,8 @@ class MenuViewController: UIViewController {
         var gameName = (sender as! UIButton).currentTitle!
         if let gameController = MainGameController.createGameControllerByGameName(gameName) {
             performSegueWithIdentifier("startGame", sender: gameController)
+        } else {
+            println(gameName)
         }
     }
     

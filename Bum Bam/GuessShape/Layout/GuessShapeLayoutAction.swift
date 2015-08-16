@@ -11,11 +11,11 @@ import UIKit
 
 class GuessShapeLayoutAction: GuessShapeDefaultLayoutAction {
     
-    override func didShowSettings() {
-        var view = self.layout["settings"]!["selectShapeSet"]!.view
+    /*override func didShowSettings() {
+        var view = self.layout["settings"]!["blocks"]!["selectShapeSet"]!.view
         view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.width*2, view.frame.height)
         UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
-            self.layout["settings"]!["selectShapeSet"]!.view.frame.origin.x = 0
+            self.layout["settings"]!["blocks"]!["selectShapeSet"]!.view.frame.origin.x = 0
         }) { (a) -> Void in
             view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.width/2, view.frame.height)
         }
@@ -24,10 +24,10 @@ class GuessShapeLayoutAction: GuessShapeDefaultLayoutAction {
     override func shapeSetSelected() {
         /*UIView.animateWithDuration(0.4, delay: 0.15, options: .CurveEaseInOut, animations: { () -> Void in*/
         UIView.animateWithDuration(1.5, delay: 0.2, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
-            self.layout["settings"]!["selectShapeSet"]!.view.center.y = ScrnH*(1/4)
+            self.layout["settings"]!["blocks"]!["selectShapeSet"]!.view.center.y = ScrnH*(1/4)
         }, completion: nil)
         UIView.animateWithDuration(1.5, delay: 0.2, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
-            self.layout["settings"]!["selectDifficulty"]!.view.frame.origin.x = 0
+            self.layout["settings"]!["blocks"]!["selectDifficulty"]!.view.frame.origin.x = 0
         }, completion: nil)
     }
     
@@ -35,7 +35,7 @@ class GuessShapeLayoutAction: GuessShapeDefaultLayoutAction {
         UIView.animateWithDuration(1.5, delay: 0.2, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
             self.layout["settings"]!["playButton"]!.view.center.x = ScrnW*0.5
         }, completion: nil)
-    }
+    }*/
     
     override func success() {
         self.layout["hud"]?.showSubview("success")

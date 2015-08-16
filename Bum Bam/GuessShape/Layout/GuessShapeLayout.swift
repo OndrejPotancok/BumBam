@@ -22,7 +22,8 @@ class GuessShapeLayout {
                     return view
                 },
                 subviews: [
-                    "selectShapeSet": MultiLayout(
+                    "blocks": GuessShapeHelper.createSettingsBlocksLayout(),
+                    /*"selectShapeSet": MultiLayout(
                         count: GuessShapeConfigInstance.shapeSets.count,
                         defaultHidden: false,
                         createView: { (prntW, prntH) -> UIView in
@@ -59,8 +60,8 @@ class GuessShapeLayout {
                             button.adjustsImageWhenHighlighted = false
                             return button
                         }, subsubviews: [:]
-                    ),
-                    "playButton": Layout(
+                    ),*/
+                    /*"playButton": Layout(
                         defaultHidden: false,
                         createView: { (prntW, prntH) -> UIView in
                             var squareSize = (prntW-prntW*(168/1080))/3
@@ -72,7 +73,7 @@ class GuessShapeLayout {
                             button.adjustsImageWhenHighlighted = false
                             return button
                         }
-                    ),
+                    ),*/
                     "tempBackground": Layout(
                         defaultHidden: true,
                         createView: { (prntW, prntH) -> UIView in
@@ -128,12 +129,6 @@ class GuessShapeLayout {
                 ])
         ]
     )
-    
-
-
-
-
-
-
-
 }
+
+
