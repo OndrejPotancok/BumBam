@@ -23,85 +23,9 @@ class GuessShapeConfig {
     ]
     
     static var imageNamesPrefix = "GuessShape-"
-    struct ShapeSet {
-        let _gameBackgroundImageName: String
-        var gameBackgroundImageName: String {
-            return GuessShapeConfig.imageNamesPrefix + self._gameBackgroundImageName
-        }
-        var gameBackgroundImage: UIImage? {
-            return UIImage(named: self.gameBackgroundImageName)
-        }
         
-        let _settingsBackgroundImageName: String
-        var settingsBackgroundImageName: String {
-            return GuessShapeConfig.imageNamesPrefix + self._settingsBackgroundImageName
-        }
-        var settingsBackgroundImage: UIImage? {
-            return UIImage(named: self.settingsBackgroundImageName)
-        }
-        
-        let _settingsShapeSetImageName: String
-        var settingsShapeSetImageName: String {
-            return GuessShapeConfig.imageNamesPrefix + self._settingsShapeSetImageName
-        }
-        var settingsShapeSetImage: UIImage? {
-            return UIImage(named: self.settingsShapeSetImageName)
-        }
-        
-        let _settingsDifficultyImageNames: [String]
-        var settingsDifficultyImageNames: [String] {
-            var settingsDifficultyImageNames = [String]()
-            for settingsDifficultyImageName in self._settingsDifficultyImageNames {
-                settingsDifficultyImageNames.append(GuessShapeConfig.imageNamesPrefix + settingsDifficultyImageName)
-            }
-            return settingsDifficultyImageNames
-        }
-        var settingsDifficultyImages: [UIImage?] {
-            var settingsDifficultyImages = [UIImage?]()
-            for settingsDifficultyImageName in self.settingsDifficultyImageNames {
-                settingsDifficultyImages.append(UIImage(named: settingsDifficultyImageName))
-            }
-            return settingsDifficultyImages
-        }
-        
-        let color: UIColor
-        
-        let shapes: [String:[Shape]]
-        
-        init(gameBackgroundImageName: String, settingsBackgroundImageName: String, settingsShapeSetImageName: String, settingsDifficultyImageNames: [String], color: UIColor, shapes: [String:[Shape]]) {
-            self._gameBackgroundImageName = gameBackgroundImageName
-            self._settingsBackgroundImageName = settingsBackgroundImageName
-            self._settingsShapeSetImageName = settingsShapeSetImageName
-            self._settingsDifficultyImageNames = settingsDifficultyImageNames
-            self.color = color
-            self.shapes = shapes
-        }
-    }
-    struct Shape {
-        let _thumbImageName: String
-        var thumbImageName: String {
-            return GuessShapeConfig.imageNamesPrefix + self._thumbImageName
-        }
-        var thumbImage: UIImage? {
-            return UIImage(named: self.thumbImageName)
-        }
-        
-        let _siluetteImageName: String
-        var siluetteImageName: String {
-            return GuessShapeConfig.imageNamesPrefix + self._siluetteImageName
-        }
-        var siluetteImage: UIImage? {
-            return UIImage(named: self.siluetteImageName)
-        }
-        
-        init(thumbImageName: String, siluetteImageName: String) {
-            self._thumbImageName = thumbImageName
-            self._siluetteImageName = siluetteImageName
-        }
-    }
-    
-    static var shapeSets: [ShapeSet] = [
-        ShapeSet(
+    static var shapeSets: [GuessShapeHelper.ShapeSet] = [
+        GuessShapeHelper.ShapeSet(
             gameBackgroundImageName: "backgroundGame",
             settingsBackgroundImageName: "backgroundCars",
             settingsShapeSetImageName: "gameIconCars",
@@ -113,23 +37,23 @@ class GuessShapeConfig {
             color: UIColor(red: 26/255, green: 31/255, blue: 77/255, alpha: 1),
             shapes: [
                 "easy": [
-                    Shape(thumbImageName: "cat", siluetteImageName: "catSiluette"),
-                    Shape(thumbImageName: "dino", siluetteImageName: "dinoSiluette"),
-                    Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluette")
+                    GuessShapeHelper.Shape(thumbImageName: "cat", siluetteImageName: "catSiluette"),
+                    GuessShapeHelper.Shape(thumbImageName: "dino", siluetteImageName: "dinoSiluette"),
+                    GuessShapeHelper.Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluette")
                 ],
                 "medium": [
-                    Shape(thumbImageName: "goat", siluetteImageName: "goatSiluette"),
-                    Shape(thumbImageName: "dino", siluetteImageName: "dinoSiluette"),
-                    Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette")
+                    GuessShapeHelper.Shape(thumbImageName: "goat", siluetteImageName: "goatSiluette"),
+                    GuessShapeHelper.Shape(thumbImageName: "dino", siluetteImageName: "dinoSiluette"),
+                    GuessShapeHelper.Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette")
                 ],
                 "hard": [
-                    Shape(thumbImageName: "cat", siluetteImageName: "catSiluette"),
-                    Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluette"),
-                    Shape(thumbImageName: "monkey", siluetteImageName: "monkeySiluette")
+                    GuessShapeHelper.Shape(thumbImageName: "cat", siluetteImageName: "catSiluette"),
+                    GuessShapeHelper.Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluette"),
+                    GuessShapeHelper.Shape(thumbImageName: "monkey", siluetteImageName: "monkeySiluette")
                 ]
             ]
         ),
-        ShapeSet(
+        GuessShapeHelper.ShapeSet(
             gameBackgroundImageName: "backgroundGame",
             settingsBackgroundImageName: "backgroundShapes",
             settingsShapeSetImageName: "gameIconShapes",
@@ -141,23 +65,23 @@ class GuessShapeConfig {
             color: UIColor(red: 6/255, green: 71/255, blue: 9/255, alpha: 1),
             shapes: [
                 "easy": [
-                    Shape(thumbImageName: "goat", siluetteImageName: "goatSiluette"),
-                    Shape(thumbImageName: "monkey", siluetteImageName: "monkeySiluette"),
-                    Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette")
+                    GuessShapeHelper.Shape(thumbImageName: "goat", siluetteImageName: "goatSiluette"),
+                    GuessShapeHelper.Shape(thumbImageName: "monkey", siluetteImageName: "monkeySiluette"),
+                    GuessShapeHelper.Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette")
                 ],
                 "medium": [
-                    Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette"),
-                    Shape(thumbImageName: "goat", siluetteImageName: "goatSiluette"),
-                    Shape(thumbImageName: "cat", siluetteImageName: "catSiluette")
+                    GuessShapeHelper.Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette"),
+                    GuessShapeHelper.Shape(thumbImageName: "goat", siluetteImageName: "goatSiluette"),
+                    GuessShapeHelper.Shape(thumbImageName: "cat", siluetteImageName: "catSiluette")
                 ],
                 "hard": [
-                    Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluette"),
-                    Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette"),
-                    Shape(thumbImageName: "monkey", siluetteImageName: "monkeySiluette")
+                    GuessShapeHelper.Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluette"),
+                    GuessShapeHelper.Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette"),
+                    GuessShapeHelper.Shape(thumbImageName: "monkey", siluetteImageName: "monkeySiluette")
                 ]
             ]
         ),
-        ShapeSet(
+        GuessShapeHelper.ShapeSet(
             gameBackgroundImageName: "backgroundGame",
             settingsBackgroundImageName: "backgroundAnimals",
             settingsShapeSetImageName: "gameIconAnimals",
@@ -169,191 +93,380 @@ class GuessShapeConfig {
             color: UIColor(red: 115/255, green: 51/255, blue: 51/255, alpha: 1),
             shapes: [
                 "easy": [
-                    Shape(thumbImageName: "bear", siluetteImageName: "bearSiluetteEasy"),
-                    Shape(thumbImageName: "blueFish", siluetteImageName: "blueFishSiluetteEasy"),
-                    Shape(thumbImageName: "buffalo", siluetteImageName: "buffaloSiluetteEasy"),
-                    Shape(thumbImageName: "camel", siluetteImageName: "camelSiluetteEasy"),
-                    Shape(thumbImageName: "cat", siluetteImageName: "catSiluetteEasy"),
-                    Shape(thumbImageName: "cow", siluetteImageName: "cowSiluetteEasy"),
-                    Shape(thumbImageName: "crab", siluetteImageName: "crabSiluetteEasy"),
-                    Shape(thumbImageName: "crocodile", siluetteImageName: "crocodileSiluetteEasy"),
-                    Shape(thumbImageName: "deer", siluetteImageName: "deerSiluetteEasy"),
-                    Shape(thumbImageName: "diodon", siluetteImageName: "diodonSiluetteEasy"),
-                    Shape(thumbImageName: "dog", siluetteImageName: "dogSiluetteEasy"),
-                    Shape(thumbImageName: "dolphin", siluetteImageName: "dolphinSiluetteEasy"),
-                    Shape(thumbImageName: "duck", siluetteImageName: "duckSiluetteEasy"),
-                    Shape(thumbImageName: "elephant", siluetteImageName: "elephantSiluetteEasy"),
-                    Shape(thumbImageName: "flamingo", siluetteImageName: "flamingoSiluetteEasy"),
-                    Shape(thumbImageName: "fox", siluetteImageName: "foxSiluetteEasy"),
-                    Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluetteEasy"),
-                    Shape(thumbImageName: "goat", siluetteImageName: "goatSiluetteEasy"),
-                    Shape(thumbImageName: "goldenFish", siluetteImageName: "goldenFishSiluetteEasy"),
-                    Shape(thumbImageName: "goose", siluetteImageName: "gooseSiluetteEasy"),
-                    Shape(thumbImageName: "hedgehog", siluetteImageName: "hedgehogSiluetteEasy"),
-                    Shape(thumbImageName: "hippo", siluetteImageName: "hippoSiluetteEasy"),
-                    Shape(thumbImageName: "horse", siluetteImageName: "horseSiluetteEasy"),
-                    Shape(thumbImageName: "jib", siluetteImageName: "jibSiluetteEasy"),
-                    Shape(thumbImageName: "kangaroo", siluetteImageName: "kangarooSiluetteEasy"),
-                    Shape(thumbImageName: "lama", siluetteImageName: "lamaSiluetteEasy"),
-                    Shape(thumbImageName: "lion", siluetteImageName: "lionSiluetteEasy"),
-                    Shape(thumbImageName: "octopus", siluetteImageName: "octopusSiluetteEasy"),
-                    Shape(thumbImageName: "octopus2", siluetteImageName: "octopus2SiluetteEasy"),
-                    Shape(thumbImageName: "ostrich", siluetteImageName: "ostrichSiluetteEasy"),
-                    Shape(thumbImageName: "owl", siluetteImageName: "owlSiluetteEasy"),
-                    Shape(thumbImageName: "peacock", siluetteImageName: "peacockSiluetteEasy"),
-                    Shape(thumbImageName: "pig", siluetteImageName: "pigSiluetteEasy"),
-                    Shape(thumbImageName: "pinkFish", siluetteImageName: "pinkFishSiluetteEasy"),
-                    Shape(thumbImageName: "purpleFish", siluetteImageName: "purpleFishSiluetteEasy"),
-                    Shape(thumbImageName: "redFish", siluetteImageName: "redFishSiluetteEasy"),
-                    Shape(thumbImageName: "rhino", siluetteImageName: "rhinoSiluetteEasy"),
-                    Shape(thumbImageName: "seahorse", siluetteImageName: "seahorseSiluetteEasy"),
-                    Shape(thumbImageName: "shark", siluetteImageName: "sharkSiluetteEasy"),
-                    Shape(thumbImageName: "shrimp", siluetteImageName: "shrimpSiluetteEasy"),
-                    Shape(thumbImageName: "snake", siluetteImageName: "snakeSiluetteEasy"),
-                    Shape(thumbImageName: "starFish", siluetteImageName: "starFishSiluetteEasy"),
-                    Shape(thumbImageName: "stork", siluetteImageName: "storkSiluetteEasy"),
-                    Shape(thumbImageName: "tiger", siluetteImageName: "tigerSiluetteEasy"),
-                    Shape(thumbImageName: "toucan", siluetteImageName: "toucanSiluetteEasy"),
-                    Shape(thumbImageName: "turkey", siluetteImageName: "turkeySiluetteEasy"),
-                    Shape(thumbImageName: "turtle", siluetteImageName: "turtleSiluetteEasy"),
-                    Shape(thumbImageName: "wolf", siluetteImageName: "wolfSiluetteEasy"),
-                    Shape(thumbImageName: "yelloeFish", siluetteImageName: "yelloeFishSiluetteEasy"),
-                    Shape(thumbImageName: "zebra", siluetteImageName: "zebraSiluetteEasy")
+                    GuessShapeHelper.Shape(thumbImageName: "bear", siluetteImageName: "bearSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "blueFish", siluetteImageName: "blueFishSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "buffalo", siluetteImageName: "buffaloSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "camel", siluetteImageName: "camelSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "cat", siluetteImageName: "catSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "cow", siluetteImageName: "cowSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "crab", siluetteImageName: "crabSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "crocodile", siluetteImageName: "crocodileSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "deer", siluetteImageName: "deerSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "diodon", siluetteImageName: "diodonSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "dog", siluetteImageName: "dogSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "dolphin", siluetteImageName: "dolphinSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "duck", siluetteImageName: "duckSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "elephant", siluetteImageName: "elephantSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "flamingo", siluetteImageName: "flamingoSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "fox", siluetteImageName: "foxSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "goat", siluetteImageName: "goatSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "goldenFish", siluetteImageName: "goldenFishSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "goose", siluetteImageName: "gooseSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "hedgehog", siluetteImageName: "hedgehogSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "hippo", siluetteImageName: "hippoSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "horse", siluetteImageName: "horseSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "jib", siluetteImageName: "jibSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "kangaroo", siluetteImageName: "kangarooSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "lama", siluetteImageName: "lamaSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "lion", siluetteImageName: "lionSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "octopus", siluetteImageName: "octopusSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "octopus2", siluetteImageName: "octopus2SiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "ostrich", siluetteImageName: "ostrichSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "owl", siluetteImageName: "owlSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "peacock", siluetteImageName: "peacockSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "pig", siluetteImageName: "pigSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "pinkFish", siluetteImageName: "pinkFishSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "purpleFish", siluetteImageName: "purpleFishSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "redFish", siluetteImageName: "redFishSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "rhino", siluetteImageName: "rhinoSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "seahorse", siluetteImageName: "seahorseSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "shark", siluetteImageName: "sharkSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "shrimp", siluetteImageName: "shrimpSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "snake", siluetteImageName: "snakeSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "starFish", siluetteImageName: "starFishSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "stork", siluetteImageName: "storkSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "tiger", siluetteImageName: "tigerSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "toucan", siluetteImageName: "toucanSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "turkey", siluetteImageName: "turkeySiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "turtle", siluetteImageName: "turtleSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "wolf", siluetteImageName: "wolfSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "yelloeFish", siluetteImageName: "yelloeFishSiluetteEasy"),
+                    GuessShapeHelper.Shape(thumbImageName: "zebra", siluetteImageName: "zebraSiluetteEasy")
                 ],
                 "medium": [
-                    Shape(thumbImageName: "bear", siluetteImageName: "bearSiluetteMedium"),
-                    Shape(thumbImageName: "blueFish", siluetteImageName: "blueFishSiluetteMedium"),
-                    Shape(thumbImageName: "buffalo", siluetteImageName: "buffaloSiluetteMedium"),
-                    Shape(thumbImageName: "camel", siluetteImageName: "camelSiluetteMedium"),
-                    Shape(thumbImageName: "cat", siluetteImageName: "catSiluetteMedium"),
-                    Shape(thumbImageName: "cow", siluetteImageName: "cowSiluetteMedium"),
-                    Shape(thumbImageName: "crab", siluetteImageName: "crabSiluetteMedium"),
-                    Shape(thumbImageName: "crocodile", siluetteImageName: "crocodileSiluetteMedium"),
-                    Shape(thumbImageName: "deer", siluetteImageName: "deerSiluetteMedium"),
-                    Shape(thumbImageName: "diodon", siluetteImageName: "diodonSiluetteMedium"),
-                    Shape(thumbImageName: "dog", siluetteImageName: "dogSiluetteMedium"),
-                    Shape(thumbImageName: "dolphin", siluetteImageName: "dolphinSiluetteMedium"),
-                    Shape(thumbImageName: "duck", siluetteImageName: "duckSiluetteMedium"),
-                    Shape(thumbImageName: "elephant", siluetteImageName: "elephantSiluetteMedium"),
-                    Shape(thumbImageName: "flamingo", siluetteImageName: "flamingoSiluetteMedium"),
-                    Shape(thumbImageName: "fox", siluetteImageName: "foxSiluetteMedium"),
-                    Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluetteMedium"),
-                    Shape(thumbImageName: "goat", siluetteImageName: "goatSiluetteMedium"),
-                    Shape(thumbImageName: "goldenFish", siluetteImageName: "goldenFishSiluetteMedium"),
-                    Shape(thumbImageName: "goose", siluetteImageName: "gooseSiluetteMedium"),
-                    Shape(thumbImageName: "hedgehog", siluetteImageName: "hedgehogSiluetteMedium"),
-                    Shape(thumbImageName: "hippo", siluetteImageName: "hippoSiluetteMedium"),
-                    Shape(thumbImageName: "horse", siluetteImageName: "horseSiluetteMedium"),
-                    Shape(thumbImageName: "jib", siluetteImageName: "jibSiluetteMedium"),
-                    Shape(thumbImageName: "kangaroo", siluetteImageName: "kangarooSiluetteMedium"),
-                    Shape(thumbImageName: "lama", siluetteImageName: "lamaSiluetteMedium"),
-                    Shape(thumbImageName: "lion", siluetteImageName: "lionSiluetteMedium"),
-                    Shape(thumbImageName: "octopus", siluetteImageName: "octopusSiluetteMedium"),
-                    Shape(thumbImageName: "octopus2", siluetteImageName: "octopus2SiluetteMedium"),
-                    Shape(thumbImageName: "ostrich", siluetteImageName: "ostrichSiluetteMedium"),
-                    Shape(thumbImageName: "owl", siluetteImageName: "owlSiluetteMedium"),
-                    Shape(thumbImageName: "peacock", siluetteImageName: "peacockSiluetteMedium"),
-                    Shape(thumbImageName: "pig", siluetteImageName: "pigSiluetteMedium"),
-                    Shape(thumbImageName: "pinkFish", siluetteImageName: "pinkFishSiluetteMedium"),
-                    Shape(thumbImageName: "purpleFish", siluetteImageName: "purpleFishSiluetteMedium"),
-                    Shape(thumbImageName: "redFish", siluetteImageName: "redFishSiluetteMedium"),
-                    Shape(thumbImageName: "rhino", siluetteImageName: "rhinoSiluetteMedium"),
-                    Shape(thumbImageName: "seahorse", siluetteImageName: "seahorseSiluetteMedium"),
-                    Shape(thumbImageName: "shark", siluetteImageName: "sharkSiluetteMedium"),
-                    Shape(thumbImageName: "shrimp", siluetteImageName: "shrimpSiluetteMedium"),
-                    Shape(thumbImageName: "snake", siluetteImageName: "snakeSiluetteMedium"),
-                    Shape(thumbImageName: "starFish", siluetteImageName: "starFishSiluetteMedium"),
-                    Shape(thumbImageName: "stork", siluetteImageName: "storkSiluetteMedium"),
-                    Shape(thumbImageName: "tiger", siluetteImageName: "tigerSiluetteMedium"),
-                    Shape(thumbImageName: "toucan", siluetteImageName: "toucanSiluetteMedium"),
-                    Shape(thumbImageName: "turkey", siluetteImageName: "turkeySiluetteMedium"),
-                    Shape(thumbImageName: "turtle", siluetteImageName: "turtleSiluetteMedium"),
-                    Shape(thumbImageName: "wolf", siluetteImageName: "wolfSiluetteMedium"),
-                    Shape(thumbImageName: "yelloeFish", siluetteImageName: "yelloeFishSiluetteMedium"),
-                    Shape(thumbImageName: "zebra", siluetteImageName: "zebraSiluetteMedium")
+                    GuessShapeHelper.Shape(thumbImageName: "bear", siluetteImageName: "bearSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "blueFish", siluetteImageName: "blueFishSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "buffalo", siluetteImageName: "buffaloSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "camel", siluetteImageName: "camelSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "cat", siluetteImageName: "catSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "cow", siluetteImageName: "cowSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "crab", siluetteImageName: "crabSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "crocodile", siluetteImageName: "crocodileSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "deer", siluetteImageName: "deerSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "diodon", siluetteImageName: "diodonSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "dog", siluetteImageName: "dogSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "dolphin", siluetteImageName: "dolphinSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "duck", siluetteImageName: "duckSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "elephant", siluetteImageName: "elephantSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "flamingo", siluetteImageName: "flamingoSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "fox", siluetteImageName: "foxSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "goat", siluetteImageName: "goatSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "goldenFish", siluetteImageName: "goldenFishSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "goose", siluetteImageName: "gooseSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "hedgehog", siluetteImageName: "hedgehogSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "hippo", siluetteImageName: "hippoSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "horse", siluetteImageName: "horseSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "jib", siluetteImageName: "jibSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "kangaroo", siluetteImageName: "kangarooSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "lama", siluetteImageName: "lamaSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "lion", siluetteImageName: "lionSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "octopus", siluetteImageName: "octopusSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "octopus2", siluetteImageName: "octopus2SiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "ostrich", siluetteImageName: "ostrichSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "owl", siluetteImageName: "owlSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "peacock", siluetteImageName: "peacockSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "pig", siluetteImageName: "pigSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "pinkFish", siluetteImageName: "pinkFishSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "purpleFish", siluetteImageName: "purpleFishSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "redFish", siluetteImageName: "redFishSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "rhino", siluetteImageName: "rhinoSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "seahorse", siluetteImageName: "seahorseSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "shark", siluetteImageName: "sharkSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "shrimp", siluetteImageName: "shrimpSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "snake", siluetteImageName: "snakeSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "starFish", siluetteImageName: "starFishSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "stork", siluetteImageName: "storkSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "tiger", siluetteImageName: "tigerSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "toucan", siluetteImageName: "toucanSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "turkey", siluetteImageName: "turkeySiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "turtle", siluetteImageName: "turtleSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "wolf", siluetteImageName: "wolfSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "yelloeFish", siluetteImageName: "yelloeFishSiluetteMedium"),
+                    GuessShapeHelper.Shape(thumbImageName: "zebra", siluetteImageName: "zebraSiluetteMedium")
                 ],
                 "hard": [
-                    Shape(thumbImageName: "bear", siluetteImageName: "bearSiluetteHard"),
-                    Shape(thumbImageName: "blueFish", siluetteImageName: "blueFishSiluetteHard"),
-                    Shape(thumbImageName: "buffalo", siluetteImageName: "buffaloSiluetteHard"),
-                    Shape(thumbImageName: "camel", siluetteImageName: "camelSiluetteHard"),
-                    Shape(thumbImageName: "cat", siluetteImageName: "catSiluetteHard"),
-                    Shape(thumbImageName: "cow", siluetteImageName: "cowSiluetteHard"),
-                    Shape(thumbImageName: "crab", siluetteImageName: "crabSiluetteHard"),
-                    Shape(thumbImageName: "crocodile", siluetteImageName: "crocodileSiluetteHard"),
-                    Shape(thumbImageName: "deer", siluetteImageName: "deerSiluetteHard"),
-                    Shape(thumbImageName: "diodon", siluetteImageName: "diodonSiluetteHard"),
-                    Shape(thumbImageName: "dog", siluetteImageName: "dogSiluetteHard"),
-                    Shape(thumbImageName: "dolphin", siluetteImageName: "dolphinSiluetteHard"),
-                    Shape(thumbImageName: "duck", siluetteImageName: "duckSiluetteHard"),
-                    Shape(thumbImageName: "elephant", siluetteImageName: "elephantSiluetteHard"),
-                    Shape(thumbImageName: "flamingo", siluetteImageName: "flamingoSiluetteHard"),
-                    Shape(thumbImageName: "fox", siluetteImageName: "foxSiluetteHard"),
-                    Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluetteHard"),
-                    Shape(thumbImageName: "goat", siluetteImageName: "goatSiluetteHard"),
-                    Shape(thumbImageName: "goldenFish", siluetteImageName: "goldenFishSiluetteHard"),
-                    Shape(thumbImageName: "goose", siluetteImageName: "gooseSiluetteHard"),
-                    Shape(thumbImageName: "hedgehog", siluetteImageName: "hedgehogSiluetteHard"),
-                    Shape(thumbImageName: "hippo", siluetteImageName: "hippoSiluetteHard"),
-                    Shape(thumbImageName: "horse", siluetteImageName: "horseSiluetteHard"),
-                    Shape(thumbImageName: "jib", siluetteImageName: "jibSiluetteHard"),
-                    Shape(thumbImageName: "kangaroo", siluetteImageName: "kangarooSiluetteHard"),
-                    Shape(thumbImageName: "lama", siluetteImageName: "lamaSiluetteHard"),
-                    Shape(thumbImageName: "lion", siluetteImageName: "lionSiluetteHard"),
-                    Shape(thumbImageName: "octopus", siluetteImageName: "octopusSiluetteHard"),
-                    Shape(thumbImageName: "octopus2", siluetteImageName: "octopus2SiluetteHard"),
-                    Shape(thumbImageName: "ostrich", siluetteImageName: "ostrichSiluetteHard"),
-                    Shape(thumbImageName: "owl", siluetteImageName: "owlSiluetteHard"),
-                    Shape(thumbImageName: "peacock", siluetteImageName: "peacockSiluetteHard"),
-                    Shape(thumbImageName: "pig", siluetteImageName: "pigSiluetteHard"),
-                    Shape(thumbImageName: "pinkFish", siluetteImageName: "pinkFishSiluetteHard"),
-                    Shape(thumbImageName: "purpleFish", siluetteImageName: "purpleFishSiluetteHard"),
-                    Shape(thumbImageName: "redFish", siluetteImageName: "redFishSiluetteHard"),
-                    Shape(thumbImageName: "rhino", siluetteImageName: "rhinoSiluetteHard"),
-                    Shape(thumbImageName: "seahorse", siluetteImageName: "seahorseSiluetteHard"),
-                    Shape(thumbImageName: "shark", siluetteImageName: "sharkSiluetteHard"),
-                    Shape(thumbImageName: "shrimp", siluetteImageName: "shrimpSiluetteHard"),
-                    Shape(thumbImageName: "snake", siluetteImageName: "snakeSiluetteHard"),
-                    Shape(thumbImageName: "starFish", siluetteImageName: "starFishSiluetteHard"),
-                    Shape(thumbImageName: "stork", siluetteImageName: "storkSiluetteHard"),
-                    Shape(thumbImageName: "tiger", siluetteImageName: "tigerSiluetteHard"),
-                    Shape(thumbImageName: "toucan", siluetteImageName: "toucanSiluetteHard"),
-                    Shape(thumbImageName: "turkey", siluetteImageName: "turkeySiluetteHard"),
-                    Shape(thumbImageName: "turtle", siluetteImageName: "turtleSiluetteHard"),
-                    Shape(thumbImageName: "wolf", siluetteImageName: "wolfSiluetteHard"),
-                    Shape(thumbImageName: "yelloeFish", siluetteImageName: "yelloeFishSiluetteHard"),
-                    Shape(thumbImageName: "zebra", siluetteImageName: "zebraSiluetteHard")
+                    GuessShapeHelper.Shape(thumbImageName: "bear", siluetteImageName: "bearSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "blueFish", siluetteImageName: "blueFishSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "buffalo", siluetteImageName: "buffaloSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "camel", siluetteImageName: "camelSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "cat", siluetteImageName: "catSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "cow", siluetteImageName: "cowSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "crab", siluetteImageName: "crabSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "crocodile", siluetteImageName: "crocodileSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "deer", siluetteImageName: "deerSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "diodon", siluetteImageName: "diodonSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "dog", siluetteImageName: "dogSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "dolphin", siluetteImageName: "dolphinSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "duck", siluetteImageName: "duckSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "elephant", siluetteImageName: "elephantSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "flamingo", siluetteImageName: "flamingoSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "fox", siluetteImageName: "foxSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "goat", siluetteImageName: "goatSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "goldenFish", siluetteImageName: "goldenFishSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "goose", siluetteImageName: "gooseSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "hedgehog", siluetteImageName: "hedgehogSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "hippo", siluetteImageName: "hippoSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "horse", siluetteImageName: "horseSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "jib", siluetteImageName: "jibSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "kangaroo", siluetteImageName: "kangarooSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "lama", siluetteImageName: "lamaSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "lion", siluetteImageName: "lionSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "octopus", siluetteImageName: "octopusSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "octopus2", siluetteImageName: "octopus2SiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "ostrich", siluetteImageName: "ostrichSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "owl", siluetteImageName: "owlSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "peacock", siluetteImageName: "peacockSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "pig", siluetteImageName: "pigSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "pinkFish", siluetteImageName: "pinkFishSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "purpleFish", siluetteImageName: "purpleFishSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "redFish", siluetteImageName: "redFishSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "rhino", siluetteImageName: "rhinoSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "seahorse", siluetteImageName: "seahorseSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "shark", siluetteImageName: "sharkSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "shrimp", siluetteImageName: "shrimpSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "snake", siluetteImageName: "snakeSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "starFish", siluetteImageName: "starFishSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "stork", siluetteImageName: "storkSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "tiger", siluetteImageName: "tigerSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "toucan", siluetteImageName: "toucanSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "turkey", siluetteImageName: "turkeySiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "turtle", siluetteImageName: "turtleSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "wolf", siluetteImageName: "wolfSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "yelloeFish", siluetteImageName: "yelloeFishSiluetteHard"),
+                    GuessShapeHelper.Shape(thumbImageName: "zebra", siluetteImageName: "zebraSiluetteHard")
                 ]
             ]
         ),
-        ShapeSet(
-            gameBackgroundImageName: "backgroundGame",
+        GuessShapeHelper.ShapeSet(
             settingsBackgroundImageName: "backgroundAnimals",
             settingsShapeSetImageName: "gameIconAnimals",
-            settingsDifficultyImageNames: [
-                "diffEasy",
-                "diffMedium",
-                "diffHard"
-            ],
-            color: UIColor(red: 115/255, green: 51/255, blue: 51/255, alpha: 1),
-            shapes: [
-                "easy": [
-                    Shape(thumbImageName: "goat", siluetteImageName: "goatSiluette"),
-                    Shape(thumbImageName: "monkey", siluetteImageName: "monkeySiluette"),
-                    Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette")
-                ],
-                "medium": [
-                    Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette"),
-                    Shape(thumbImageName: "goat", siluetteImageName: "goatSiluette"),
-                    Shape(thumbImageName: "cat", siluetteImageName: "catSiluette")
-                ],
-                "hard": [
-                    Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluette"),
-                    Shape(thumbImageName: "sheep", siluetteImageName: "sheepSiluette"),
-                    Shape(thumbImageName: "monkey", siluetteImageName: "monkeySiluette")
-                ]
-            ]
-        )
+            color: UIColor(red: 66/255, green: 31/255, blue: 35/255, alpha: 1),
+            shapeSubSets: [
+                GuessShapeHelper.ShapeSubSet(
+                    gameBackgroundImageName: "backgroundGame",
+                    settingsBackgroundImageName: "backgroundAnimalsGround",
+                    settingsShapeSubSetImageName: "gameIconAnimalsGround",
+                    settingsDifficultyImageNames: [
+                        "diffEasy",
+                        "diffMedium",
+                        "diffHard"
+                    ],
+                    color: UIColor(red: 64/255, green: 38/255, blue: 16/255, alpha: 1),
+                    shapes: [
+                        "easy": [
+                            GuessShapeHelper.Shape(thumbImageName: "bear", siluetteImageName: "bearSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "buffalo", siluetteImageName: "buffaloSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "camel", siluetteImageName: "camelSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "cat", siluetteImageName: "catSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "cow", siluetteImageName: "cowSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "crocodile", siluetteImageName: "crocodileSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "deer", siluetteImageName: "deerSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "dog", siluetteImageName: "dogSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "duck", siluetteImageName: "duckSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "elephant", siluetteImageName: "elephantSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "flamingo", siluetteImageName: "flamingoSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "fox", siluetteImageName: "foxSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "goat", siluetteImageName: "goatSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "goose", siluetteImageName: "gooseSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "hedgehog", siluetteImageName: "hedgehogSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "hippo", siluetteImageName: "hippoSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "horse", siluetteImageName: "horseSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "kangaroo", siluetteImageName: "kangarooSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "lama", siluetteImageName: "lamaSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "lion", siluetteImageName: "lionSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "ostrich", siluetteImageName: "ostrichSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "owl", siluetteImageName: "owlSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "peacock", siluetteImageName: "peacockSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "pig", siluetteImageName: "pigSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "rhino", siluetteImageName: "rhinoSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "snake", siluetteImageName: "snakeSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "stork", siluetteImageName: "storkSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "tiger", siluetteImageName: "tigerSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "toucan", siluetteImageName: "toucanSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "turkey", siluetteImageName: "turkeySiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "wolf", siluetteImageName: "wolfSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "zebra", siluetteImageName: "zebraSiluetteEasy")
+                        ],
+                        "medium": [
+                            GuessShapeHelper.Shape(thumbImageName: "bear", siluetteImageName: "bearSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "buffalo", siluetteImageName: "buffaloSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "camel", siluetteImageName: "camelSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "cat", siluetteImageName: "catSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "cow", siluetteImageName: "cowSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "crocodile", siluetteImageName: "crocodileSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "deer", siluetteImageName: "deerSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "dog", siluetteImageName: "dogSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "duck", siluetteImageName: "duckSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "elephant", siluetteImageName: "elephantSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "flamingo", siluetteImageName: "flamingoSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "fox", siluetteImageName: "foxSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "goat", siluetteImageName: "goatSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "goose", siluetteImageName: "gooseSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "hedgehog", siluetteImageName: "hedgehogSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "hippo", siluetteImageName: "hippoSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "horse", siluetteImageName: "horseSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "kangaroo", siluetteImageName: "kangarooSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "lama", siluetteImageName: "lamaSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "lion", siluetteImageName: "lionSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "ostrich", siluetteImageName: "ostrichSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "owl", siluetteImageName: "owlSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "peacock", siluetteImageName: "peacockSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "pig", siluetteImageName: "pigSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "rhino", siluetteImageName: "rhinoSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "snake", siluetteImageName: "snakeSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "stork", siluetteImageName: "storkSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "tiger", siluetteImageName: "tigerSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "toucan", siluetteImageName: "toucanSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "turkey", siluetteImageName: "turkeySiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "wolf", siluetteImageName: "wolfSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "zebra", siluetteImageName: "zebraSiluetteMedium")
+                        ],
+                        "hard": [
+                            GuessShapeHelper.Shape(thumbImageName: "bear", siluetteImageName: "bearSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "blueFish", siluetteImageName: "blueFishSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "buffalo", siluetteImageName: "buffaloSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "camel", siluetteImageName: "camelSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "cat", siluetteImageName: "catSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "cow", siluetteImageName: "cowSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "crab", siluetteImageName: "crabSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "crocodile", siluetteImageName: "crocodileSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "deer", siluetteImageName: "deerSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "diodon", siluetteImageName: "diodonSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "dog", siluetteImageName: "dogSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "dolphin", siluetteImageName: "dolphinSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "duck", siluetteImageName: "duckSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "elephant", siluetteImageName: "elephantSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "flamingo", siluetteImageName: "flamingoSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "fox", siluetteImageName: "foxSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "giraffe", siluetteImageName: "giraffeSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "goat", siluetteImageName: "goatSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "goldenFish", siluetteImageName: "goldenFishSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "goose", siluetteImageName: "gooseSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "hedgehog", siluetteImageName: "hedgehogSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "hippo", siluetteImageName: "hippoSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "horse", siluetteImageName: "horseSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "jib", siluetteImageName: "jibSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "kangaroo", siluetteImageName: "kangarooSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "lama", siluetteImageName: "lamaSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "lion", siluetteImageName: "lionSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "octopus", siluetteImageName: "octopusSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "octopus2", siluetteImageName: "octopus2SiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "ostrich", siluetteImageName: "ostrichSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "owl", siluetteImageName: "owlSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "peacock", siluetteImageName: "peacockSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "pig", siluetteImageName: "pigSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "pinkFish", siluetteImageName: "pinkFishSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "purpleFish", siluetteImageName: "purpleFishSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "redFish", siluetteImageName: "redFishSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "rhino", siluetteImageName: "rhinoSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "seahorse", siluetteImageName: "seahorseSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "shark", siluetteImageName: "sharkSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "shrimp", siluetteImageName: "shrimpSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "snake", siluetteImageName: "snakeSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "starFish", siluetteImageName: "starFishSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "stork", siluetteImageName: "storkSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "tiger", siluetteImageName: "tigerSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "toucan", siluetteImageName: "toucanSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "turkey", siluetteImageName: "turkeySiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "turtle", siluetteImageName: "turtleSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "wolf", siluetteImageName: "wolfSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "yelloeFish", siluetteImageName: "yelloeFishSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "zebra", siluetteImageName: "zebraSiluetteHard")
+                        ]
+
+                    ]
+                ),
+                GuessShapeHelper.ShapeSubSet(
+                    gameBackgroundImageName: "backgroundGame",
+                    settingsBackgroundImageName: "backgroundAnimalsWater",
+                    settingsShapeSubSetImageName: "gameIconAnimalsWater",
+                    settingsDifficultyImageNames: [
+                        "diffEasy",
+                        "diffMedium",
+                        "diffHard"
+                    ],
+                    color: UIColor(red: 16/255, green: 56/255, blue: 64/255, alpha: 1),
+                    shapes: [
+                        "easy": [
+                            GuessShapeHelper.Shape(thumbImageName: "blueFish", siluetteImageName: "blueFishSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "crab", siluetteImageName: "crabSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "diodon", siluetteImageName: "diodonSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "dolphin", siluetteImageName: "dolphinSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "goldenFish", siluetteImageName: "goldenFishSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "jib", siluetteImageName: "jibSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "octopus", siluetteImageName: "octopusSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "octopus2", siluetteImageName: "octopus2SiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "pinkFish", siluetteImageName: "pinkFishSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "purpleFish", siluetteImageName: "purpleFishSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "redFish", siluetteImageName: "redFishSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "seahorse", siluetteImageName: "seahorseSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "shark", siluetteImageName: "sharkSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "shrimp", siluetteImageName: "shrimpSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "starFish", siluetteImageName: "starFishSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "turtle", siluetteImageName: "turtleSiluetteEasy"),
+                            GuessShapeHelper.Shape(thumbImageName: "yelloeFish", siluetteImageName: "yelloeFishSiluetteEasy"),
+                        ],
+                        "medium": [
+                            GuessShapeHelper.Shape(thumbImageName: "blueFish", siluetteImageName: "blueFishSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "crab", siluetteImageName: "crabSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "diodon", siluetteImageName: "diodonSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "dolphin", siluetteImageName: "dolphinSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "goldenFish", siluetteImageName: "goldenFishSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "jib", siluetteImageName: "jibSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "octopus", siluetteImageName: "octopusSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "octopus2", siluetteImageName: "octopus2SiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "pinkFish", siluetteImageName: "pinkFishSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "purpleFish", siluetteImageName: "purpleFishSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "redFish", siluetteImageName: "redFishSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "seahorse", siluetteImageName: "seahorseSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "shark", siluetteImageName: "sharkSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "shrimp", siluetteImageName: "shrimpSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "starFish", siluetteImageName: "starFishSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "turtle", siluetteImageName: "turtleSiluetteMedium"),
+                            GuessShapeHelper.Shape(thumbImageName: "yelloeFish", siluetteImageName: "yelloeFishSiluetteMedium"),
+                        ],
+                        "hard": [
+                            GuessShapeHelper.Shape(thumbImageName: "blueFish", siluetteImageName: "blueFishSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "crab", siluetteImageName: "crabSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "diodon", siluetteImageName: "diodonSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "dolphin", siluetteImageName: "dolphinSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "goldenFish", siluetteImageName: "goldenFishSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "jib", siluetteImageName: "jibSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "octopus", siluetteImageName: "octopusSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "octopus2", siluetteImageName: "octopus2SiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "pinkFish", siluetteImageName: "pinkFishSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "purpleFish", siluetteImageName: "purpleFishSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "redFish", siluetteImageName: "redFishSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "seahorse", siluetteImageName: "seahorseSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "shark", siluetteImageName: "sharkSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "shrimp", siluetteImageName: "shrimpSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "starFish", siluetteImageName: "starFishSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "turtle", siluetteImageName: "turtleSiluetteHard"),
+                            GuessShapeHelper.Shape(thumbImageName: "yelloeFish", siluetteImageName: "yelloeFishSiluetteHard"),
+                        ]
+                    ]
+                ),
+            ])
         
     ]
 }
+
+
+
+
+

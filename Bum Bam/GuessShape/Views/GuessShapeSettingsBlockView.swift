@@ -63,7 +63,6 @@ class GuessShapeSettingsBlockView: UIScrollView {
     }
     
     func hide(delay1: Double, completion: GuessShapeHelper.ClosureClass!) -> Bool{
-        //println("hiding \(self.name) with delay \(delay1)")
         var duration: Double = 0.3
         if self.shown == false {
             if completion != nil {
@@ -80,7 +79,6 @@ class GuessShapeSettingsBlockView: UIScrollView {
                 completion.execute()
             }
         }
-        self.selectedIndex = -1
         self.shown = false
         return true
     }
