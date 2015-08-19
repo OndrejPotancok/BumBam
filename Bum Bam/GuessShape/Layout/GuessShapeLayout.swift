@@ -23,57 +23,6 @@ class GuessShapeLayout {
                 },
                 subviews: [
                     "blocks": GuessShapeHelper.createSettingsBlocksLayout(),
-                    /*"selectShapeSet": MultiLayout(
-                        count: GuessShapeConfigInstance.shapeSets.count,
-                        defaultHidden: false,
-                        createView: { (prntW, prntH) -> UIView in
-                            var squareSize = (prntW-prntW*(168/1080))/3
-                            var view = UIScrollView(frame: CGRect(centerx: prntW*1.5, centery: prntH*0.5, width: prntW, height: squareSize))
-                            view.contentSize = CGSize(width: max(prntW, squareSize*CGFloat(GuessShapeConfigInstance.shapeSets.count)+prntW*(168/1080)), height: squareSize)
-                            view.autoresizingMask = UIViewAutoresizing.FlexibleWidth
-                            view.panGestureRecognizer.delaysTouchesBegan = view.delaysContentTouches
-                            return view
-                        },
-                        createSubview: { (id, count, prntW, prntH) -> UIView in
-                            var squareSize = (prntW-prntW*(168/1080))/3
-                            var imageSize = squareSize*(207/305)
-                            var button = SelectShapeSetButton()
-                            button.frame = CGRect(centerx: (id+0.5)*squareSize+prntW*(84/1080), centery: squareSize*0.5, width: imageSize, height: imageSize)
-                            button.setImage(GuessShapeConfigInstance.shapeSets[Int(id)].settingsShapeSetImage!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: .Normal)
-                            button.adjustsImageWhenHighlighted = false
-                            button.tintColor = UIColor(red: 182/255, green: 139/255, blue: 55/255, alpha: 1)
-                            return button
-                        },
-                        subsubviews: [:]
-                    ),
-                    "selectDifficulty": MultiLayout(
-                        count: 3,
-                        defaultHidden: false,
-                        createView: { (prntW, prntH) -> UIView in
-                            var view = UIView(frame: CGRect(centerx: prntW*1.5, centery: prntH*0.5, width: prntW, height: (prntW-prntW*(168/1080))/3))
-                            return view
-                        }, createSubview: { (id, count, prntW, prntH) -> UIView in
-                            var squareSize = (prntW-prntW*(168/1080))/3
-                            var imageSize = squareSize*(207/305)
-                            var button = SelectDifficultyButton()
-                            button.frame = CGRect(centerx: (id+0.5)*squareSize+prntW*(84/1080), centery: squareSize*0.5, width: imageSize, height: imageSize)
-                            button.adjustsImageWhenHighlighted = false
-                            return button
-                        }, subsubviews: [:]
-                    ),*/
-                    /*"playButton": Layout(
-                        defaultHidden: false,
-                        createView: { (prntW, prntH) -> UIView in
-                            var squareSize = (prntW-prntW*(168/1080))/3
-                            var imageSize = squareSize*(207/305)*1.5
-                            var button = UIButton()
-                            button.frame = CGRect(centerx: prntW*1.5, centery: prntH*(3/4), width: imageSize, height: imageSize)
-                            button.setImage(UIImage(named: "GuessShape-playButton")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
-                            button.tintColor = UIColor.whiteColor()
-                            button.adjustsImageWhenHighlighted = false
-                            return button
-                        }
-                    ),*/
                     "tempBackground": Layout(
                         defaultHidden: true,
                         createView: { (prntW, prntH) -> UIView in
