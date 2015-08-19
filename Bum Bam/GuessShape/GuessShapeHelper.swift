@@ -14,7 +14,6 @@ class GuessShapeHelper {
     struct SettingsBlock {
         var name: String
         var subviewsCount: Int
-        var toDisplay: Bool = true
         
         init(name: String, subviewsCount: Int) {
             self.name = name
@@ -58,6 +57,16 @@ class GuessShapeHelper {
         
         return Layout(subviews: subviews)
         
+    }
+    
+    class ClosureClass {
+        var execute: () -> ()
+        init(closure: () -> ()) {
+            self.execute = closure
+        }
+        func change(closure: () -> ()) {
+            self.execute = closure
+        }
     }
     
 }

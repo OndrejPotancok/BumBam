@@ -17,7 +17,6 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
     var settingsLayout: Layout!
     var settingsView: UIImageView!
     var settingsBlocksLayout: Layout!
-    var settingsBlocks = GuessShapeConfig.defaultSettingsBlocks
     /*var selectShapeSetLayout: Layout!
     var selectedShapeSet: Int = -1
     var selectDifficultyLayout: Layout!
@@ -42,7 +41,7 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
         self.settingsView = self.settingsLayout.view as! UIImageView
         
         self.settingsBlocksLayout = self.settingsLayout["blocks"]
-        for settingsBlock in self.settingsBlocks {
+        for settingsBlock in GuessShapeConfig.defaultSettingsBlocks {
             for settingsBlockButtonLayout in self.settingsBlocksLayout[settingsBlock.name]!.subviews.values {
                 (settingsBlockButtonLayout.view as! GuessShapeSettingsBlockButton).addTarget(self, action: "settingsBlockButtonPressed:", forControlEvents: .TouchUpInside)
             }
@@ -92,7 +91,7 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
             color = UIColor(red: 182/255, green: 139/255, blue: 55/255, alpha: 1)
             image = UIImage(named: "GuessShape-backgroundDefault")
         }
-        for settingsBlock in self.settingsBlocks {
+        for settingsBlock in GuessShapeConfig.defaultSettingsBlocks {
             for (id,settingsBlockButtonLayout) in self.settingsBlocksLayout[settingsBlock.name]!.subviews {
                 if id != String((self.settingsBlocksLayout[settingsBlock.name]!.view as! GuessShapeSettingsBlockView).selectedIndex){
                     settingsBlockButtonLayout.view.tintColor = color
@@ -110,6 +109,7 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
             UIView.animateWithDuration(0.7, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
                 tempBackgroundView.alpha = 1
                 }, completion: { (a) -> Void in
+                    println(a)
                     self.settingsView.image = tempBackgroundView.image
                     self.settingsLayout.hideSubview("tempBackground")
             })
@@ -118,14 +118,13 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
     
     func refreshSettings(lastSelectedBlockName: String!) {
         var foundLastSelectedBlock = lastSelectedBlockName != nil ? false : true
-        var foundNewBlock = false
         
         var blocksCount: Int = 0
         var countToHide: Int = 0
-        for settingsBlock in self.settingsBlocks {
+        for settingsBlock in GuessShapeConfig.defaultSettingsBlocks {
             var settingsBlockLayout = self.settingsBlocksLayout[settingsBlock.name]!
             var settingsBlockView = settingsBlockLayout.view as! GuessShapeSettingsBlockView
-            if settingsBlock.toDisplay == true {
+            if settingsBlockView.toShow == true {
                 blocksCount++
             }
             if foundLastSelectedBlock == false {
@@ -139,27 +138,36 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
             }
             
         }
-
+        
         foundLastSelectedBlock = lastSelectedBlockName != nil ? false : true
-        foundNewBlock = false
+        var foundNewBlock = false
+        var foundFirstBlockToHide = false
         
         var blockYcentersDifferenceCoeff: CGFloat = (1/CGFloat(blocksCount+1))
         var blockYcenter = blockYcentersDifferenceCoeff*ScrnH
-        for settingsBlock in self.settingsBlocks {
+        var leftCountToHide = countToHide
+        var newBlockRefresh = GuessShapeHelper.ClosureClass {}
+        for settingsBlock in GuessShapeConfig.defaultSettingsBlocks {
             var settingsBlockLayout = self.settingsBlocksLayout[settingsBlock.name]!
             var settingsBlockView = settingsBlockLayout.view as! GuessShapeSettingsBlockView
-            if foundLastSelectedBlock == false {
-                settingsBlockView.moveToY(blockYcenter, delay: 0, completion: nil)
+            if foundLastSelectedBlock == false && settingsBlockView.toShow == true {
+                settingsBlockView.moveToY(blockYcenter, delay: Double(countToHide)*0.3, completion: nil)
+                blockYcenter += blockYcentersDifferenceCoeff*ScrnH
                 if settingsBlockView.name == lastSelectedBlockName {
                     foundLastSelectedBlock = true
                 }
-            } else if foundNewBlock == false {
+                continue
+            } else if foundNewBlock == false && settingsBlockView.toShow == true {
                 var tempBlockYcenter = blockYcenter
-                var completion: () -> () = {
+                newBlockRefresh.change {
                     switch settingsBlock.name {
                     case "selectShapeSet":
                         for index in 0..<settingsBlock.subviewsCount {
                             (settingsBlockLayout["\(index)"]!.view as! UIButton).setImage(GuessShapeConfig.shapeSets[index].settingsShapeSetImage!.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+                        }
+                    case "selectShapeSubSet":
+                        for index in 0..<settingsBlock.subviewsCount {
+                            (settingsBlockLayout["\(index)"]!.view as! UIButton).setImage(UIImage(named: "GuessShape-diffMedium")!.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
                         }
                     case "selectDifficulty":
                         var selectedShapeSetIndex = (self.settingsBlocksLayout["selectShapeSet"]!.view as! GuessShapeSettingsBlockView).selectedIndex
@@ -174,18 +182,21 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
                     }
                     self.updateSettingsColor()
                     settingsBlockView.show(max(tempBlockYcenter, ScrnH*0.5), delay: 0, completion: nil)
-                }
-                if settingsBlock.name != "playButton" {
-                    settingsBlockView.hide(Double(countToHide)*0.2, completion: completion)
-                } else {
-                    completion()
+                    blockYcenter += blockYcentersDifferenceCoeff*ScrnH
                 }
                 foundNewBlock = true
-            } else {
-                settingsBlockView.hide(Double(countToHide)*0.2, completion: nil)
             }
-            blockYcenter += blockYcentersDifferenceCoeff*ScrnH
-            countToHide--
+            if  true {
+                var completion: GuessShapeHelper.ClosureClass! = nil
+                if foundFirstBlockToHide == false && (settingsBlockView.shown == true || countToHide == 0) {
+                    completion = newBlockRefresh
+                    foundFirstBlockToHide = true
+                    println("now")
+                }
+                if settingsBlockView.hide(Double(leftCountToHide-1)*0.3, completion: completion) == true {
+                    leftCountToHide--
+                }
+            }
         }
     }
     
@@ -199,6 +210,13 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
             return
         }
         blockView.selectedIndex = sender.index
+        if blockView.name == "selectShapeSet" {
+            if sender.index == 2 {
+                (self.settingsBlocksLayout["selectShapeSubSet"]!.view as! GuessShapeSettingsBlockView).toShow = true
+            } else {
+                (self.settingsBlocksLayout["selectShapeSubSet"]!.view as! GuessShapeSettingsBlockView).toShow = false
+            }
+        }
         self.refreshSettings(blockView.name)
     }
     

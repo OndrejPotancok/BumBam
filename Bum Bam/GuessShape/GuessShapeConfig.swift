@@ -17,6 +17,7 @@ class GuessShapeConfig {
     
     static var defaultSettingsBlocks: [GuessShapeHelper.SettingsBlock] = [
         GuessShapeHelper.SettingsBlock(name: "selectShapeSet", subviewsCount: GuessShapeConfig.shapeSets.count),
+        GuessShapeHelper.SettingsBlock(name: "selectShapeSubSet", subviewsCount: 2),
         GuessShapeHelper.SettingsBlock(name: "selectDifficulty", subviewsCount: 3),
         GuessShapeHelper.SettingsBlock(name: "playButton", subviewsCount: 1)
     ]
