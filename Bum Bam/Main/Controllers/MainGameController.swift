@@ -45,11 +45,35 @@ class MainGameController: NSObject {
     
     func leaveSettings() {
         self.afterSettings()
-        if let settingsLayout = self.layout["settings"] {
-            settingsLayout.delete()
+        self.startGame()
+        if let backgroundLayout = self.layout["background"] {
+            backgroundLayout.view.frame.origin.x = ScrnW
+        }
+        if let gameLayout = self.layout["game"]{
+            gameLayout.view.frame.origin.x = ScrnW
+        }
+        if let hudLayout = self.layout["hud"] {
+            hudLayout.view.frame.origin.x = ScrnW
+        }
+        UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+            if let backgroundLayout = self.layout["background"] {
+                backgroundLayout.view.frame.origin.x = 0
+            }
+            if let gameLayout = self.layout["game"]{
+                gameLayout.view.frame.origin.x = 0
+            }
+            if let hudLayout = self.layout["hud"] {
+                hudLayout.view.frame.origin.x = 0
+            }
+            if let settingsLayout = self.layout["settings"] {
+                settingsLayout.view.frame.origin.x = -ScrnW
+            }
+        }) { (finished) -> Void in
+            if let settingsLayout = self.layout["settings"] {
+                settingsLayout.delete()
+            }
         }
         
-        self.startGame()
     }
     
     func afterSettings() {
