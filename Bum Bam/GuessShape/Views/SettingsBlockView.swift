@@ -1,5 +1,5 @@
 //
-//  GuessShapeSettingsBlockView.swift
+//  SettingsBlockView.swift
 //  Bum Bam
 //
 //  Created by Lukáš Baláž on 15/08/15.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class GuessShapeSettingsBlockView: UIScrollView {
+class SettingsBlockView: UIScrollView {
     
     var name: String!
     var selectedIndex: Int = -1
@@ -62,7 +62,7 @@ class GuessShapeSettingsBlockView: UIScrollView {
         return true
     }
     
-    func hide(delay1: Double, completion: GuessShapeHelper.ClosureClass!) -> Bool{
+    func hide(delay1: Double, completion: ClosureClass!) -> Bool{
         var duration: Double = 0.3
         if self.shown == false {
             if completion != nil {

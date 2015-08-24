@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-class GuessShapeSettingsBlockButton: UIButton, subviewOfMultiLayout {
+class SettingsBlockButton: UIButton, subviewOfMultiLayout {
     var index: Int!
 }

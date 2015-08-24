@@ -14,23 +14,7 @@ class GuessShapeLayout {
     
     var layout = Layout(
         subviews: [
-            "settings": Layout(
-                createView: { (prntW, prntH) -> UIView in
-                    var view = UIImageView(frame: CGRectMake(0, 0, prntW, prntH))
-                    view.image = UIImage(named: "GuessShape-backgroundDefault")
-                    view.userInteractionEnabled = true
-                    return view
-                },
-                subviews: [
-                    "blocks": GuessShapeHelper.createSettingsBlocksLayout(),
-                    "tempBackground": Layout(
-                        defaultHidden: true,
-                        createView: { (prntW, prntH) -> UIView in
-                            var view = UIImageView(frame: CGRectMake(0, 0, prntW, prntH))
-                            return view
-                        }
-                    )
-                ]),
+            "settings": createSettingsLayout(GuessShapeConfig.defaultSettingsBlocks),
             
             "background": Layout(
                 createView: { (prntW, prntH) -> UIView in

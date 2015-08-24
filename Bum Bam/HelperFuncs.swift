@@ -37,3 +37,76 @@ func shuffleArray<T>(inout array: [T]) {
     }
     
 }
+
+class SettingsBlock {
+    var name: String
+    var subviewsCount: Int
+    
+    init(name: String, subviewsCount: Int) {
+        self.name = name
+        self.subviewsCount = subviewsCount
+    }
+}
+
+func createSettingsLayout(settingsBlocks: [SettingsBlock]) -> Layout {
+    
+    var subviews = [String: Layout]()
+    
+    var squareSizeCoeff: CGFloat = 912/3240
+    var imageSizeCoeff: CGFloat = 874/4575
+    var marginCoeff: CGFloat = (1-squareSizeCoeff*3)/2
+    
+    for subview in settingsBlocks {
+        subviews[subview.name] = MultiLayout(
+            count: subview.subviewsCount,
+            defaultHidden: false,
+            createView: { (prntW, prntH) -> UIView in
+                var view = SettingsBlockView(frame: CGRect(centerx: prntW*1.5, centery: prntH*0.5, width: prntW, height: prntW*squareSizeCoeff))
+                view.contentSize = CGSize(width: max(prntW, prntW*squareSizeCoeff*CGFloat(4)+prntW*marginCoeff*2), height: prntW*squareSizeCoeff)
+                view.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+                view.panGestureRecognizer.delaysTouchesBegan = view.delaysContentTouches
+                view.name = subview.name
+                return view
+            },
+            createSubview: { (id, count, prntW, prntH) -> UIView in
+                var button = SettingsBlockButton()
+                if count > 3 {
+                    button.frame = CGRect(centerx: (id+0.5)*prntW*squareSizeCoeff+prntW*marginCoeff, centery: prntH*0.5, width: prntW*imageSizeCoeff, height: prntW*imageSizeCoeff)
+                } else {
+                    button.frame = CGRect(centerx: (id+0.5)*prntW*squareSizeCoeff+prntW*((1-squareSizeCoeff*count)/2), centery: prntH*0.5, width: prntW*imageSizeCoeff, height: prntW*imageSizeCoeff)
+                }
+                button.adjustsImageWhenHighlighted = false
+                return button
+            },
+            subsubviews: [:]
+        )
+    }
+    
+    return Layout(
+        createView: { (prntW, prntH) -> UIView in
+            var view = UIImageView(frame: CGRectMake(0, 0, prntW, prntH))
+            view.userInteractionEnabled = true
+            return view
+        },
+        subviews: [
+            "blocks": Layout(subviews: subviews),
+            "tempBackground": Layout(
+                defaultHidden: true,
+                createView: { (prntW, prntH) -> UIView in
+                    var view = UIImageView(frame: CGRectMake(0, 0, prntW, prntH))
+                    return view
+                }
+            )
+        ])
+    
+}
+
+class ClosureClass {
+    var execute: () -> ()
+    init(closure: () -> ()) {
+        self.execute = closure
+    }
+    func change(closure: () -> ()) {
+        self.execute = closure
+    }
+}

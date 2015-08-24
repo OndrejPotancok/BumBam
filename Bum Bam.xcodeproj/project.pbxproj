@@ -46,8 +46,8 @@
 		80A410D61B4F286500511C90 /* GuessShapeThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410CF1B4F286500511C90 /* GuessShapeThumbView.swift */; };
 		80A410D81B4FA37400511C90 /* GuessShapeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410D71B4FA37400511C90 /* GuessShapeConfig.swift */; };
 		80A410DA1B4FA4EF00511C90 /* TemplateConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A410D91B4FA4EF00511C90 /* TemplateConfig.swift */; };
-		80CFD6191B7E9E1300C6A188 /* GuessShapeSettingsBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CFD6181B7E9E1300C6A188 /* GuessShapeSettingsBlockView.swift */; };
-		80CFD61B1B7E9E3C00C6A188 /* GuessShapeSettingsBlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CFD61A1B7E9E3C00C6A188 /* GuessShapeSettingsBlockButton.swift */; };
+		80CFD6191B7E9E1300C6A188 /* SettingsBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CFD6181B7E9E1300C6A188 /* SettingsBlockView.swift */; };
+		80CFD61B1B7E9E3C00C6A188 /* SettingsBlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CFD61A1B7E9E3C00C6A188 /* SettingsBlockButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,8 +104,8 @@
 		80A410CF1B4F286500511C90 /* GuessShapeThumbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeThumbView.swift; sourceTree = "<group>"; };
 		80A410D71B4FA37400511C90 /* GuessShapeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeConfig.swift; sourceTree = "<group>"; };
 		80A410D91B4FA4EF00511C90 /* TemplateConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateConfig.swift; sourceTree = "<group>"; };
-		80CFD6181B7E9E1300C6A188 /* GuessShapeSettingsBlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeSettingsBlockView.swift; sourceTree = "<group>"; };
-		80CFD61A1B7E9E3C00C6A188 /* GuessShapeSettingsBlockButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeSettingsBlockButton.swift; sourceTree = "<group>"; };
+		80CFD6181B7E9E1300C6A188 /* SettingsBlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsBlockView.swift; path = ../../GuessShape/Views/SettingsBlockView.swift; sourceTree = "<group>"; };
+		80CFD61A1B7E9E3C00C6A188 /* SettingsBlockButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsBlockButton.swift; path = ../../GuessShape/Views/SettingsBlockButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +297,7 @@
 				8092B2461B4CC15600722E0C /* Controllers */,
 				8092B2471B4CC15600722E0C /* Layout */,
 				8092B2481B4CC15600722E0C /* Models */,
+				80C402511B8B9D93001CAFE3 /* Views */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -379,11 +380,19 @@
 				80A410CF1B4F286500511C90 /* GuessShapeThumbView.swift */,
 				18F559611B73A0B800D459F1 /* SelectShapeSetButton.swift */,
 				1881EF131B748702008324DD /* SelectDifficultyButton.swift */,
-				80CFD6181B7E9E1300C6A188 /* GuessShapeSettingsBlockView.swift */,
-				80CFD61A1B7E9E3C00C6A188 /* GuessShapeSettingsBlockButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
+		};
+		80C402511B8B9D93001CAFE3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				80CFD6181B7E9E1300C6A188 /* SettingsBlockView.swift */,
+				80CFD61A1B7E9E3C00C6A188 /* SettingsBlockButton.swift */,
+			);
+			name = Views;
+			path = "Bum Bam/Main/Views";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -490,7 +499,7 @@
 			files = (
 				80A410D41B4F286500511C90 /* GuessShapeLayoutAction.swift in Sources */,
 				808EB2211B4CC5B10076C4F0 /* TestDefaultLayoutAction.swift in Sources */,
-				80CFD61B1B7E9E3C00C6A188 /* GuessShapeSettingsBlockButton.swift in Sources */,
+				80CFD61B1B7E9E3C00C6A188 /* SettingsBlockButton.swift in Sources */,
 				8092B24C1B4CC18700722E0C /* MainLayoutAction.swift in Sources */,
 				808EB2311B4D71FE0076C4F0 /* TemplateGameController.swift in Sources */,
 				808EB21F1B4CC5770076C4F0 /* TestLayoutAction.swift in Sources */,
@@ -510,7 +519,7 @@
 				8081499A1B4AD387008555EB /* Config.swift in Sources */,
 				808EB21D1B4CC4F20076C4F0 /* TestGameModel.swift in Sources */,
 				808EB2251B4CD0CA0076C4F0 /* TestMainImageView.swift in Sources */,
-				80CFD6191B7E9E1300C6A188 /* GuessShapeSettingsBlockView.swift in Sources */,
+				80CFD6191B7E9E1300C6A188 /* SettingsBlockView.swift in Sources */,
 				808EB2111B4CC2AA0076C4F0 /* Layout.swift in Sources */,
 				808149971B4AD16E008555EB /* GameViewController.swift in Sources */,
 				8092B24E1B4CC1A000722E0C /* MainGameModel.swift in Sources */,

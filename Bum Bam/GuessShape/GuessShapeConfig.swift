@@ -15,11 +15,11 @@ class GuessShapeConfig {
     static var thumbToSiluetteAnimationDuration: NSTimeInterval = 0.3
     static var delayAfterSuccess: Double = 1
     
-    static var defaultSettingsBlocks: [GuessShapeHelper.SettingsBlock] = [
-        GuessShapeHelper.SettingsBlock(name: "selectShapeSet", subviewsCount: GuessShapeConfig.shapeSets.count),
-        GuessShapeHelper.SettingsBlock(name: "selectShapeSubSet", subviewsCount: 2),
-        GuessShapeHelper.SettingsBlock(name: "selectDifficulty", subviewsCount: 3),
-        GuessShapeHelper.SettingsBlock(name: "playButton", subviewsCount: 1)
+    static var defaultSettingsBlocks: [SettingsBlock] = [
+        SettingsBlock(name: "selectShapeSet", subviewsCount: GuessShapeConfig.shapeSets.count),
+        SettingsBlock(name: "selectShapeSubSet", subviewsCount: 1),
+        SettingsBlock(name: "selectDifficulty", subviewsCount: 3),
+        SettingsBlock(name: "playButton", subviewsCount: 1)
     ]
     
     static var imageNamesPrefix = "GuessShape-"

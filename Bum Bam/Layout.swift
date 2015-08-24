@@ -119,6 +119,9 @@ class MultiLayout: Layout {
     var subsubviews: [String : Layout]
     var createSubview: (id: CGFloat, count: CGFloat, prntW: CGFloat, prntH: CGFloat) -> UIView
     
+    var prntW: CGFloat!
+    var prntH: CGFloat!
+    
     init(count: Int, defaultHidden: Bool, createView: CreateView, createSubview: (id: CGFloat, count: CGFloat, prntW: CGFloat, prntH: CGFloat) -> UIView, subsubviews: [String: Layout]) {
         self.count = count
         self.subsubviews = subsubviews
@@ -126,8 +129,26 @@ class MultiLayout: Layout {
         super.init(defaultHidden: defaultHidden, createView: createView, subviews: [:])
     }
     
+    func update(count: Int) {
+        /*var superview = self.view.superview!
+        self.delete()
+        self.create(prntW: prntW, prntH: prntH)
+        superview.addSubview(self.view)
+        println(self.view.superview)*/
+        println((self.subviews["0"]!.view as! UIButton).allTargets())
+        self.deleteSubviews()
+        self.count = count
+        self.createSubviews()
+    }
+    
     override func create(#prntW: CGFloat, prntH: CGFloat) {
+        self.prntW = prntW
+        self.prntH = prntH
         self._view = self.createView(prntW: prntW, prntH: prntH)
+        self.createSubviews()
+    }
+    
+    private func createSubviews() {
         for id in 0..<self.count {
             var subsubviews_copy = [String: Layout]()
             for (subsubviewName, subsubviewLayout) in self.subsubviews {
@@ -141,6 +162,13 @@ class MultiLayout: Layout {
             }
             self._view.addSubview(subview.view)
         }
+    }
+    
+    private func deleteSubviews() {
+        for id in 0..<self.count {
+            self.subviews["\(id)"]!.delete()
+        }
+        self.subviews.removeAll(keepCapacity: false)
     }
     
     override func createOnlySubview(subviewName: String) {
