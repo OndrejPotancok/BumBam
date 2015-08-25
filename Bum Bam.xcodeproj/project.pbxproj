@@ -15,6 +15,8 @@
 		187B0E761B8CB3BE00E94FF6 /* ASLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E6F1B8CB3BE00E94FF6 /* ASLayoutAction.swift */; };
 		187B0E771B8CB3BE00E94FF6 /* ASGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E711B8CB3BE00E94FF6 /* ASGameModel.swift */; };
 		187B0E781B8CB3BE00E94FF6 /* ASConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E721B8CB3BE00E94FF6 /* ASConfig.swift */; };
+		187B0E7A1B8CEF9F00E94FF6 /* ASHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E791B8CEF9F00E94FF6 /* ASHelper.swift */; };
+		187B0E7D1B8CF8F400E94FF6 /* tiger.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 187B0E7C1B8CF8F400E94FF6 /* tiger.mp3 */; };
 		18DBE9DE1B50088000DE3009 /* Schoolbell.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18DBE9DD1B50088000DE3009 /* Schoolbell.ttf */; };
 		8055196A1B7A59110001823F /* GuessShapeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805519691B7A59110001823F /* GuessShapeHelper.swift */; };
 		808149431B4A89D3008555EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149421B4A89D3008555EB /* AppDelegate.swift */; };
@@ -71,6 +73,8 @@
 		187B0E6F1B8CB3BE00E94FF6 /* ASLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLayoutAction.swift; sourceTree = "<group>"; };
 		187B0E711B8CB3BE00E94FF6 /* ASGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASGameModel.swift; sourceTree = "<group>"; };
 		187B0E721B8CB3BE00E94FF6 /* ASConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASConfig.swift; sourceTree = "<group>"; };
+		187B0E791B8CEF9F00E94FF6 /* ASHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASHelper.swift; path = ../../../../Documents/ASHelper.swift; sourceTree = "<group>"; };
+		187B0E7C1B8CF8F400E94FF6 /* tiger.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tiger.mp3; sourceTree = "<group>"; };
 		18DBE9DD1B50088000DE3009 /* Schoolbell.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Schoolbell.ttf; sourceTree = "<group>"; };
 		805519691B7A59110001823F /* GuessShapeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeHelper.swift; sourceTree = "<group>"; };
 		8081493D1B4A89D3008555EB /* Bum Bam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bum Bam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +137,7 @@
 		187B0E691B8CB3BE00E94FF6 /* AS */ = {
 			isa = PBXGroup;
 			children = (
+				187B0E791B8CEF9F00E94FF6 /* ASHelper.swift */,
 				187B0E721B8CB3BE00E94FF6 /* ASConfig.swift */,
 				187B0E6A1B8CB3BE00E94FF6 /* Controllers */,
 				187B0E6C1B8CB3BE00E94FF6 /* Layout */,
@@ -165,6 +170,14 @@
 				187B0E711B8CB3BE00E94FF6 /* ASGameModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		187B0E7B1B8CF8DD00E94FF6 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				187B0E7C1B8CF8F400E94FF6 /* tiger.mp3 */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		808149341B4A89D3008555EB = {
@@ -204,6 +217,7 @@
 				808149491B4A89D3008555EB /* Images.xcassets */,
 				18DBE9DD1B50088000DE3009 /* Schoolbell.ttf */,
 				8081494B1B4A89D3008555EB /* LaunchScreen.xib */,
+				187B0E7B1B8CF8DD00E94FF6 /* Assets */,
 				808149401B4A89D3008555EB /* Supporting Files */,
 			);
 			path = "Bum Bam";
@@ -502,6 +516,7 @@
 				808149481B4A89D3008555EB /* Main.storyboard in Resources */,
 				18DBE9DE1B50088000DE3009 /* Schoolbell.ttf in Resources */,
 				8081494D1B4A89D3008555EB /* LaunchScreen.xib in Resources */,
+				187B0E7D1B8CF8F400E94FF6 /* tiger.mp3 in Resources */,
 				8081494A1B4A89D3008555EB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,6 +567,7 @@
 				8092B24E1B4CC1A000722E0C /* MainGameModel.swift in Sources */,
 				808EB2231B4CC6080076C4F0 /* TestLayout.swift in Sources */,
 				808149431B4A89D3008555EB /* AppDelegate.swift in Sources */,
+				187B0E7A1B8CEF9F00E94FF6 /* ASHelper.swift in Sources */,
 				185D16D91B8C57BD00951D6A /* SettingsBlockButton.swift in Sources */,
 				80A410D11B4F286500511C90 /* GuessShapeGameController.swift in Sources */,
 				808EB21B1B4CC4490076C4F0 /* TestGameController.swift in Sources */,

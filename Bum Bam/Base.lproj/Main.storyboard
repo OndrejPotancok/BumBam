@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfp-MG-NP1">
-                                <rect key="frame" x="250" y="285" width="102" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfp-MG-NP1">
+                                <rect key="frame" x="249" y="285" width="102" height="30"/>
                                 <state key="normal" title="Animal Sounds">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -26,11 +26,20 @@
                                     <action selector="menuButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FJf-0j-PbV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efI-0J-Bp2">
+                                <rect key="frame" x="255" y="323" width="91" height="30"/>
+                                <state key="normal" title="Guess Shape"/>
+                                <connections>
+                                    <action selector="menuButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vzj-Rm-1hz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="dfp-MG-NP1" secondAttribute="centerY" id="8Q4-7B-zFM"/>
                             <constraint firstAttribute="centerX" secondItem="dfp-MG-NP1" secondAttribute="centerX" id="EZ4-qS-h5X"/>
+                            <constraint firstItem="efI-0J-Bp2" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="V5H-rO-fTR"/>
+                            <constraint firstItem="efI-0J-Bp2" firstAttribute="top" secondItem="dfp-MG-NP1" secondAttribute="bottom" constant="8" id="YVe-VV-fOM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZI8-ac-j77"/>
