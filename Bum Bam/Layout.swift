@@ -15,9 +15,6 @@ class Layout {
     
     var _view: UIView!
     var view: UIView {
-        /*if self._view == nil {
-        self.create()
-        }*/
         return self._view
     }
     var createView: CreateView
@@ -59,7 +56,6 @@ class Layout {
     func create(#prntW: CGFloat, prntH: CGFloat) {
         self._view = self.createView(prntW: prntW, prntH: prntH)
         for (name, subviewLayout) in self.subviews {
-            //println("parent of \(name): \(self._view.frame)")
             subviewLayout.create(prntW: self._view.bounds.width, prntH: self._view.bounds.height)
             if name == "label" {println(unsafeAddressOf(subviewLayout))}
             if(subviewLayout.defaultHidden == false) {
@@ -72,7 +68,6 @@ class Layout {
         if self._view == nil { self._view = self.createView(prntW: ScrnW, prntH: ScrnH) }
         for (name, subviewLayout) in self.subviews {
             if (name == subviewName) {
-                //println("parent of \(name): \(self._view.frame)")
                 subviewLayout.create(prntW: self._view.bounds.width, prntH: self._view.bounds.height)
                 if subviewLayout.defaultHidden == false {
                     self._view.addSubview(subviewLayout.view)
@@ -129,13 +124,7 @@ class MultiLayout: Layout {
         super.init(defaultHidden: defaultHidden, createView: createView, subviews: [:])
     }
     
-    func update(count: Int) {
-        /*var superview = self.view.superview!
-        self.delete()
-        self.create(prntW: prntW, prntH: prntH)
-        superview.addSubview(self.view)
-        println(self.view.superview)*/
-        println((self.subviews["0"]!.view as! UIButton).allTargets())
+    func recreateSubviews(count: Int) {
         self.deleteSubviews()
         self.count = count
         self.createSubviews()

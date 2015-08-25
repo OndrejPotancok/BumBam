@@ -52,17 +52,13 @@ func createSettingsLayout(settingsBlocks: [SettingsBlock]) -> Layout {
     
     var subviews = [String: Layout]()
     
-    var squareSizeCoeff: CGFloat = 912/3240
-    var imageSizeCoeff: CGFloat = 874/4575
-    var marginCoeff: CGFloat = (1-squareSizeCoeff*3)/2
-    
     for subview in settingsBlocks {
         subviews[subview.name] = MultiLayout(
             count: subview.subviewsCount,
             defaultHidden: false,
             createView: { (prntW, prntH) -> UIView in
-                var view = SettingsBlockView(frame: CGRect(centerx: prntW*1.5, centery: prntH*0.5, width: prntW, height: prntW*squareSizeCoeff))
-                view.contentSize = CGSize(width: max(prntW, prntW*squareSizeCoeff*CGFloat(4)+prntW*marginCoeff*2), height: prntW*squareSizeCoeff)
+                var view = SettingsBlockView(frame: CGRect(centerx: prntW*1.5, centery: prntH*0.5, width: prntW, height: prntW*settingsSquareSizeCoeff))
+                view.contentSize = CGSize(width: max(prntW, prntW*settingsSquareSizeCoeff*CGFloat(subview.subviewsCount)+prntW*settingsMarginCoeff*2), height: prntW*settingsSquareSizeCoeff)
                 view.autoresizingMask = UIViewAutoresizing.FlexibleWidth
                 view.panGestureRecognizer.delaysTouchesBegan = view.delaysContentTouches
                 view.name = subview.name
@@ -71,9 +67,9 @@ func createSettingsLayout(settingsBlocks: [SettingsBlock]) -> Layout {
             createSubview: { (id, count, prntW, prntH) -> UIView in
                 var button = SettingsBlockButton()
                 if count > 3 {
-                    button.frame = CGRect(centerx: (id+0.5)*prntW*squareSizeCoeff+prntW*marginCoeff, centery: prntH*0.5, width: prntW*imageSizeCoeff, height: prntW*imageSizeCoeff)
+                    button.frame = CGRect(centerx: (id+0.5)*prntW*settingsSquareSizeCoeff+prntW*settingsMarginCoeff, centery: prntH*0.5, width: prntW*settingsImageSizeCoeff, height: prntW*settingsImageSizeCoeff)
                 } else {
-                    button.frame = CGRect(centerx: (id+0.5)*prntW*squareSizeCoeff+prntW*((1-squareSizeCoeff*count)/2), centery: prntH*0.5, width: prntW*imageSizeCoeff, height: prntW*imageSizeCoeff)
+                    button.frame = CGRect(centerx: (id+0.5)*prntW*settingsSquareSizeCoeff+prntW*((1-settingsSquareSizeCoeff*count)/2), centery: prntH*0.5, width: prntW*settingsImageSizeCoeff, height: prntW*settingsImageSizeCoeff)
                 }
                 button.adjustsImageWhenHighlighted = false
                 return button

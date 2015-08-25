@@ -153,26 +153,20 @@ class MainGameController: NSObject {
         self.refreshSettings(nil, first: true)
     }
     
+    func updateSubviewsCountOfSettingsBlock(settingsBlock: SettingsBlock, count: Int) {
+        settingsBlock.subviewsCount = count
+        var settingsBlockLayout = self.settingsBlocksLayout[settingsBlock.name]! as! MultiLayout
+        settingsBlockLayout.recreateSubviews(count)
+        for settingsBlockButtonLayout in settingsBlockLayout.subviews.values {
+            (settingsBlockButtonLayout.view as! SettingsBlockButton).addTarget(self, action: "settingsBlockButtonPressed:", forControlEvents: .TouchUpInside)
+        }
+        let prntW = settingsBlockLayout.view.bounds.width
+        (settingsBlockLayout.view as! UIScrollView).contentSize.width = max(prntW, prntW*settingsSquareSizeCoeff*CGFloat(count)+prntW*settingsMarginCoeff*2)
+    }
+    
     func updateSettingsColor() {
-        /*var selectedShapeSetIndex = (self.settingsBlocksLayout["selectShapeSet"]!.view as! SettingsBlockView).selectedIndex
-        var selectedShapeSubSetIndex = (self.settingsBlocksLayout["selectShapeSubSet"]!.view as! SettingsBlockView).selectedIndex
-        var color: UIColor!
-        var image: UIImage!
-        if selectedShapeSetIndex != -1 {
-            if selectedShapeSubSetIndex != -1 {
-                color = GuessShapeConfig.shapeSets[selectedShapeSetIndex].shapeSubSets[selectedShapeSubSetIndex].color
-                image = GuessShapeConfig.shapeSets[selectedShapeSetIndex].shapeSubSets[selectedShapeSubSetIndex].settingsBackgroundImage
-            } else {
-                color = GuessShapeConfig.shapeSets[selectedShapeSetIndex].color
-                image = GuessShapeConfig.shapeSets[selectedShapeSetIndex].settingsBackgroundImage
-            }
-        } else {
-            color = UIColor(red: 182/255, green: 139/255, blue: 55/255, alpha: 1)
-            image = UIImage(named: "GuessShape-backgroundDefault")
-        }*/
         let (color, image) = self.getSettingsColorAndImage()
         for settingsBlock in self.defaultSettingsBlocks {
-            println(self.settingsBlocksLayout[settingsBlock.name]!.subviews.count)
             for (id,settingsBlockButtonLayout) in self.settingsBlocksLayout[settingsBlock.name]!.subviews {
                 if id != String((self.settingsBlocksLayout[settingsBlock.name]!.view as! SettingsBlockView).selectedIndex){
                     settingsBlockButtonLayout.view.tintColor = color
@@ -244,36 +238,6 @@ class MainGameController: NSObject {
                 var tempBlockYcenter = blockYcenter
                 newBlockRefresh.change {
                     settingsBlockView.selectedIndex = -1
-                    /*switch settingsBlock.name {
-                    case "selectShapeSet":
-                        for index in 0..<settingsBlock.subviewsCount {
-                            (settingsBlockLayout["\(index)"]!.view as! UIButton).setImage(GuessShapeConfig.shapeSets[index].settingsShapeSetImage!.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
-                        }
-                    case "selectShapeSubSet":
-                        var selectedShapeSetIndex = (self.settingsBlocksLayout["selectShapeSet"]!.view as! SettingsBlockView).selectedIndex
-                        for index in 0..<settingsBlock.subviewsCount {
-                            (settingsBlockLayout["\(index)"]!.view as! UIButton).setImage(
-                                GuessShapeConfig.shapeSets[selectedShapeSetIndex].shapeSubSets[index].settingsShapeSubSetImage!.imageWithRenderingMode(.AlwaysTemplate),
-                                forState: .Normal
-                            )
-                        }
-                    case "selectDifficulty":
-                        var selectedShapeSetIndex = (self.settingsBlocksLayout["selectShapeSet"]!.view as! SettingsBlockView).selectedIndex
-                        var shapeSubSetBlockView = self.settingsBlocksLayout["selectShapeSubSet"]!.view as! SettingsBlockView
-                        if shapeSubSetBlockView.selectedIndex == -1 {shapeSubSetBlockView.selectedIndex = 0}
-                        var selectedShapeSubSetIndex = shapeSubSetBlockView.selectedIndex
-                        for index in 0..<settingsBlock.subviewsCount {
-                            (settingsBlockLayout["\(index)"]!.view as! UIButton).setImage(
-                                GuessShapeConfig.shapeSets[selectedShapeSetIndex].shapeSubSets[selectedShapeSubSetIndex].settingsDifficultyImages[index]!.imageWithRenderingMode(.AlwaysTemplate),
-                                forState: .Normal
-                            )
-                        }
-                    case "playButton":
-                        (settingsBlockLayout["0"]!.view as! UIButton).setImage(UIImage(named: "GuessShape-playButton")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
-                        settingsBlockView.selectedIndex = 0
-                    default:
-                        break
-                    }*/
                     self.updapeSettingsNewBlock(settingsBlock: settingsBlock, settingsBlockLayout: settingsBlockLayout, settingsBlockView: settingsBlockView)
                     self.updateSettingsColor()
                     settingsBlockView.show(max(tempBlockYcenter, ScrnH*0.5), delay: first == true ? 0.3 : 0, completion: nil)
@@ -308,15 +272,6 @@ class MainGameController: NSObject {
             return
         }
         blockView.selectedIndex = sender.index
-        /*if blockView.name == "selectShapeSet" {
-            var selectShapeSubSetBlockView = self.settingsBlocksLayout["selectShapeSubSet"]!.view as! SettingsBlockView
-            if GuessShapeConfig.shapeSets[sender.index].shapeSubSets.count > 1 {
-                selectShapeSubSetBlockView.toShow = true
-            } else {
-                selectShapeSubSetBlockView.selectedIndex = 0
-                selectShapeSubSetBlockView.toShow = false
-            }
-        }*/
         self.beforeSettingsRefresh(settingsBockView: blockView)
         self.refreshSettings(blockView.name)
     }
