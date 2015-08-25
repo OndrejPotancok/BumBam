@@ -33,8 +33,8 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
         
         self.defaultSettingsBlocks = GuessShapeConfig.defaultSettingsBlocks
         self.getSettingsColorAndImage = {
-            var selectedShapeSetIndex = (self.settingsBlocksLayout["selectShapeSet"]!.view as! SettingsBlockView).selectedIndex
-            var selectedShapeSubSetIndex = (self.settingsBlocksLayout["selectShapeSubSet"]!.view as! SettingsBlockView).selectedIndex
+            let selectedShapeSetIndex = (self.settingsBlocksLayout["selectShapeSet"]!.view as! SettingsBlockView).selectedIndex
+            let selectedShapeSubSetIndex = (self.settingsBlocksLayout["selectShapeSubSet"]!.view as! SettingsBlockView).selectedIndex
             var color: UIColor!
             var image: UIImage!
             if selectedShapeSetIndex != -1 {
@@ -58,7 +58,7 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
                     (settingsBlockLayout["\(index)"]!.view as! UIButton).setImage(GuessShapeConfig.shapeSets[index].settingsShapeSetImage!.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
                 }
             case "selectShapeSubSet":
-                var selectedShapeSetIndex = (self.settingsBlocksLayout["selectShapeSet"]!.view as! SettingsBlockView).selectedIndex
+                let selectedShapeSetIndex = (self.settingsBlocksLayout["selectShapeSet"]!.view as! SettingsBlockView).selectedIndex
                 self.updateSubviewsCountOfSettingsBlock(settingsBlock, count: GuessShapeConfig.shapeSets[selectedShapeSetIndex].shapeSubSets.count)
                 for index in 0..<settingsBlock.subviewsCount {
                     (settingsBlockLayout["\(index)"]!.view as! UIButton).setImage(
@@ -67,10 +67,10 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
                     )
                 }
             case "selectDifficulty":
-                var selectedShapeSetIndex = (self.settingsBlocksLayout["selectShapeSet"]!.view as! SettingsBlockView).selectedIndex
-                var shapeSubSetBlockView = self.settingsBlocksLayout["selectShapeSubSet"]!.view as! SettingsBlockView
+                let selectedShapeSetIndex = (self.settingsBlocksLayout["selectShapeSet"]!.view as! SettingsBlockView).selectedIndex
+                let shapeSubSetBlockView = self.settingsBlocksLayout["selectShapeSubSet"]!.view as! SettingsBlockView
                 if shapeSubSetBlockView.selectedIndex == -1 {shapeSubSetBlockView.selectedIndex = 0}
-                var selectedShapeSubSetIndex = shapeSubSetBlockView.selectedIndex
+                let selectedShapeSubSetIndex = shapeSubSetBlockView.selectedIndex
                 for index in 0..<settingsBlock.subviewsCount {
                     (settingsBlockLayout["\(index)"]!.view as! UIButton).setImage(
                         GuessShapeConfig.shapeSets[selectedShapeSetIndex].shapeSubSets[selectedShapeSubSetIndex].settingsDifficultyImages[index]!.imageWithRenderingMode(.AlwaysTemplate),
@@ -86,7 +86,7 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
         }
         self.beforeSettingsRefresh = {(settingsBlockView) in
             if settingsBlockView.name == "selectShapeSet" {
-                var selectShapeSubSetBlockView = self.settingsBlocksLayout["selectShapeSubSet"]!.view as! SettingsBlockView
+                let selectShapeSubSetBlockView = self.settingsBlocksLayout["selectShapeSubSet"]!.view as! SettingsBlockView
                 if GuessShapeConfig.shapeSets[settingsBlockView.selectedIndex].shapeSubSets.count > 1 {
                     selectShapeSubSetBlockView.toShow = true
                 } else {
@@ -112,8 +112,8 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
         (self.layout["background"]!.view as! UIImageView).image = GuessShapeConfig.shapeSets[self.gameModel.shapeSet].shapeSubSets[self.gameModel.shapeSubSet].gameBackgroundImage
         
         self.thumbLayouts = [self.gameLayout["thumbLeft"]!, self.gameLayout["thumbCenter"]!, self.gameLayout["thumbRight"]!]
-        for (id, thumbLayout) in enumerate(self.thumbLayouts) {
-            var thumbLayoutView = thumbLayout.view as! GuessShapeThumbView
+        for (id, thumbLayout) in self.thumbLayouts.enumerate() {
+            let thumbLayoutView = thumbLayout.view as! GuessShapeThumbView
             thumbLayoutView.delegate = self
             thumbLayoutView.image = self.gameModel.shapes[id].thumbImage
             thumbLayoutView.shapeName = self.gameModel.shapes[id].thumbImageName
@@ -124,16 +124,16 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
         self.siluetteView.image = self.gameModel.shapes[self.gameModel.correctShapeId].siluetteImage
     }
     
-    func thumbDragBegan(#sender: GuessShapeThumbView) {
+    func thumbDragBegan(sender sender: GuessShapeThumbView) {
         
         sender.superview?.bringSubviewToFront(sender)
         
         self.layoutAction.thumbDragBegan()
     }
-    func thumbDragMoved(#sender: GuessShapeThumbView) {
+    func thumbDragMoved(sender sender: GuessShapeThumbView) {
         self.layoutAction.thumbDragMoved()
     }
-    func thumbDragEnded(#sender: GuessShapeThumbView) {
+    func thumbDragEnded(sender sender: GuessShapeThumbView) {
         
         self.layoutAction.thumbDragEnded()
         
@@ -145,16 +145,16 @@ class GuessShapeGameController: MainGameController, PGuessShapeThumbViewDelegate
                 self.gameLayout.view.userInteractionEnabled = false
                 delay(GuessShapeConfig.delayAfterSuccess) {self.restartGame()}
                 self.layoutAction.success()
-                println("success")
+                print("success")
             } else {
                 sender.returnToDefaultPosition(animationDuration: GuessShapeConfig.thumbReturningAnimationDuration)
                 self.layoutAction.failure()
-                println("failure")
+                print("failure")
             }
         } else {
             sender.returnToDefaultPosition(animationDuration: GuessShapeConfig.thumbReturningAnimationDuration)
             self.layoutAction.dragEndedOutsideSiluette()
-            println("outside the siluette area")
+            print("outside the siluette area")
         }
         
     }

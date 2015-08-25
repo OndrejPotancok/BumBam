@@ -11,9 +11,9 @@ import UIKit
 
 protocol PGuessShapeThumbViewDelegate : class {
     
-    func thumbDragBegan(#sender: GuessShapeThumbView)
-    func thumbDragMoved(#sender: GuessShapeThumbView)
-    func thumbDragEnded(#sender: GuessShapeThumbView)
+    func thumbDragBegan(sender sender: GuessShapeThumbView)
+    func thumbDragMoved(sender sender: GuessShapeThumbView)
+    func thumbDragEnded(sender sender: GuessShapeThumbView)
     
 }
 
@@ -37,14 +37,14 @@ class GuessShapeThumbView: UIImageView {
         self.userInteractionEnabled = true
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        if let touch = touches.first as? UITouch {
-            var point = touch.locationInView(self.superview)
+        if let touch = touches.first{
+            let point = touch.locationInView(self.superview)
             self.xTouchOffset = point.x - self.center.x
             self.yTouchOffset = point.y - self.center.y
         }
@@ -52,10 +52,10 @@ class GuessShapeThumbView: UIImageView {
         self.delegate.thumbDragBegan(sender: self)
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        if let touch = touches.first as? UITouch {
-            var point = touch.locationInView(self.superview)
+        if let touch = touches.first {
+            let point = touch.locationInView(self.superview)
             self.center.x = point.x - self.xTouchOffset
             self.center.y = point.y - self.yTouchOffset
         }
@@ -63,13 +63,13 @@ class GuessShapeThumbView: UIImageView {
         self.delegate.thumbDragMoved(sender: self)
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.touchesMoved(touches, withEvent: event)
         
         self.delegate.thumbDragEnded(sender: self)
     }
     
-    func returnToDefaultPosition(#animationDuration: NSTimeInterval) {
+    func returnToDefaultPosition(animationDuration animationDuration: NSTimeInterval) {
         
         if animationDuration == 0 {
             self.frame = self.defaultFrame

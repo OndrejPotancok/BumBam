@@ -17,7 +17,7 @@ class SettingsBlockView: UIScrollView {
     var shown: Bool = false
     
     func moveToY(centerY: CGFloat, delay delay1: Double, completion: (() -> ())!) -> Bool{
-        var duration: Double = 1.5
+        let duration: Double = 1
         if self.center.y == centerY {
             if completion != nil {
                 delay(delay1+duration) {
@@ -26,7 +26,7 @@ class SettingsBlockView: UIScrollView {
             }
             return false
         }
-        UIView.animateWithDuration(duration, delay: delay1, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
+        UIView.animateWithDuration(duration, delay: delay1, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.8, options: [], animations: { () -> Void in
             self.center.y = centerY
         }) { (a) -> Void in
             if completion != nil {
@@ -37,10 +37,10 @@ class SettingsBlockView: UIScrollView {
     }
     
     func show(centerY: CGFloat, delay delay1: Double, completion: (() -> ())!) -> Bool {
-        var duration: Double = 1.5
+        let duration: Double = 1
         if self.shown == true {
             if completion != nil {
-                println(self.name)
+                print(self.name)
                 delay(delay1+duration) {
                     completion()
                 }
@@ -49,7 +49,7 @@ class SettingsBlockView: UIScrollView {
         }
         self.center.y = centerY
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.width*2, self.frame.height)
-        UIView.animateWithDuration(duration, delay: delay1, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
+        UIView.animateWithDuration(duration, delay: delay1, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.8, options: [], animations: { () -> Void in
             self.frame.origin.x = 0
         }) { (a) -> Void in
             self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.width/2, self.frame.height)
@@ -63,7 +63,7 @@ class SettingsBlockView: UIScrollView {
     }
     
     func hide(delay1: Double, completion: ClosureClass!) -> Bool{
-        var duration: Double = 0.3
+        let duration: Double = 0.2
         if self.shown == false {
             if completion != nil {
                 delay(delay1+duration) {

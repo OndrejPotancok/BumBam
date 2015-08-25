@@ -155,7 +155,7 @@ class MainGameController: NSObject {
     
     func updateSubviewsCountOfSettingsBlock(settingsBlock: SettingsBlock, count: Int) {
         settingsBlock.subviewsCount = count
-        var settingsBlockLayout = self.settingsBlocksLayout[settingsBlock.name]! as! MultiLayout
+        let settingsBlockLayout = self.settingsBlocksLayout[settingsBlock.name]! as! MultiLayout
         settingsBlockLayout.recreateSubviews(count)
         for settingsBlockButtonLayout in settingsBlockLayout.subviews.values {
             (settingsBlockButtonLayout.view as! SettingsBlockButton).addTarget(self, action: "settingsBlockButtonPressed:", forControlEvents: .TouchUpInside)
@@ -166,9 +166,11 @@ class MainGameController: NSObject {
     
     func updateSettingsColor() {
         let (color, image) = self.getSettingsColorAndImage()
+        
         for settingsBlock in self.defaultSettingsBlocks {
+            let selectedIndex = String((self.settingsBlocksLayout[settingsBlock.name]!.view as! SettingsBlockView).selectedIndex)
             for (id,settingsBlockButtonLayout) in self.settingsBlocksLayout[settingsBlock.name]!.subviews {
-                if id != String((self.settingsBlocksLayout[settingsBlock.name]!.view as! SettingsBlockView).selectedIndex){
+                if id != selectedIndex {
                     settingsBlockButtonLayout.view.tintColor = color
                 } else {
                     settingsBlockButtonLayout.view.tintColor = UIColor.whiteColor()
@@ -179,7 +181,7 @@ class MainGameController: NSObject {
             self.settingsView.image = image
         }
         else if !self.settingsView.image!.isEqual(image) {
-            var tempBackgroundView = self.settingsLayout["tempBackground"]!.view as! UIImageView
+            let tempBackgroundView = self.settingsLayout["tempBackground"]!.view as! UIImageView
             tempBackgroundView.image = image
             tempBackgroundView.alpha = 0
             self.settingsLayout.showSubview("tempBackground")
@@ -199,8 +201,8 @@ class MainGameController: NSObject {
         var blocksCount: Int = 0
         var countToHide: Int = 0
         for settingsBlock in self.defaultSettingsBlocks {
-            var settingsBlockLayout = self.settingsBlocksLayout[settingsBlock.name]!
-            var settingsBlockView = settingsBlockLayout.view as! SettingsBlockView
+            let settingsBlockLayout = self.settingsBlocksLayout[settingsBlock.name]!
+            let settingsBlockView = settingsBlockLayout.view as! SettingsBlockView
             if settingsBlockView.toShow == true {
                 blocksCount++
             }
@@ -220,13 +222,13 @@ class MainGameController: NSObject {
         var foundNewBlock = false
         var foundFirstBlockToHide = false
         
-        var blockYcentersDifferenceCoeff: CGFloat = (1/CGFloat(blocksCount+1))
+        let blockYcentersDifferenceCoeff: CGFloat = (1/CGFloat(blocksCount+1))
         var blockYcenter = blockYcentersDifferenceCoeff*ScrnH
         var leftCountToHide = countToHide
-        var newBlockRefresh = ClosureClass {}
+        let newBlockRefresh = ClosureClass {}
         for settingsBlock in self.defaultSettingsBlocks {
-            var settingsBlockLayout = self.settingsBlocksLayout[settingsBlock.name]! as! MultiLayout
-            var settingsBlockView = settingsBlockLayout.view as! SettingsBlockView
+            let settingsBlockLayout = self.settingsBlocksLayout[settingsBlock.name]! as! MultiLayout
+            let settingsBlockView = settingsBlockLayout.view as! SettingsBlockView
             if foundLastSelectedBlock == false && settingsBlockView.toShow == true {
                 settingsBlockView.moveToY(blockYcenter, delay: Double(countToHide)*0.3, completion: nil)
                 blockYcenter += blockYcentersDifferenceCoeff*ScrnH
@@ -235,9 +237,10 @@ class MainGameController: NSObject {
                 }
                 continue
             } else if foundNewBlock == false && settingsBlockView.toShow == true {
-                var tempBlockYcenter = blockYcenter
+                let tempBlockYcenter = blockYcenter
                 newBlockRefresh.change {
                     settingsBlockView.selectedIndex = -1
+                    
                     self.updapeSettingsNewBlock(settingsBlock: settingsBlock, settingsBlockLayout: settingsBlockLayout, settingsBlockView: settingsBlockView)
                     self.updateSettingsColor()
                     settingsBlockView.show(max(tempBlockYcenter, ScrnH*0.5), delay: first == true ? 0.3 : 0, completion: nil)
@@ -263,7 +266,7 @@ class MainGameController: NSObject {
     }
     
     func settingsBlockButtonPressed(sender: SettingsBlockButton!) {
-        var blockView = sender.superview as! SettingsBlockView
+        let blockView = sender.superview as! SettingsBlockView
         if blockView.name == "playButton" {
             self.leaveSettings()
             return

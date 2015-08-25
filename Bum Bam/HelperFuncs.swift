@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-func randomNumber(#minX:UInt32, #maxX:UInt32) -> Int {
+func randomNumber(minX minX:UInt32, maxX:UInt32) -> Int {
     let result = (arc4random() % (maxX - minX + 1)) + minX
     return Int(result)
 }
 
 func delay(seconds: Double, after: () -> ()) {
-    var delay = Int64(seconds * Double(NSEC_PER_SEC))
-    var delayTime = dispatch_time(DISPATCH_TIME_NOW, delay)
+    let delay = Int64(seconds * Double(NSEC_PER_SEC))
+    let delayTime = dispatch_time(DISPATCH_TIME_NOW, delay)
     dispatch_after(delayTime, dispatch_get_main_queue(),after)
 }
 
@@ -32,7 +32,7 @@ extension CGRect {
 func shuffleArray<T>(inout array: [T]) {
     
     for(var i = array.count-1; i != 0; --i) {
-        var j = randomNumber(minX: UInt32(0), maxX: UInt32(i))
+        let j = randomNumber(minX: UInt32(0), maxX: UInt32(i))
         swap(&array[j], &array[i])
     }
     
@@ -57,7 +57,7 @@ func createSettingsLayout(settingsBlocks: [SettingsBlock]) -> Layout {
             count: subview.subviewsCount,
             defaultHidden: false,
             createView: { (prntW, prntH) -> UIView in
-                var view = SettingsBlockView(frame: CGRect(centerx: prntW*1.5, centery: prntH*0.5, width: prntW, height: prntW*settingsSquareSizeCoeff))
+                let view = SettingsBlockView(frame: CGRect(centerx: prntW*1.5, centery: prntH*0.5, width: prntW, height: prntW*settingsSquareSizeCoeff))
                 view.contentSize = CGSize(width: max(prntW, prntW*settingsSquareSizeCoeff*CGFloat(subview.subviewsCount)+prntW*settingsMarginCoeff*2), height: prntW*settingsSquareSizeCoeff)
                 view.autoresizingMask = UIViewAutoresizing.FlexibleWidth
                 view.panGestureRecognizer.delaysTouchesBegan = view.delaysContentTouches
@@ -65,7 +65,7 @@ func createSettingsLayout(settingsBlocks: [SettingsBlock]) -> Layout {
                 return view
             },
             createSubview: { (id, count, prntW, prntH) -> UIView in
-                var button = SettingsBlockButton()
+                let button = SettingsBlockButton()
                 if count > 3 {
                     button.frame = CGRect(centerx: (id+0.5)*prntW*settingsSquareSizeCoeff+prntW*settingsMarginCoeff, centery: prntH*0.5, width: prntW*settingsImageSizeCoeff, height: prntW*settingsImageSizeCoeff)
                 } else {
@@ -80,7 +80,7 @@ func createSettingsLayout(settingsBlocks: [SettingsBlock]) -> Layout {
     
     return Layout(
         createView: { (prntW, prntH) -> UIView in
-            var view = UIImageView(frame: CGRectMake(0, 0, prntW, prntH))
+            let view = UIImageView(frame: CGRectMake(0, 0, prntW, prntH))
             view.userInteractionEnabled = true
             return view
         },
@@ -89,7 +89,7 @@ func createSettingsLayout(settingsBlocks: [SettingsBlock]) -> Layout {
             "tempBackground": Layout(
                 defaultHidden: true,
                 createView: { (prntW, prntH) -> UIView in
-                    var view = UIImageView(frame: CGRectMake(0, 0, prntW, prntH))
+                    let view = UIImageView(frame: CGRectMake(0, 0, prntW, prntH))
                     return view
                 }
             )

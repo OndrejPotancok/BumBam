@@ -22,11 +22,11 @@ class MenuViewController: UIViewController {
 
     @IBAction func menuButtonPressed(sender: AnyObject) {
         
-        var gameName = (sender as! UIButton).currentTitle!
+        let gameName = (sender as! UIButton).currentTitle!
         if let gameController = MainGameController.createGameControllerByGameName(gameName) {
             performSegueWithIdentifier("startGame", sender: gameController)
         } else {
-            println(gameName)
+            print(gameName)
         }
     }
     

@@ -24,11 +24,11 @@ class TestMainImageView: UIImageView {
         self.userInteractionEnabled = true
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.delegate.mainImagetouchesBegan()
     }
     

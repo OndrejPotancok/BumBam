@@ -19,16 +19,16 @@ class TestLayout {
                     createView: { (prntW, prntH) -> UIView in
                         var txtField: UITextField = UITextField()
                         txtField.frame = CGRect(centerx: prntW/2, centery: prntH*0.3, width: 200, height: 20)
-                        println(prntW)
-                        println(prntH)
-                        println(txtField.frame)
+                        print(prntW)
+                        print(prntH)
+                        print(txtField.frame)
                         txtField.backgroundColor = UIColor.grayColor()
                         return txtField
                 }),
                 "startGameButton": Layout(
                     
                     createView: { (prntW, prntH) -> UIView in
-                        let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+                        let button   = UIButton(type: UIButtonType.System)
                         button.frame = CGRect(centerx: prntW/2, centery: prntH-400, width: 100, height: 50)
                         button.backgroundColor = UIColor.greenColor()
                         button.setTitle("START GAME", forState: UIControlState.Normal)

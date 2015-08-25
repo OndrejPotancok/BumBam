@@ -46,7 +46,7 @@ class TestGameController: MainGameController, PTestMainImageViewDelegate {
     override func afterSettings() {
         
         self.gameModel.cowCount = 4
-        self.gameModel.labelText = (self.layout["settings"]?["text"]?.view as! UITextField).text
+        self.gameModel.labelText = (self.layout["settings"]?["text"]?.view as! UITextField).text!
     }
     
     override func gameWillStart() {
