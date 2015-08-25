@@ -12,7 +12,8 @@ import UIKit
 var gameModelArray: [MainGameModel] = [
     TestGameModel(name: "Test", codeName: "Test"),
     TemplateGameModel(name: "Template", codeName: "Template"),
-    GuessShapeGameModel(name: "Guess Shape", codeName: "GuessShape")
+    GuessShapeGameModel(name: "Guess Shape", codeName: "GuessShape"),
+    ASGameModel(name: "Animal Sounds", codeName: "AS")
 ]
 
 extension MainGameController {
@@ -25,6 +26,8 @@ extension MainGameController {
             return TemplateGameController(gameModel: gameModelArray[1], layoutAction: TemplateLayoutAction(), layout: TemplateLayout().layout)
         case gameModelArray[2].name:
             return GuessShapeGameController(gameModel: gameModelArray[2], layoutAction: GuessShapeLayoutAction(), layout: GuessShapeLayout().layout)
+        case gameModelArray[3].name:
+            return ASGameController(gameModel: gameModelArray[3], layoutAction: ASLayoutAction(), layout: ASLayout().layout)
         default:
             return nil
         }

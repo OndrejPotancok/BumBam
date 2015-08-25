@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		185D16D91B8C57BD00951D6A /* SettingsBlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D16D71B8C57BD00951D6A /* SettingsBlockButton.swift */; };
 		185D16DA1B8C57BD00951D6A /* SettingsBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D16D81B8C57BD00951D6A /* SettingsBlockView.swift */; };
+		187B0E731B8CB3BE00E94FF6 /* ASGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E6B1B8CB3BE00E94FF6 /* ASGameController.swift */; };
+		187B0E741B8CB3BE00E94FF6 /* ASDefaultLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E6D1B8CB3BE00E94FF6 /* ASDefaultLayoutAction.swift */; };
+		187B0E751B8CB3BE00E94FF6 /* ASLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E6E1B8CB3BE00E94FF6 /* ASLayout.swift */; };
+		187B0E761B8CB3BE00E94FF6 /* ASLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E6F1B8CB3BE00E94FF6 /* ASLayoutAction.swift */; };
+		187B0E771B8CB3BE00E94FF6 /* ASGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E711B8CB3BE00E94FF6 /* ASGameModel.swift */; };
+		187B0E781B8CB3BE00E94FF6 /* ASConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E721B8CB3BE00E94FF6 /* ASConfig.swift */; };
 		18DBE9DE1B50088000DE3009 /* Schoolbell.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18DBE9DD1B50088000DE3009 /* Schoolbell.ttf */; };
 		8055196A1B7A59110001823F /* GuessShapeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805519691B7A59110001823F /* GuessShapeHelper.swift */; };
 		808149431B4A89D3008555EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149421B4A89D3008555EB /* AppDelegate.swift */; };
@@ -59,6 +65,12 @@
 /* Begin PBXFileReference section */
 		185D16D71B8C57BD00951D6A /* SettingsBlockButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsBlockButton.swift; sourceTree = "<group>"; };
 		185D16D81B8C57BD00951D6A /* SettingsBlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsBlockView.swift; sourceTree = "<group>"; };
+		187B0E6B1B8CB3BE00E94FF6 /* ASGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASGameController.swift; sourceTree = "<group>"; };
+		187B0E6D1B8CB3BE00E94FF6 /* ASDefaultLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASDefaultLayoutAction.swift; sourceTree = "<group>"; };
+		187B0E6E1B8CB3BE00E94FF6 /* ASLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLayout.swift; sourceTree = "<group>"; };
+		187B0E6F1B8CB3BE00E94FF6 /* ASLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLayoutAction.swift; sourceTree = "<group>"; };
+		187B0E711B8CB3BE00E94FF6 /* ASGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASGameModel.swift; sourceTree = "<group>"; };
+		187B0E721B8CB3BE00E94FF6 /* ASConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASConfig.swift; sourceTree = "<group>"; };
 		18DBE9DD1B50088000DE3009 /* Schoolbell.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Schoolbell.ttf; sourceTree = "<group>"; };
 		805519691B7A59110001823F /* GuessShapeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeHelper.swift; sourceTree = "<group>"; };
 		8081493D1B4A89D3008555EB /* Bum Bam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bum Bam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +130,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		187B0E691B8CB3BE00E94FF6 /* AS */ = {
+			isa = PBXGroup;
+			children = (
+				187B0E721B8CB3BE00E94FF6 /* ASConfig.swift */,
+				187B0E6A1B8CB3BE00E94FF6 /* Controllers */,
+				187B0E6C1B8CB3BE00E94FF6 /* Layout */,
+				187B0E701B8CB3BE00E94FF6 /* Models */,
+			);
+			path = AS;
+			sourceTree = "<group>";
+		};
+		187B0E6A1B8CB3BE00E94FF6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				187B0E6B1B8CB3BE00E94FF6 /* ASGameController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		187B0E6C1B8CB3BE00E94FF6 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				187B0E6D1B8CB3BE00E94FF6 /* ASDefaultLayoutAction.swift */,
+				187B0E6E1B8CB3BE00E94FF6 /* ASLayout.swift */,
+				187B0E6F1B8CB3BE00E94FF6 /* ASLayoutAction.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		187B0E701B8CB3BE00E94FF6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				187B0E711B8CB3BE00E94FF6 /* ASGameModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		808149341B4A89D3008555EB = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +192,7 @@
 				808149991B4AD387008555EB /* HelperFuncs.swift */,
 				808EB2101B4CC2AA0076C4F0 /* Layout.swift */,
 				808EB2261B4D65340076C4F0 /* GameList.swift */,
+				187B0E691B8CB3BE00E94FF6 /* AS */,
 				80A410C31B4F286500511C90 /* GuessShape */,
 				808EB2281B4D71E30076C4F0 /* Template */,
 				808EB2121B4CC42D0076C4F0 /* Test */,
@@ -475,12 +525,15 @@
 				8092B24C1B4CC18700722E0C /* MainLayoutAction.swift in Sources */,
 				808EB2311B4D71FE0076C4F0 /* TemplateGameController.swift in Sources */,
 				808EB21F1B4CC5770076C4F0 /* TestLayoutAction.swift in Sources */,
+				187B0E741B8CB3BE00E94FF6 /* ASDefaultLayoutAction.swift in Sources */,
 				808EB2271B4D65340076C4F0 /* GameList.swift in Sources */,
 				808149451B4A89D3008555EB /* MenuViewController.swift in Sources */,
 				80A410D51B4F286500511C90 /* GuessShapeGameModel.swift in Sources */,
+				187B0E761B8CB3BE00E94FF6 /* ASLayoutAction.swift in Sources */,
 				8081499B1B4AD387008555EB /* HelperFuncs.swift in Sources */,
 				8055196A1B7A59110001823F /* GuessShapeHelper.swift in Sources */,
 				80A410DA1B4FA4EF00511C90 /* TemplateConfig.swift in Sources */,
+				187B0E781B8CB3BE00E94FF6 /* ASConfig.swift in Sources */,
 				80A410D31B4F286500511C90 /* GuessShapeLayout.swift in Sources */,
 				80A410D21B4F286500511C90 /* GuessShapeDefaultLayoutAction.swift in Sources */,
 				808EB2371B4D72D30076C4F0 /* TemplateDefaultLayoutAction.swift in Sources */,
@@ -489,10 +542,13 @@
 				808EB2351B4D72810076C4F0 /* TemplateGameModel.swift in Sources */,
 				8081499A1B4AD387008555EB /* Config.swift in Sources */,
 				808EB21D1B4CC4F20076C4F0 /* TestGameModel.swift in Sources */,
+				187B0E731B8CB3BE00E94FF6 /* ASGameController.swift in Sources */,
 				808EB2251B4CD0CA0076C4F0 /* TestMainImageView.swift in Sources */,
+				187B0E771B8CB3BE00E94FF6 /* ASGameModel.swift in Sources */,
 				185D16DA1B8C57BD00951D6A /* SettingsBlockView.swift in Sources */,
 				808EB2111B4CC2AA0076C4F0 /* Layout.swift in Sources */,
 				808149971B4AD16E008555EB /* GameViewController.swift in Sources */,
+				187B0E751B8CB3BE00E94FF6 /* ASLayout.swift in Sources */,
 				8092B24E1B4CC1A000722E0C /* MainGameModel.swift in Sources */,
 				808EB2231B4CC6080076C4F0 /* TestLayout.swift in Sources */,
 				808149431B4A89D3008555EB /* AppDelegate.swift in Sources */,
