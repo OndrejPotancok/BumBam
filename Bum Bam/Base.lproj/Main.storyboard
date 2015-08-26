@@ -33,13 +33,22 @@
                                     <action selector="menuButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vzj-Rm-1hz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Voj-WN-QFA">
+                                <rect key="frame" x="277" y="247" width="46" height="30"/>
+                                <state key="normal" title="Puzzle"/>
+                                <connections>
+                                    <action selector="menuButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Qj7-mV-A07"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="dfp-MG-NP1" secondAttribute="centerY" id="8Q4-7B-zFM"/>
                             <constraint firstAttribute="centerX" secondItem="dfp-MG-NP1" secondAttribute="centerX" id="EZ4-qS-h5X"/>
+                            <constraint firstItem="dfp-MG-NP1" firstAttribute="top" secondItem="Voj-WN-QFA" secondAttribute="bottom" constant="8" id="TXf-GA-COq"/>
                             <constraint firstItem="efI-0J-Bp2" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="V5H-rO-fTR"/>
                             <constraint firstItem="efI-0J-Bp2" firstAttribute="top" secondItem="dfp-MG-NP1" secondAttribute="bottom" constant="8" id="YVe-VV-fOM"/>
+                            <constraint firstItem="Voj-WN-QFA" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="plP-RK-Iay"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZI8-ac-j77"/>

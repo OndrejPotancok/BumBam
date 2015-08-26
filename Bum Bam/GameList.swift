@@ -13,7 +13,8 @@ var gameModelArray: [MainGameModel] = [
     TestGameModel(name: "Test", codeName: "Test"),
     TemplateGameModel(name: "Template", codeName: "Template"),
     GuessShapeGameModel(name: "Guess Shape", codeName: "GuessShape"),
-    ASGameModel(name: "Animal Sounds", codeName: "AS")
+    ASGameModel(name: "Animal Sounds", codeName: "AS"),
+    PZGameModel(name: "Puzzle", codeName: "PZ")
 ]
 
 extension MainGameController {
@@ -28,6 +29,8 @@ extension MainGameController {
             return GuessShapeGameController(gameModel: gameModelArray[2], layoutAction: GuessShapeLayoutAction(), layout: GuessShapeLayout().layout)
         case gameModelArray[3].name:
             return ASGameController(gameModel: gameModelArray[3], layoutAction: ASLayoutAction(), layout: ASLayout().layout)
+        case gameModelArray[4].name:
+            return PZGameController(gameModel: gameModelArray[4], layoutAction: PZLayoutAction(), layout: PZLayout().layout)
         default:
             return nil
         }
