@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-class PZTileHelperView: UIImageView {
+class PZTileHelperView: UIImageView, subviewOfMultiLayout {
+    
+    var index: Int!
     
     var tile: PZTileView!
     

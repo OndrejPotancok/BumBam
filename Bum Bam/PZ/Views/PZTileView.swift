@@ -45,10 +45,14 @@ class PZTileView: UIImageView, subviewOfMultiLayout {
         switch self.state {
         case .InSlider:
             self.userInteractionEnabled = false
+            self.layer.shadowOpacity = 0
         case .Moving:
             self.userInteractionEnabled = true
+            self.layer.shadowPath = UIBezierPath(rect: self.bounds).CGPath
+            self.layer.shadowOpacity = 1
         case .OnBoard:
             self.userInteractionEnabled = true
+            self.layer.shadowOpacity = 0
         }
     }
     
@@ -67,11 +71,11 @@ class PZTileView: UIImageView, subviewOfMultiLayout {
         var newSliderContentOffset: CGPoint
         let oldTileOrigin = helperView.superview!.convertPoint(helperView.frame.origin, toView: self.superview)
         if oldTileOrigin.x < ScrnW/3 {
-            newSliderContentOffset = CGPointMake(PZConfig.sliderSquareSizeCoeff*ScrnW*CGFloat(self.index),0)
+            newSliderContentOffset = CGPointMake(PZConfig.sliderSquareSizeCoeff*ScrnW*CGFloat(helperView.index),0)
         } else if oldTileOrigin.x + helperView.bounds.width > ScrnW*(2/3) {
-            newSliderContentOffset = CGPointMake(PZConfig.sliderSquareSizeCoeff*ScrnW*CGFloat(self.index-2),0)
+            newSliderContentOffset = CGPointMake(PZConfig.sliderSquareSizeCoeff*ScrnW*CGFloat(helperView.index-2),0)
         } else {
-            newSliderContentOffset = CGPointMake(PZConfig.sliderSquareSizeCoeff*ScrnW*CGFloat(self.index-1),0)
+            newSliderContentOffset = CGPointMake(PZConfig.sliderSquareSizeCoeff*ScrnW*CGFloat(helperView.index-1),0)
         }
         
         slider.contentOffset = newSliderContentOffset

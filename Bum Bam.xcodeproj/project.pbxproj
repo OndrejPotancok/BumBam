@@ -15,6 +15,7 @@
 		186BC86F1B8F01AD00179C60 /* CLLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186BC8681B8F01AD00179C60 /* CLLayout.swift */; };
 		186BC8701B8F01AD00179C60 /* CLLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186BC8691B8F01AD00179C60 /* CLLayoutAction.swift */; };
 		186BC8711B8F01AD00179C60 /* CLGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186BC86B1B8F01AD00179C60 /* CLGameModel.swift */; };
+		186BC8731B8F11BC00179C60 /* PZHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186BC8721B8F11BC00179C60 /* PZHelper.swift */; };
 		187B0E731B8CB3BE00E94FF6 /* ASGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E6B1B8CB3BE00E94FF6 /* ASGameController.swift */; };
 		187B0E741B8CB3BE00E94FF6 /* ASDefaultLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E6D1B8CB3BE00E94FF6 /* ASDefaultLayoutAction.swift */; };
 		187B0E751B8CB3BE00E94FF6 /* ASLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E6E1B8CB3BE00E94FF6 /* ASLayout.swift */; };
@@ -89,6 +90,7 @@
 		186BC8681B8F01AD00179C60 /* CLLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLayout.swift; sourceTree = "<group>"; };
 		186BC8691B8F01AD00179C60 /* CLLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLayoutAction.swift; sourceTree = "<group>"; };
 		186BC86B1B8F01AD00179C60 /* CLGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLGameModel.swift; sourceTree = "<group>"; };
+		186BC8721B8F11BC00179C60 /* PZHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PZHelper.swift; sourceTree = "<group>"; };
 		187B0E6B1B8CB3BE00E94FF6 /* ASGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASGameController.swift; sourceTree = "<group>"; };
 		187B0E6D1B8CB3BE00E94FF6 /* ASDefaultLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASDefaultLayoutAction.swift; sourceTree = "<group>"; };
 		187B0E6E1B8CB3BE00E94FF6 /* ASLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLayout.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		186BC8621B8F01AD00179C60 /* CL */ = {
 			isa = PBXGroup;
 			children = (
+				186F73131B8F4DEB00870ABB /* FloodFill */,
 				186BC8631B8F01AD00179C60 /* CLConfig.swift */,
 				186BC8641B8F01AD00179C60 /* Controllers */,
 				186BC8661B8F01AD00179C60 /* Layout */,
@@ -201,6 +204,13 @@
 				186BC86B1B8F01AD00179C60 /* CLGameModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		186F73131B8F4DEB00870ABB /* FloodFill */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FloodFill;
 			sourceTree = "<group>";
 		};
 		187B0E691B8CB3BE00E94FF6 /* AS */ = {
@@ -252,6 +262,7 @@
 		18B073071B8D8E1600647324 /* PZ */ = {
 			isa = PBXGroup;
 			children = (
+				186BC8721B8F11BC00179C60 /* PZHelper.swift */,
 				18B073101B8D8E1600647324 /* PZConfig.swift */,
 				18B073081B8D8E1600647324 /* Controllers */,
 				18B0730A1B8D8E1600647324 /* Layout */,
@@ -706,6 +717,7 @@
 				80A410D11B4F286500511C90 /* GuessShapeGameController.swift in Sources */,
 				18F326DE1B8E176E001BEE04 /* PZBoardTileView.swift in Sources */,
 				808EB21B1B4CC4490076C4F0 /* TestGameController.swift in Sources */,
+				186BC8731B8F11BC00179C60 /* PZHelper.swift in Sources */,
 				80A410D61B4F286500511C90 /* GuessShapeThumbView.swift in Sources */,
 				808EB2331B4D72500076C4F0 /* TemplateLayout.swift in Sources */,
 				186BC86E1B8F01AD00179C60 /* CLDefaultLayoutAction.swift in Sources */,
