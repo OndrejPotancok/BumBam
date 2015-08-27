@@ -23,7 +23,11 @@
 		18B073141B8D8E1600647324 /* PZLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0730D1B8D8E1600647324 /* PZLayoutAction.swift */; };
 		18B073151B8D8E1600647324 /* PZGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0730F1B8D8E1600647324 /* PZGameModel.swift */; };
 		18B073161B8D8E1600647324 /* PZConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B073101B8D8E1600647324 /* PZConfig.swift */; };
+		18B0731A1B8DAA2700647324 /* PZTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B073191B8DAA2600647324 /* PZTileView.swift */; };
+		18B0731C1B8DAADF00647324 /* PZTileHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0731B1B8DAADF00647324 /* PZTileHelperView.swift */; };
 		18DBE9DE1B50088000DE3009 /* Schoolbell.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18DBE9DD1B50088000DE3009 /* Schoolbell.ttf */; };
+		18F326DC1B8E0755001BEE04 /* PZTilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F326DB1B8E0755001BEE04 /* PZTilesView.swift */; };
+		18F326DE1B8E176E001BEE04 /* PZBoardTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F326DD1B8E176E001BEE04 /* PZBoardTileView.swift */; };
 		8055196A1B7A59110001823F /* GuessShapeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805519691B7A59110001823F /* GuessShapeHelper.swift */; };
 		808149431B4A89D3008555EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149421B4A89D3008555EB /* AppDelegate.swift */; };
 		808149451B4A89D3008555EB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808149441B4A89D3008555EB /* MenuViewController.swift */; };
@@ -87,7 +91,11 @@
 		18B0730D1B8D8E1600647324 /* PZLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PZLayoutAction.swift; sourceTree = "<group>"; };
 		18B0730F1B8D8E1600647324 /* PZGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PZGameModel.swift; sourceTree = "<group>"; };
 		18B073101B8D8E1600647324 /* PZConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PZConfig.swift; sourceTree = "<group>"; };
+		18B073191B8DAA2600647324 /* PZTileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PZTileView.swift; sourceTree = "<group>"; };
+		18B0731B1B8DAADF00647324 /* PZTileHelperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PZTileHelperView.swift; sourceTree = "<group>"; };
 		18DBE9DD1B50088000DE3009 /* Schoolbell.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Schoolbell.ttf; sourceTree = "<group>"; };
+		18F326DB1B8E0755001BEE04 /* PZTilesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PZTilesView.swift; sourceTree = "<group>"; };
+		18F326DD1B8E176E001BEE04 /* PZBoardTileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PZBoardTileView.swift; sourceTree = "<group>"; };
 		805519691B7A59110001823F /* GuessShapeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessShapeHelper.swift; sourceTree = "<group>"; };
 		8081493D1B4A89D3008555EB /* Bum Bam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bum Bam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		808149411B4A89D3008555EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -199,6 +207,7 @@
 				18B073081B8D8E1600647324 /* Controllers */,
 				18B0730A1B8D8E1600647324 /* Layout */,
 				18B0730E1B8D8E1600647324 /* Models */,
+				18B073181B8DA9F700647324 /* Views */,
 			);
 			path = PZ;
 			sourceTree = "<group>";
@@ -227,6 +236,17 @@
 				18B0730F1B8D8E1600647324 /* PZGameModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		18B073181B8DA9F700647324 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18B073191B8DAA2600647324 /* PZTileView.swift */,
+				18B0731B1B8DAADF00647324 /* PZTileHelperView.swift */,
+				18F326DB1B8E0755001BEE04 /* PZTilesView.swift */,
+				18F326DD1B8E176E001BEE04 /* PZBoardTileView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		808149341B4A89D3008555EB = {
@@ -587,6 +607,7 @@
 			files = (
 				18B073121B8D8E1600647324 /* PZDefaultLayoutAction.swift in Sources */,
 				80A410D41B4F286500511C90 /* GuessShapeLayoutAction.swift in Sources */,
+				18F326DC1B8E0755001BEE04 /* PZTilesView.swift in Sources */,
 				808EB2211B4CC5B10076C4F0 /* TestDefaultLayoutAction.swift in Sources */,
 				8092B24C1B4CC18700722E0C /* MainLayoutAction.swift in Sources */,
 				808EB2311B4D71FE0076C4F0 /* TemplateGameController.swift in Sources */,
@@ -599,12 +620,14 @@
 				187B0E761B8CB3BE00E94FF6 /* ASLayoutAction.swift in Sources */,
 				18B073131B8D8E1600647324 /* PZLayout.swift in Sources */,
 				18B073151B8D8E1600647324 /* PZGameModel.swift in Sources */,
+				18B0731A1B8DAA2700647324 /* PZTileView.swift in Sources */,
 				8081499B1B4AD387008555EB /* HelperFuncs.swift in Sources */,
 				8055196A1B7A59110001823F /* GuessShapeHelper.swift in Sources */,
 				80A410DA1B4FA4EF00511C90 /* TemplateConfig.swift in Sources */,
 				187B0E781B8CB3BE00E94FF6 /* ASConfig.swift in Sources */,
 				80A410D31B4F286500511C90 /* GuessShapeLayout.swift in Sources */,
 				80A410D21B4F286500511C90 /* GuessShapeDefaultLayoutAction.swift in Sources */,
+				18B0731C1B8DAADF00647324 /* PZTileHelperView.swift in Sources */,
 				808EB2371B4D72D30076C4F0 /* TemplateDefaultLayoutAction.swift in Sources */,
 				18B073111B8D8E1600647324 /* PZGameController.swift in Sources */,
 				8092B24A1B4CC16700722E0C /* MainGameController.swift in Sources */,
@@ -626,6 +649,7 @@
 				187B0E7A1B8CEF9F00E94FF6 /* ASHelper.swift in Sources */,
 				185D16D91B8C57BD00951D6A /* SettingsBlockButton.swift in Sources */,
 				80A410D11B4F286500511C90 /* GuessShapeGameController.swift in Sources */,
+				18F326DE1B8E176E001BEE04 /* PZBoardTileView.swift in Sources */,
 				808EB21B1B4CC4490076C4F0 /* TestGameController.swift in Sources */,
 				80A410D61B4F286500511C90 /* GuessShapeThumbView.swift in Sources */,
 				808EB2331B4D72500076C4F0 /* TemplateLayout.swift in Sources */,

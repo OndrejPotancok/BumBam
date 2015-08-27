@@ -11,5 +11,7 @@ import UIKit
 
 class PZConfig {
     
+    static let sliderSquareSizeCoeff: CGFloat = 1/3
+    static let tileSizeCoeff: CGFloat = 0.8 * PZConfig.sliderSquareSizeCoeff
     
 }

@@ -106,3 +106,23 @@ class ClosureClass {
         self.execute = closure
     }
 }
+
+
+
+
+extension UIImage {
+    func desaturate() -> UIImage {
+        let context = CIContext(options: [kCIContextUseSoftwareRenderer : true])
+        let ciImage = CoreImage.CIImage(image: self)
+        let filter = CIFilter(name: "CIColorControls")
+        filter!.setValue(ciImage, forKey: kCIInputImageKey)
+        filter!.setValue(0.0, forKey: kCIInputSaturationKey)
+        let result: CoreImage.CIImage = filter!.valueForKey(kCIOutputImageKey) as! CoreImage.CIImage;
+        let cgImage = context.createCGImage(result, fromRect:result.extent)
+        let image = UIImage(CGImage:cgImage);
+        return image
+    }
+}
+
+
+
