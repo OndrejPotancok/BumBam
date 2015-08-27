@@ -40,6 +40,13 @@
                                     <action selector="menuButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Qj7-mV-A07"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koo-qT-PCz">
+                                <rect key="frame" x="271" y="209" width="58" height="30"/>
+                                <state key="normal" title="Coloring"/>
+                                <connections>
+                                    <action selector="menuButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="VY8-L9-GdI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -48,7 +55,9 @@
                             <constraint firstItem="dfp-MG-NP1" firstAttribute="top" secondItem="Voj-WN-QFA" secondAttribute="bottom" constant="8" id="TXf-GA-COq"/>
                             <constraint firstItem="efI-0J-Bp2" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="V5H-rO-fTR"/>
                             <constraint firstItem="efI-0J-Bp2" firstAttribute="top" secondItem="dfp-MG-NP1" secondAttribute="bottom" constant="8" id="YVe-VV-fOM"/>
+                            <constraint firstItem="koo-qT-PCz" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="cYt-yB-aLb"/>
                             <constraint firstItem="Voj-WN-QFA" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="plP-RK-Iay"/>
+                            <constraint firstItem="Voj-WN-QFA" firstAttribute="top" secondItem="koo-qT-PCz" secondAttribute="bottom" constant="8" id="ywD-ss-AT6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZI8-ac-j77"/>
