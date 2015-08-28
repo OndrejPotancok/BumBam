@@ -77,9 +77,9 @@ class PZLayout {
                             let column = CGFloat(Int(id)%countInRow)
                             var view = PZBoardTileView(frame: CGRect(centerx: (column+0.5)*(prntW/CGFloat(countInRow)), centery: (row+0.5)*(prntH/CGFloat(countInRow)), width: prntW/CGFloat(countInRow), height: prntH/CGFloat(countInRow)))
                             if(Int(row)%2==0) == (Int(column)%2==0) {
-                                view.backgroundColor = UIColor(red: 215/255, green: 215/255, blue: 215/255, alpha: 1)
+                                view.backgroundColor = UIColor(red: 145/255, green: 145/255, blue: 145/255, alpha: 1)
                             } else {
-                                view.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+                                view.backgroundColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1)
                             }
                             view.layer.borderColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1).CGColor
                             view.layer.borderWidth = 1

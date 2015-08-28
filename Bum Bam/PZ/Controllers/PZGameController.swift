@@ -58,6 +58,8 @@ class PZGameController: MainGameController, UIScrollViewDelegate, PPZTileViewDel
             self.tileHelperViews.last!.image = self.gameModel.getGrayImage(self.gameModel.orderInSlider[index])
             if self.gameModel.visibleTiles.contains(index) {
                 self.boardTileViews.last!.image = self.gameModel.getGrayImage(index)
+                self.boardTileViews.last!.alpha = 0.5
+                self.boardTileViews.last!.layer.borderColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1).CGColor
             }
         }
         for index in 0..<self.gameModel.count {
