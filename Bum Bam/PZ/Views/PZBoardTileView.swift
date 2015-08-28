@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PZBoardTileView: UIView, subviewOfMultiLayout {
+class PZBoardTileView: UIImageView, subviewOfMultiLayout {
     
     var index: Int!
     
@@ -28,5 +28,6 @@ class PZBoardTileView: UIView, subviewOfMultiLayout {
             self._tileView = newValue
         }
     }
+
     
 }

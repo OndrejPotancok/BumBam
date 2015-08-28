@@ -530,8 +530,8 @@
 		80A410C31B4F286500511C90 /* GuessShape */ = {
 			isa = PBXGroup;
 			children = (
-				80A410D71B4FA37400511C90 /* GuessShapeConfig.swift */,
 				805519691B7A59110001823F /* GuessShapeHelper.swift */,
+				80A410D71B4FA37400511C90 /* GuessShapeConfig.swift */,
 				80A410C61B4F286500511C90 /* Controllers */,
 				80A410C81B4F286500511C90 /* Layout */,
 				80A410CC1B4F286500511C90 /* Models */,

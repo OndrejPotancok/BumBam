@@ -160,8 +160,7 @@ class MainGameController: NSObject {
         for settingsBlockButtonLayout in settingsBlockLayout.subviews.values {
             (settingsBlockButtonLayout.view as! SettingsBlockButton).addTarget(self, action: "settingsBlockButtonPressed:", forControlEvents: .TouchUpInside)
         }
-        let prntW = settingsBlockLayout.view.bounds.width
-        (settingsBlockLayout.view as! UIScrollView).contentSize.width = max(prntW, prntW*settingsSquareSizeCoeff*CGFloat(count)+prntW*settingsMarginCoeff*2)
+        (settingsBlockLayout.view as! UIScrollView).contentSize = getSliderContentSize(count)
     }
     
     func updateSettingsColor() {

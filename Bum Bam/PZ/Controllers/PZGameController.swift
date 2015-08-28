@@ -26,8 +26,9 @@ class PZGameController: MainGameController, UIScrollViewDelegate, PPZTileViewDel
         
     }
     override func gameWillStart() {
-        self.gameModel.puzzleImageID = 1
+        self.gameModel.puzzleImageID = 0
         self.gameModel.count = 16
+        self.gameModel.difficulty = 1
         
         self.gameLayout = self.layout["game"]
         
@@ -38,7 +39,7 @@ class PZGameController: MainGameController, UIScrollViewDelegate, PPZTileViewDel
     }
     override func gameDidStart() {
         let sliderView = self.gameLayout["slider"]!.view as! UIScrollView
-        sliderView.contentSize = CGSize(width: ScrnW*PZConfig.sliderSquareSizeCoeff*CGFloat(self.gameModel.count), height: sliderView.bounds.height)
+        sliderView.contentSize = getSliderContentSize(self.gameModel.count)
         sliderView.delegate = self
         self.gameLayout.view.sendSubviewToBack(self.gameLayout["slider"]!.view)
         self.gameLayout.view.sendSubviewToBack(self.gameLayout["board"]!.view)
@@ -55,6 +56,9 @@ class PZGameController: MainGameController, UIScrollViewDelegate, PPZTileViewDel
             self.tileViews.last!.delegate = self
             self.tileViews.last!.image = self.gameModel.getImage(index)
             self.tileHelperViews.last!.image = self.gameModel.getGrayImage(self.gameModel.orderInSlider[index])
+            if self.gameModel.visibleTiles.contains(index) {
+                self.boardTileViews.last!.image = self.gameModel.getGrayImage(index)
+            }
         }
         for index in 0..<self.gameModel.count {
             self.tileViews[self.gameModel.orderInSlider[index]].tileHelperToWatch = self.tileHelperViews[index]
@@ -78,6 +82,15 @@ class PZGameController: MainGameController, UIScrollViewDelegate, PPZTileViewDel
             }
         }
         print("success")
+        UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+            for boardTileView in self.boardTileViews {
+                boardTileView.alpha = 0
+            }
+            for tileView in self.tileViews {
+                tileView.alpha = 0
+            }
+            self.gameLayout["board"]!.view.alpha = 0
+            }, completion: nil)
         delay(1) {
             self.restartGame()
         }

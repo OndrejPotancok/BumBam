@@ -9,13 +9,23 @@
 import Foundation
 import UIKit
 
+protocol PCLImageViewDelegate: class {
+    func getCurrentColor() -> UIColor?
+}
+
 class CLImageView: UIImageView {
     
+    weak var delegate: PCLImageViewDelegate!
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        guard let image = self.image else {return}
         if let point = touches.first?.locationInView(self) {
-            
-            let newImage = self.image?.floodFillFromPoint(CGPointMake(point.x*(973/self.bounds.width), point.y*(973/self.bounds.height)), withColor: UIColor.redColor(), andTolerance: 0)
-            self.image = newImage
+            let cgimage = image.CGImage
+            let imageWidth = CGImageGetWidth(cgimage)
+            let imageHeight = CGImageGetHeight(cgimage)
+            if let newImage = image.floodFillFromPoint(CGPointMake(point.x*(CGFloat(imageWidth)/self.bounds.width), point.y*(CGFloat(imageHeight)/self.bounds.height)), withColor: self.delegate.getCurrentColor(), andTolerance: 0) {
+                self.image = newImage
+            }
         }
     }
     

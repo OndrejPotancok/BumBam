@@ -15,6 +15,65 @@ let fullscreen = CGRectMake(0, 0, ScrnW, ScrnH)
 let labelFont = UIFont(name: "schoolbell", size: 20)
 let buttonFont = UIFont(name: "schoolbell", size: 45)
 
-let settingsSquareSizeCoeff: CGFloat = 912/3240
-let settingsImageSizeCoeff: CGFloat = 874/4575
-let settingsMarginCoeff: CGFloat = (1-settingsSquareSizeCoeff*3)/2
+let sliderSquareSizeCoeff: CGFloat = 0.282
+let sliderSubviewSizeCoeff: CGFloat = /*0.6786885246*/ 0.8 * sliderSquareSizeCoeff
+let slidersMarginCoeff: CGFloat = (1-sliderSquareSizeCoeff*3)/2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

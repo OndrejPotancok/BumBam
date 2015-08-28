@@ -11,5 +11,13 @@ import UIKit
 
 class CLConfig {
     
+    static let sliderSquareSizeCoeff: CGFloat = (1/3)
+    static let colorSquareSizeCoeff: CGFloat = 0.8 * CLConfig.sliderSquareSizeCoeff
     
+    static let colors: [UIColor] = [
+        UIColor.redColor(),
+        UIColor.yellowColor(),
+        UIColor.brownColor(),
+        UIColor.blueColor()
+    ]
 }

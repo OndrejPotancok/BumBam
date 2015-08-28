@@ -21,7 +21,6 @@ class PZConfig {
     ]
     
     static let puzzleImages: [PZHelper.PuzzleImage] = [
-        PZHelper.PuzzleImage(name: "puzzle1", variations: [9], backgroundImageName: ""),
         PZHelper.PuzzleImage(name: "slon", variations: [4,9,16], backgroundImageName: "backgroundGame")
     ]
     

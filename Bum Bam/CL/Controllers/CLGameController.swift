@@ -9,13 +9,15 @@
 import Foundation
 import UIKit
 
-class CLGameController: MainGameController {
+class CLGameController: MainGameController, PCLImageViewDelegate {
     
     var gameModel: CLGameModel!
     var layoutAction: CLLayoutAction!
     
     var gameLayout: Layout!
-    var imageView: UIImageView!
+    var imageView: CLImageView!
+    
+    var currentColor: UIColor?
     
     override init(gameModel: MainGameModel, layoutAction: MainLayoutAction, layout: Layout) {
         super.init(gameModel: gameModel, layoutAction: layoutAction, layout: layout)
@@ -26,7 +28,19 @@ class CLGameController: MainGameController {
 
     override func gameDidStart() {
         self.gameLayout = self.layout["game"]!
-        self.imageView = self.gameLayout["image"]!.view as! UIImageView
+        self.imageView = self.gameLayout["image"]!.view as! CLImageView
+        self.imageView.delegate = self
+        for buttonLayout in self.gameLayout["slider"]!.subviews.values {
+            (buttonLayout.view as! UIButton).addTarget(self, action: "colorButtonTapped:", forControlEvents: .TouchUpInside)
+        }
+    }
+    
+    func colorButtonTapped(sender: UIButton!) {
+        self.currentColor = sender.backgroundColor
+    }
+    
+    func getCurrentColor() -> UIColor? {
+        return self.currentColor
     }
     
 }

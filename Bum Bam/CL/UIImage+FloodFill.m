@@ -73,7 +73,7 @@
         
         unsigned int ocolor = getColorCode(byteIndex, imageData);
         
-        if (compareColor(ocolor, 0, 0)) {
+        if (compareColor(ocolor, 0, 0) || compareColor(ocolor, 255, 0)) {
             return nil;
         }
         

@@ -27,7 +27,16 @@ extension CGRect {
     }
     
 }
-
+extension UIView {
+    
+    func setSliderMask() {
+        let sliderMask =  CALayer()
+        sliderMask.frame = CGRectMake(0,0,ScrnW*sliderSubviewSizeCoeff,ScrnW*sliderSubviewSizeCoeff)
+        sliderMask.contents = UIImage(named: "mask")!.CGImage
+        self.layer.mask = sliderMask
+    }
+    
+}
 
 func shuffleArray<T>(inout array: [T]) {
     
@@ -41,12 +50,31 @@ func shuffleArray<T>(inout array: [T]) {
 class SettingsBlock {
     var name: String
     var subviewsCount: Int
-    
+
     init(name: String, subviewsCount: Int) {
         self.name = name
         self.subviewsCount = subviewsCount
     }
 }
+
+func getSliderFrame(centerY: CGFloat) -> CGRect {
+    return CGRect(centerx: ScrnW*0.5, centery: centerY, width: ScrnW, height: ScrnW*sliderSquareSizeCoeff)
+}
+func getSliderContentSize(count: Int) -> CGSize {
+    return CGSize(width: max(ScrnW, ScrnW*sliderSquareSizeCoeff*CGFloat(count)+ScrnW*slidersMarginCoeff*2), height: ScrnW*sliderSquareSizeCoeff)
+}
+func getSliderSubviewFrame(count: CGFloat, id: CGFloat) -> CGRect {
+    if count > 3 {
+        return CGRect(centerx: (id+0.5)*ScrnW*sliderSquareSizeCoeff+ScrnW*slidersMarginCoeff, centery: ScrnW*sliderSquareSizeCoeff*0.5, width: ScrnW*sliderSubviewSizeCoeff, height: ScrnW*sliderSubviewSizeCoeff)
+    } else {
+        return CGRect(centerx: (id+0.5)*ScrnW*sliderSquareSizeCoeff+ScrnW*((1-sliderSquareSizeCoeff*count)/2), centery: ScrnW*sliderSquareSizeCoeff*0.5, width: ScrnW*sliderSubviewSizeCoeff, height: ScrnW*sliderSubviewSizeCoeff)
+    }
+}
+func getSliderContentOffset(subviewIndexInTheMiddle subviewIndex: Int) -> CGPoint{
+    return CGPointMake((slidersMarginCoeff+sliderSquareSizeCoeff*(CGFloat(subviewIndex)+0.5)-0.5)*ScrnW,0)
+}
+
+
 
 func createSettingsLayout(settingsBlocks: [SettingsBlock]) -> Layout {
     
@@ -57,8 +85,9 @@ func createSettingsLayout(settingsBlocks: [SettingsBlock]) -> Layout {
             count: subview.subviewsCount,
             defaultHidden: false,
             createView: { (prntW, prntH) -> UIView in
-                let view = SettingsBlockView(frame: CGRect(centerx: prntW*1.5, centery: prntH*0.5, width: prntW, height: prntW*settingsSquareSizeCoeff))
-                view.contentSize = CGSize(width: max(prntW, prntW*settingsSquareSizeCoeff*CGFloat(subview.subviewsCount)+prntW*settingsMarginCoeff*2), height: prntW*settingsSquareSizeCoeff)
+                let view = SettingsBlockView(frame: getSliderFrame(prntH*0.5))
+                view.frame.origin.x += ScrnW
+                view.contentSize = getSliderContentSize(subview.subviewsCount)
                 view.autoresizingMask = UIViewAutoresizing.FlexibleWidth
                 view.panGestureRecognizer.delaysTouchesBegan = view.delaysContentTouches
                 view.name = subview.name
@@ -66,11 +95,7 @@ func createSettingsLayout(settingsBlocks: [SettingsBlock]) -> Layout {
             },
             createSubview: { (id, count, prntW, prntH) -> UIView in
                 let button = SettingsBlockButton()
-                if count > 3 {
-                    button.frame = CGRect(centerx: (id+0.5)*prntW*settingsSquareSizeCoeff+prntW*settingsMarginCoeff, centery: prntH*0.5, width: prntW*settingsImageSizeCoeff, height: prntW*settingsImageSizeCoeff)
-                } else {
-                    button.frame = CGRect(centerx: (id+0.5)*prntW*settingsSquareSizeCoeff+prntW*((1-settingsSquareSizeCoeff*count)/2), centery: prntH*0.5, width: prntW*settingsImageSizeCoeff, height: prntW*settingsImageSizeCoeff)
-                }
+                button.frame = getSliderSubviewFrame(count, id: id)
                 button.adjustsImageWhenHighlighted = false
                 return button
             },
@@ -80,7 +105,7 @@ func createSettingsLayout(settingsBlocks: [SettingsBlock]) -> Layout {
     
     return Layout(
         createView: { (prntW, prntH) -> UIView in
-            let view = UIImageView(frame: CGRectMake(0, 0, prntW, prntH))
+            let view = UIImageView(frame: CGRect(centerx: prntW/2, centery: prntH/2, width: prntW, height: prntW*(16/9)))
             view.userInteractionEnabled = true
             return view
         },
@@ -89,7 +114,7 @@ func createSettingsLayout(settingsBlocks: [SettingsBlock]) -> Layout {
             "tempBackground": Layout(
                 defaultHidden: true,
                 createView: { (prntW, prntH) -> UIView in
-                    let view = UIImageView(frame: CGRectMake(0, 0, prntW, prntH))
+                    let view = UIImageView(frame: CGRect(centerx: prntW/2, centery: prntH/2, width: prntW, height: prntW*(16/9)))
                     return view
                 }
             )
@@ -106,6 +131,8 @@ class ClosureClass {
         self.execute = closure
     }
 }
+
+
 
 
 
