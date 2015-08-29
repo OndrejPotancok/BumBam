@@ -27,10 +27,18 @@ class PZGameModel: MainGameModel {
     var visibleTiles = Set<Int>()
     
     func getImage(index: Int) -> UIImage? {
-        return UIImage(named: "\(PZConfig.puzzleImages[self.puzzleImageID].name)_\(self.count)_\(index)")
+        let id = index+1
+        var indexString = ""
+        if id<10 {indexString += "0"}
+        indexString += "\(id)"
+        return UIImage(named: "\(PZConfig.puzzleImages[self.puzzleImageID].name)_\(self.count)_\(indexString)")
     }
     func getGrayImage(index: Int) -> UIImage? {
-        return UIImage(named: "\(PZConfig.puzzleImages[self.puzzleImageID].name)_\(self.count)_\(index)_g")
+        let id = index+1
+        var indexString = ""
+        if id<10 {indexString += "0"}
+        indexString += "\(id)"
+        return UIImage(named: "\(PZConfig.puzzleImages[self.puzzleImageID].name)_g_\(self.count)_\(indexString)")
     }
     
     func createOrderInSliderArray() {

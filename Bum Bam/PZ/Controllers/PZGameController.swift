@@ -27,7 +27,7 @@ class PZGameController: MainGameController, UIScrollViewDelegate, PPZTileViewDel
     }
     override func gameWillStart() {
         self.gameModel.puzzleImageID = 0
-        self.gameModel.count = 16
+        self.gameModel.count = 9
         self.gameModel.difficulty = 1
         
         self.gameLayout = self.layout["game"]
@@ -58,9 +58,11 @@ class PZGameController: MainGameController, UIScrollViewDelegate, PPZTileViewDel
             self.tileHelperViews.last!.image = self.gameModel.getGrayImage(self.gameModel.orderInSlider[index])
             if self.gameModel.visibleTiles.contains(index) {
                 self.boardTileViews.last!.image = self.gameModel.getGrayImage(index)
-                self.boardTileViews.last!.alpha = 0.5
-                self.boardTileViews.last!.layer.borderColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1).CGColor
+                self.boardTileViews.last!.alpha = 0.3
+                //self.boardTileViews.last!.layer.borderColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1).CGColor
+                self.gameLayout["board"]!["\(index)"]!.hideSubview("number")
             }
+            (self.gameLayout["board"]!["\(index)"]!["number"]!.view as! UILabel).text = "\(index+1)"
         }
         for index in 0..<self.gameModel.count {
             self.tileViews[self.gameModel.orderInSlider[index]].tileHelperToWatch = self.tileHelperViews[index]
