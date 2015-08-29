@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		185BF1FA1B925F1E002791CE /* ASHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185BF1F91B925F1E002791CE /* ASHelper.swift */; };
 		185D16D91B8C57BD00951D6A /* SettingsBlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D16D71B8C57BD00951D6A /* SettingsBlockButton.swift */; };
 		185D16DA1B8C57BD00951D6A /* SettingsBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D16D81B8C57BD00951D6A /* SettingsBlockView.swift */; };
 		186BC86C1B8F01AD00179C60 /* CLConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186BC8631B8F01AD00179C60 /* CLConfig.swift */; };
@@ -25,7 +26,6 @@
 		187B0E761B8CB3BE00E94FF6 /* ASLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E6F1B8CB3BE00E94FF6 /* ASLayoutAction.swift */; };
 		187B0E771B8CB3BE00E94FF6 /* ASGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E711B8CB3BE00E94FF6 /* ASGameModel.swift */; };
 		187B0E781B8CB3BE00E94FF6 /* ASConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E721B8CB3BE00E94FF6 /* ASConfig.swift */; };
-		187B0E7A1B8CEF9F00E94FF6 /* ASHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B0E791B8CEF9F00E94FF6 /* ASHelper.swift */; };
 		187B0E7D1B8CF8F400E94FF6 /* tiger.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 187B0E7C1B8CF8F400E94FF6 /* tiger.mp3 */; };
 		18B073111B8D8E1600647324 /* PZGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B073091B8D8E1600647324 /* PZGameController.swift */; };
 		18B073121B8D8E1600647324 /* PZDefaultLayoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0730B1B8D8E1600647324 /* PZDefaultLayoutAction.swift */; };
@@ -85,6 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		185BF1F91B925F1E002791CE /* ASHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASHelper.swift; sourceTree = "<group>"; };
 		185D16D71B8C57BD00951D6A /* SettingsBlockButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsBlockButton.swift; sourceTree = "<group>"; };
 		185D16D81B8C57BD00951D6A /* SettingsBlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsBlockView.swift; sourceTree = "<group>"; };
 		186BC8631B8F01AD00179C60 /* CLConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLConfig.swift; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 		187B0E6F1B8CB3BE00E94FF6 /* ASLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLayoutAction.swift; sourceTree = "<group>"; };
 		187B0E711B8CB3BE00E94FF6 /* ASGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASGameModel.swift; sourceTree = "<group>"; };
 		187B0E721B8CB3BE00E94FF6 /* ASConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASConfig.swift; sourceTree = "<group>"; };
-		187B0E791B8CEF9F00E94FF6 /* ASHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASHelper.swift; path = ../../../../Documents/ASHelper.swift; sourceTree = "<group>"; };
 		187B0E7C1B8CF8F400E94FF6 /* tiger.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tiger.mp3; sourceTree = "<group>"; };
 		18B073091B8D8E1600647324 /* PZGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PZGameController.swift; sourceTree = "<group>"; };
 		18B0730B1B8D8E1600647324 /* PZDefaultLayoutAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PZDefaultLayoutAction.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 		187B0E691B8CB3BE00E94FF6 /* AS */ = {
 			isa = PBXGroup;
 			children = (
-				187B0E791B8CEF9F00E94FF6 /* ASHelper.swift */,
+				185BF1F91B925F1E002791CE /* ASHelper.swift */,
 				187B0E721B8CB3BE00E94FF6 /* ASConfig.swift */,
 				187B0E6A1B8CB3BE00E94FF6 /* Controllers */,
 				187B0E6C1B8CB3BE00E94FF6 /* Layout */,
@@ -736,11 +736,11 @@
 				8092B24E1B4CC1A000722E0C /* MainGameModel.swift in Sources */,
 				808EB2231B4CC6080076C4F0 /* TestLayout.swift in Sources */,
 				808149431B4A89D3008555EB /* AppDelegate.swift in Sources */,
-				187B0E7A1B8CEF9F00E94FF6 /* ASHelper.swift in Sources */,
 				186BC86F1B8F01AD00179C60 /* CLLayout.swift in Sources */,
 				185D16D91B8C57BD00951D6A /* SettingsBlockButton.swift in Sources */,
 				80A410D11B4F286500511C90 /* GuessShapeGameController.swift in Sources */,
 				186F73191B8F4E7E00870ABB /* LinkedListStack.m in Sources */,
+				185BF1FA1B925F1E002791CE /* ASHelper.swift in Sources */,
 				18F326DE1B8E176E001BEE04 /* PZBoardTileView.swift in Sources */,
 				808EB21B1B4CC4490076C4F0 /* TestGameController.swift in Sources */,
 				186BC8731B8F11BC00179C60 /* PZHelper.swift in Sources */,

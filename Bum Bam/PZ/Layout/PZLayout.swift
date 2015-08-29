@@ -60,7 +60,7 @@ class PZLayout {
                         count: 4,
                         defaultHidden: false,
                         createView: { (prntW, prntH) -> UIView in
-                            var view = UIView(frame: CGRect(centerx: prntW*0.5, centery: prntH*(255+(1104/2))/2208, width: prntW*1104/1242, height: prntW*1104/1242))
+                            var view = UIView(frame: CGRect(centerx: prntW*0.5, centery: prntH*(255+(1104/2))/2208, width: prntW*1104/1242, height: prntW*1104/1242ASH))
                             
                             print(view.frame)
                             print(view.frame.origin.x)
