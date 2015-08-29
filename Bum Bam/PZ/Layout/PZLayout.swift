@@ -44,14 +44,14 @@ class PZLayout {
                             return view
                         },
                         createSubview: { (id, count, prntW, prntH) -> UIView in
-                            var view = PZTileView(frame: CGRect(centerx: 0, centery: 0, width: 0, height: 0))
+                            var view = PZTileView(frame: CGRect(centerx: 0, centery: 0, width: 1, height: 1))
                             view.setSliderMask()
                             view.layer.shadowColor = UIColor.blackColor().CGColor
                             view.layer.shadowOpacity = 0
                             view.layer.shadowOffset = CGSizeMake(0.0, 0.0)
                             view.layer.shadowRadius = 15.0
                             view.layer.masksToBounds = false
-                            //view.layer.borderColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1).CGColor
+                            view.layer.borderColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1).CGColor
                             view.userInteractionEnabled = true
                             return view
                         },
@@ -60,20 +60,16 @@ class PZLayout {
                         count: 4,
                         defaultHidden: false,
                         createView: { (prntW, prntH) -> UIView in
-                            var view = UIView(frame: CGRect(centerx: prntW*0.5, centery: prntH*(255+(1104/2))/2208, width: prntW*1104/1242, height: prntW*1104/1242ASH))
-                            
-                            print(view.frame)
-                            print(view.frame.origin.x)
-                            print(prntW-view.bounds.width-view.frame.origin.x)
-                            
+                            var view = UIView(frame: CGRect(centerx: prntW*0.5, centery: prntH*(255+(1104/2))/2208, width: prntW*1104/1242, height: prntW*1104/1242))
+
                             view.backgroundColor = UIColor(red: 190/255, green: 190/255, blue: 190/255, alpha: 1)
                             
-                            /*var borderLayer = CALayer()
+                            var borderLayer = CALayer()
                             borderLayer.frame = CGRectMake(-1, -1, view.frame.size.width+2, view.frame.size.height+2)
                             borderLayer.backgroundColor = UIColor.clearColor().CGColor
                             borderLayer.borderWidth = 1
                             borderLayer.borderColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1).CGColor
-                            view.layer.addSublayer(borderLayer)*/
+                            view.layer.addSublayer(borderLayer)
                             
                             view.userInteractionEnabled = true
                             return view
@@ -88,8 +84,8 @@ class PZLayout {
                             } else {*/
                             view.backgroundColor = UIColor(red: 190/255, green: 190/255, blue: 190/255, alpha: 1)
                             //}
-                            //view.layer.borderColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1).CGColor
-                            //view.layer.borderWidth = 1
+                            view.layer.borderColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1).CGColor
+                            view.layer.borderWidth = 1
                             view.userInteractionEnabled = true
                             return view
                         },

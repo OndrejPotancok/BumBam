@@ -59,7 +59,7 @@ class PZGameController: MainGameController, UIScrollViewDelegate, PPZTileViewDel
             if self.gameModel.visibleTiles.contains(index) {
                 self.boardTileViews.last!.image = self.gameModel.getGrayImage(index)
                 self.boardTileViews.last!.alpha = 0.3
-                //self.boardTileViews.last!.layer.borderColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1).CGColor
+                self.boardTileViews.last!.layer.borderColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1).CGColor
                 self.gameLayout["board"]!["\(index)"]!.hideSubview("number")
             }
             (self.gameLayout["board"]!["\(index)"]!["number"]!.view as! UILabel).text = "\(index+1)"

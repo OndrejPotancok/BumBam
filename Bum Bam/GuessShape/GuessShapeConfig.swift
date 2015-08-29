@@ -24,7 +24,7 @@ class GuessShapeConfig {
     
     static var shapeSets: [GuessShapeHelper.ShapeSet] = [
         GuessShapeHelper.ShapeSet(
-            gameBackgroundImageName: "backgroundGame",
+            gameBackgroundImageName: "natureBackground",
             settingsBackgroundImageName: "backgroundCars",
             settingsShapeSetImageName: "gameIconCars",
             settingsDifficultyImageNames: [
@@ -52,7 +52,7 @@ class GuessShapeConfig {
             ]
         ),
         GuessShapeHelper.ShapeSet(
-            gameBackgroundImageName: "backgroundGame",
+            gameBackgroundImageName: "natureBackground",
             settingsBackgroundImageName: "backgroundShapes",
             settingsShapeSetImageName: "gameIconShapes",
             settingsDifficultyImageNames: [
@@ -85,7 +85,7 @@ class GuessShapeConfig {
             color: UIColor(red: 66/255, green: 31/255, blue: 35/255, alpha: 1),
             shapeSubSets: [
                 GuessShapeHelper.ShapeSubSet(
-                    gameBackgroundImageName: "backgroundGame",
+                    gameBackgroundImageName: "natureBackground",
                     settingsBackgroundImageName: "backgroundAnimalsGround",
                     settingsShapeSubSetImageName: "gameIconAnimalsGround",
                     settingsDifficultyImageNames: [
@@ -204,7 +204,7 @@ class GuessShapeConfig {
                     ]
                 ),
                 GuessShapeHelper.ShapeSubSet(
-                    gameBackgroundImageName: "backgroundGame",
+                    gameBackgroundImageName: "natureBackground",
                     settingsBackgroundImageName: "backgroundAnimalsWater",
                     settingsShapeSubSetImageName: "gameIconAnimalsWater",
                     settingsDifficultyImageNames: [
@@ -280,7 +280,7 @@ class GuessShapeConfig {
             color: UIColor(red: 66/255, green: 31/255, blue: 35/255, alpha: 1),
             shapeSubSets: [
                 GuessShapeHelper.ShapeSubSet(
-                    gameBackgroundImageName: "backgroundGame",
+                    gameBackgroundImageName: "natureBackground",
                     settingsBackgroundImageName: "backgroundAnimalsGround",
                     settingsShapeSubSetImageName: "gameIconAnimalsGround",
                     settingsDifficultyImageNames: [
@@ -399,7 +399,7 @@ class GuessShapeConfig {
                     ]
                 ),
                 GuessShapeHelper.ShapeSubSet(
-                    gameBackgroundImageName: "backgroundGame",
+                    gameBackgroundImageName: "natureBackground",
                     settingsBackgroundImageName: "backgroundAnimalsWater",
                     settingsShapeSubSetImageName: "gameIconAnimalsWater",
                     settingsDifficultyImageNames: [
@@ -469,7 +469,7 @@ class GuessShapeConfig {
                     ]
                 ),
                 GuessShapeHelper.ShapeSubSet(
-                    gameBackgroundImageName: "backgroundGame",
+                    gameBackgroundImageName: "natureBackground",
                     settingsBackgroundImageName: "backgroundAnimalsGround",
                     settingsShapeSubSetImageName: "gameIconAnimalsGround",
                     settingsDifficultyImageNames: [
@@ -588,7 +588,7 @@ class GuessShapeConfig {
                     ]
                 ),
                 GuessShapeHelper.ShapeSubSet(
-                    gameBackgroundImageName: "backgroundGame",
+                    gameBackgroundImageName: "natureBackground",
                     settingsBackgroundImageName: "backgroundAnimalsWater",
                     settingsShapeSubSetImageName: "gameIconAnimalsWater",
                     settingsDifficultyImageNames: [
