@@ -27,22 +27,14 @@ extension CGRect {
     }
     
 }
-extension UIView {
-    
-    func setSliderMask() {
-        let sliderMask =  CALayer()
-        sliderMask.frame = CGRectMake(0,0,ScrnW*sliderSubviewSizeCoeff,ScrnW*sliderSubviewSizeCoeff)
-        sliderMask.contents = UIImage(named: "mask")!.CGImage
-        self.layer.mask = sliderMask
-    }
-    
-}
+
+let sliderCornerRadius: CGFloat = 8
 
 func shuffleArray<T>(inout array: [T]) {
     
     for(var i = array.count-1; i != 0; --i) {
         let j = randomNumber(minX: UInt32(0), maxX: UInt32(i))
-        swap(&array[j], &array[i])
+        if i != j {swap(&array[j], &array[i])}
     }
     
 }
@@ -97,6 +89,10 @@ func createSettingsLayout(settingsBlocks: [SettingsBlock]) -> Layout {
                 let button = SettingsBlockButton()
                 button.frame = getSliderSubviewFrame(count, id: id)
                 button.adjustsImageWhenHighlighted = false
+                button.backgroundColor = UIColor.whiteColor()
+                button.layer.cornerRadius = sliderCornerRadius
+                button.layer.borderColor = UIColor.blackColor().CGColor
+                button.layer.borderWidth = 2
                 return button
             },
             subsubviews: [:]

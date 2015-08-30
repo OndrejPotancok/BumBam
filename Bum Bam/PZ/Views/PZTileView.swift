@@ -46,18 +46,21 @@ class PZTileView: UIImageView, subviewOfMultiLayout {
         case .InSlider:
             self.userInteractionEnabled = false
             self.layer.shadowOpacity = 0
-            self.setSliderMask()
+            self.layer.cornerRadius = sliderCornerRadius
+            self.layer.masksToBounds = true
             self.layer.borderWidth = 0
         case .Moving:
             self.userInteractionEnabled = true
             self.layer.shadowPath = UIBezierPath(rect: self.bounds).CGPath
+            self.layer.masksToBounds = false
             self.layer.shadowOpacity = 1
-            self.layer.mask = nil
+            self.layer.cornerRadius = 0
             self.layer.borderWidth = 0
         case .OnBoard:
             self.userInteractionEnabled = true
+            self.layer.masksToBounds = false
             self.layer.shadowOpacity = 0
-            self.layer.mask = nil
+            self.layer.cornerRadius = 0
             self.layer.borderWidth = 1
         }
     }

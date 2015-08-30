@@ -171,8 +171,10 @@ class MainGameController: NSObject {
             for (id,settingsBlockButtonLayout) in self.settingsBlocksLayout[settingsBlock.name]!.subviews {
                 if id != selectedIndex {
                     settingsBlockButtonLayout.view.tintColor = color
+                    settingsBlockButtonLayout.view.backgroundColor = UIColor.whiteColor()
                 } else {
                     settingsBlockButtonLayout.view.tintColor = UIColor.whiteColor()
+                    settingsBlockButtonLayout.view.backgroundColor = color
                 }
             }
         }

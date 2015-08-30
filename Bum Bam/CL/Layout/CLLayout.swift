@@ -41,7 +41,7 @@ class CLLayout {
                         createSubview: { (id, count, prntW, prntH) -> UIView in
                             var button = UIButton()
                             button.frame = getSliderSubviewFrame(count, id: id)
-                            button.setSliderMask()
+                            button.layer.cornerRadius = sliderCornerRadius
                             button.backgroundColor = CLConfig.colors[Int(id)]
                             button.adjustsImageWhenHighlighted = false
                             return button

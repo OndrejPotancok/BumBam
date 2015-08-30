@@ -15,7 +15,7 @@ class PZLayout {
     var layout = Layout(
         subviews: [
             "background": Layout(createView: { (prntW, prntH) -> UIView in
-                var view = UIImageView(frame: CGRect(centerx: prntW/2, centery: prntH/2, width: prntW, height: prntW*(16/9)))
+                var view = UIImageView(frame: CGRectMake(0, 0, prntW, prntW*(16/9)))
                 return view
             }),
             "game": Layout(
@@ -31,7 +31,7 @@ class PZLayout {
                         },
                         createSubview: { (id, count, prntW, prntH) -> UIView in
                             var view = PZTileHelperView(frame: getSliderSubviewFrame(count, id: id))
-                            view.setSliderMask()
+                            view.layer.cornerRadius = sliderCornerRadius
                             view.userInteractionEnabled = true
                             view.alpha = 0.3
                             return view
@@ -45,12 +45,12 @@ class PZLayout {
                         },
                         createSubview: { (id, count, prntW, prntH) -> UIView in
                             var view = PZTileView(frame: CGRect(centerx: 0, centery: 0, width: 1, height: 1))
-                            view.setSliderMask()
+                            view.layer.cornerRadius = sliderCornerRadius
+                            view.layer.masksToBounds = true
                             view.layer.shadowColor = UIColor.blackColor().CGColor
                             view.layer.shadowOpacity = 0
                             view.layer.shadowOffset = CGSizeMake(0.0, 0.0)
-                            view.layer.shadowRadius = 15.0
-                            view.layer.masksToBounds = false
+                            view.layer.shadowRadius = 20.0
                             view.layer.borderColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1).CGColor
                             view.userInteractionEnabled = true
                             return view
@@ -60,7 +60,7 @@ class PZLayout {
                         count: 4,
                         defaultHidden: false,
                         createView: { (prntW, prntH) -> UIView in
-                            var view = UIView(frame: CGRect(centerx: prntW*0.5, centery: prntH*(255+(1104/2))/2208, width: prntW*1104/1242, height: prntW*1104/1242))
+                            var view = UIView(frame: CGRect(centerx: prntW*0.5, centery: prntW*(16/9)*(255+(1104/2))/2208, width: prntW*1104/1242, height: prntW*1104/1242))
 
                             view.backgroundColor = UIColor(red: 190/255, green: 190/255, blue: 190/255, alpha: 1)
                             
