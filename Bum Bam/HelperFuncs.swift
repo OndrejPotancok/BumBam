@@ -88,10 +88,17 @@ func createSettingsLayout(settingsBlocks: [SettingsBlock]) -> Layout {
                 button.frame = getSliderSubviewFrame(count, id: id)
                 button.adjustsImageWhenHighlighted = false
                 button.backgroundColor = UIColor.whiteColor()
+                
+                let borderLayer = CALayer()
+                borderLayer.frame = CGRectMake(-1, -1, button.frame.size.width+2, button.frame.size.height+2)
+                borderLayer.backgroundColor = UIColor.clearColor().CGColor
+                borderLayer.borderColor = UIColor.blackColor().CGColor
+                borderLayer.borderWidth = 2
+                borderLayer.cornerRadius = sliderCornerRadius
+                button.layer.addSublayer(borderLayer)
+                
                 button.layer.cornerRadius = sliderCornerRadius
-                button.layer.borderColor = UIColor.blackColor().CGColor
-                button.layer.borderWidth = 2
-                button.layer.masksToBounds = true
+                button.layer.masksToBounds = false
                 return button
             },
             subsubviews: [:]
