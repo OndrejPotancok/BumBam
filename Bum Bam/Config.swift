@@ -19,7 +19,7 @@ let sliderSquareSizeCoeff: CGFloat = 0.282
 let sliderSubviewSizeCoeff: CGFloat = /*0.6786885246*/ 0.8 * sliderSquareSizeCoeff
 let slidersMarginCoeff: CGFloat = (1-sliderSquareSizeCoeff*3)/2
 
-let sliderCornerRadius: CGFloat = 8
+let sliderCornerRadius: CGFloat = 12
 
 
 

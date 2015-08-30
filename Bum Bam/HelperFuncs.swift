@@ -91,6 +91,7 @@ func createSettingsLayout(settingsBlocks: [SettingsBlock]) -> Layout {
                 button.layer.cornerRadius = sliderCornerRadius
                 button.layer.borderColor = UIColor.blackColor().CGColor
                 button.layer.borderWidth = 2
+                button.layer.masksToBounds = true
                 return button
             },
             subsubviews: [:]
