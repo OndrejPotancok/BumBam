@@ -28,8 +28,6 @@ extension CGRect {
     
 }
 
-let sliderCornerRadius: CGFloat = 8
-
 func shuffleArray<T>(inout array: [T]) {
     
     for(var i = array.count-1; i != 0; --i) {
