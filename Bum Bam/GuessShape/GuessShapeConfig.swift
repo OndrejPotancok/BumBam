@@ -86,14 +86,14 @@ class GuessShapeConfig {
             shapeSubSets: [
                 GuessShapeHelper.ShapeSubSet(
                     gameBackgroundImageName: "natureBackground",
-                    settingsBackgroundImageName: "backgroundAnimalsGround",
+                    settingsBackgroundImageName: "desertBackground",
                     settingsShapeSubSetImageName: "gameIconAnimalsGround",
                     settingsDifficultyImageNames: [
                         "diffEasy",
                         "diffMedium",
                         "diffHard"
                     ],
-                    color: UIColor(red: 64/255, green: 38/255, blue: 16/255, alpha: 1),
+                    color: UIColor(red: 173/255, green: 131/255, blue: 54/255, alpha: 1),
                     shapes: [
                         "easy": [
                             GuessShapeHelper.Shape(thumbImageName: "bear", siluetteImageName: "bearSiluetteEasy"),
